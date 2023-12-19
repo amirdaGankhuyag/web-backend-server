@@ -37,7 +37,7 @@ const port = 3000;
 const homePage = `<html><h1>Welcome home</h1><p>cmp</p></html>`;
 const aboutPage = `<html><h1>Welcome about</h1><p>ab</p></html>`;
 
-app.get("/", (req, res) => { //post, delete
+app.get("/", (req, res) => { //post, delete, update
   res.send(homePage);
 });
 

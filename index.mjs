@@ -30,12 +30,16 @@
 //   console.log(`Server running at http://${hostname}:${port}/`);
 // });
 
-const express = require("express");
+import data from "./anime-list.json" assert {type: "json"};
+import express from "express";
+
 const app = express();
 const port = 3000;
 
 const homePage = `<html><h1>Welcome home</h1><p>cmp</p></html>`;
 const aboutPage = `<html><h1>Welcome about</h1><p>ab</p></html>`;
+
+let newAnime = 0;
 
 app.get("/", (req, res) => { //post, delete, update
   res.send(homePage);
@@ -44,6 +48,16 @@ app.get("/", (req, res) => { //post, delete, update
 app.get("/about", (req, res) => { //jsonbin.io-s dataga awy gewel ene url uud der tohiruulaad ugchinu, huwisagchid hiij bolno, eswel taashni chigluulchij bolno, tsaad servicees awaad bolowsruulaad shideh
     res.send(aboutPage);
   });
+
+  app.get("/animeList", (req, res) => {
+    res.send(data);
+  });
+
+
+app.get("/animeList/:animeId", (req, res) => {
+  const anime = data.filter( anime => req.params.animeId == anime.id);
+  res.send(anime);
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

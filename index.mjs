@@ -33,18 +33,25 @@
 import data from "./anime-list.json" assert {type: "json"};
 import express from "express";
 
-import swaggerUi from "swagger-ui-express";
-import swaggerJsondoc from "swagger-jsdoc";
+import swaggerUi from "swagger-ui-express"; // swagger
+import swaggerJsondoc from "swagger-jsdoc"; // swagger documentation
 
 const app = express();
 const port = 3000;
 
-app.use("/front", express.static("front"));
+app.use("/front", express.static("front")); // front folderoos 
+app.use(express.json());
 
 const homePage = `<html><h1>Welcome home</h1><p>cmp</p></html>`;
 const aboutPage = `<html><h1 style="text-align: center">Welcome about</h1><p>ab</p></html>`;
 
-let newAnime = 0;
+let malRank = 0;
+
+app.post("/animeList", (req, res) => {
+  malRank += req.body.malRank;
+  res.writeHead(201, "CREATED", {"Content-Type": "text/plain"});
+  res.send();
+});
 
 app.get("/", (req, res) => { //post, delete, update
   res.send(homePage);
@@ -68,19 +75,19 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
 
-// swagger documentation 3 deer hiihed l bolno gesen
+                                        //    SWAGGER documentation 3 deer hiihed l bolno gesen
 
 const options = {
   swaggerDefinition: {
     openapi: "3.0.0", // present supported openapi version
     info: {
-      title: "My API", // short title.
+      title: "Animuk.mn API", // short title.
       version: "1.0.0", // version number
       description: "Animuk dev API for Web-app", // desc.
       contact: {
-        name: "John doe", // your name
-        email: "john@web.com", // your email
-        url: "web.com", // your website
+        name: "Amirda G. Unubaatar.B Khaliunzaya", // your name
+        email: "animukmn@gmail.com", // your email
+        url: "animuk.mn", // your website
       }
     }
   },
@@ -88,9 +95,64 @@ const options = {
 };
 
 const specs = swaggerJsondoc(options); // Assuming you have imported swaggerJsondoc
-
-app.use("/docs", swaggerUi.serve);
+app.use("/docs", swaggerUi.serve); // swaggert handah url
 
 app.get("/docs", swaggerUi.setup(specs, {
   explorer: true
 }));
+
+
+/**
+ * @swagger
+ * tags:
+ *   -
+ *     name: "Anime List"
+ *     description: Anime List related options
+ *   -
+ *     name: "Products"
+ *     description: Products info
+ *   -
+ *     name: "Nemelt neg"
+ *     description: nemelteer oruulj bolno, ustgasan ch bolno
+ */
+
+/**
+ *  @swagger
+ *   paths:
+ *       /animeList/{animeId}:
+ *           get:
+ *              tags:
+ *                  - Anime List
+ *              summary: Shows anime details by ID
+ *              parameters:
+ *                - in: path
+ *                  name: animeId
+ *                  schema:
+ *                    type: integer
+ *                  required: true
+ *                  description: Numeric ID of the anime
+ *              responses:
+ *                "200":
+ *                  description: Successful response with anime details
+ *                  content:
+ *                    application/json:
+ *                      schema:
+ *                        type: object
+ *                        properties:
+ *                          id:
+ *                            type: integer
+ *                          title:
+ *                            type: string
+ *                          # Add other properties based on your anime data structure
+ *                "404":
+ *                  description: Anime not found
+ *                  content:
+ *                    application/json:
+ *                      schema:
+ *                        type: object
+ *                        properties:
+ *                          message:
+ *                            type: string
+ *                            example: Anime not found
+ *                # Add more response codes and descriptions as needed
+ */

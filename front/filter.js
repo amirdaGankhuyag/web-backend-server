@@ -1,12 +1,14 @@
-asdfdsaf
 // uunuu
 // const apiUrl = "https://api.jsonbin.io/v3/b/654f4bb354105e766fce7c86"
 
 // amirda
-const apiUrl = "https://api.jsonbin.io/v3/b/655d6c2b0574da7622ca003f" 
+// const apiUrl = "https://api.jsonbin.io/v3/b/655d6c2b0574da7622ca003f" 
 
 // haliunaa
 // const apiUrl = "https://api.jsonbin.io/v3/b/655d82ba54105e766fd367c6"
+
+// main
+const  apiUrl ="http://localhost:3000/animeList"
 
 
 class Anime {
@@ -77,8 +79,7 @@ document.getElementById("animeSelection").addEventListener("change" , (event) =>
 
 document.addEventListener("DOMContentLoaded" , async() => {
     let response = await fetch(apiUrl);
-    let data = await response.json();
-    let listOfAnime = await data.record;
+    let listOfAnime = await response.json();
     let urlParams = new URLSearchParams(window.location.search);
     let categoryType = urlParams.get("category");
     document.getElementById("filteredType").value = categoryType;

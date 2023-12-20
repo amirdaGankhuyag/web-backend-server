@@ -82,7 +82,7 @@ const options = {
       }
     }
   },
-  apis: ["./app.mjs"]
+  apis: ["./index.mjs"]
 };
 
 const specs = swaggerJsondoc(options); // Assuming you have imported swaggerJsondoc

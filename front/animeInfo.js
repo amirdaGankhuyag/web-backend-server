@@ -2,14 +2,13 @@
 // const apiUrl = "https://api.jsonbin.io/v3/b/654f4bb354105e766fce7c86"
 
 // amirda
-const apiUrl = "https://api.jsonbin.io/v3/b/655d6c2b0574da7622ca003f" 
+// const apiUrl = "https://api.jsonbin.io/v3/b/655d6c2b0574da7622ca003f" 
 
 // haliunaa
 // const apiUrl = "https://api.jsonbin.io/v3/b/655d82ba54105e766fd367c6"
 
 // main
-// const  apiUrl ="http://localhost:3000/animeList"
-
+const  apiUrl ="http://localhost:3000/animeList"
 
 const carousels = [
   {
@@ -112,7 +111,7 @@ class App {
 
   init = function(sortType) {
     fetch(this.apiUrl).then(response => response.json()).then(data => {
-      let animes = data.record;
+      let animes = data;
       const trgt = document.getElementById(this.target);
       let sortedAnimeList = this.sortAnimeType(animes ,sortType);
       let count = 0;
@@ -126,6 +125,10 @@ class App {
       }
     })
   }
+
+  // testInit = function() {
+  //   fetch(this.apiUrl).then(response => response.json()).then(data => console.log(data));
+  // }
 
   sortAnimeType = function(list ,sortType) {
     switch(sortType) {

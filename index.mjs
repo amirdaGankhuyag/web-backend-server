@@ -39,6 +39,8 @@ import swaggerJsondoc from "swagger-jsdoc";
 const app = express();
 const port = 3000;
 
+app.use("/front", express.static("WebApplication"));
+
 const homePage = `<html><h1>Welcome home</h1><p>cmp</p></html>`;
 const aboutPage = `<html><h1 style="text-align: center">Welcome about</h1><p>ab</p></html>`;
 

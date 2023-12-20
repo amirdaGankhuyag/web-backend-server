@@ -8,7 +8,7 @@
 // const apiUrl = "https://api.jsonbin.io/v3/b/655d82ba54105e766fd367c6"
 
 // main
-// const  apiUrl ="http://localhost:3000/animeList"
+const  apiUrl ="http://localhost:3000/animeList"
 
 
 const carousels = [

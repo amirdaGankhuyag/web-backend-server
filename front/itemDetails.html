@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Anime" />
+    <meta name="keywords" content="animuk.mn, animuk, Animuk.mn, Animuk" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script type="module" src="./components/header.js"></script>
+    <script type="module" src="./components/footer.js"></script>
+    <link rel="stylesheet" href="headerFooter.css" />
+    <title>Animuk.mn</title>
+  </head>
+  <body>
+    <header-section></header-section>
+    <main>
+     <div class="info" >  
+        <section class="itemDetail" id="itemDetailSection">
+        </section>
+        <section class="similarItem">
+
+          <h3>Төстэй бараанууд</h3> 
+          <div class="similarItem-container">          
+            <div> <img src="/img/accessories3.webp" alt="Similar item"></div>
+            <div><img src="/img/accessories4.webp" alt="Similar item"></div>
+            <div><img src="/img/accessories5.webp" alt="Similar item"></div>
+            <div><img src="/img/accessories6.webp" alt="Similar item"></div>
+          </div>
+        </section>
+     </div>
+   </main>
+   <footer-section></footer-section>
+  </body>
+</html>
+
+
+<script src="renderProductDetail.js"></script>
+<script src="headerFooter.js"></script>
+
+<style scoped>
+  :root {
+    --dark-blue: #00171f;
+    --white: #fff;
+
+    --background-color-dark: var(--dark-blue);
+    --text-color-dark: var(--white);
+    --background-color-light: rgb(102, 165, 188);
+    --text-color-light: #232020;
+  }
+  main {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+    height: 60vh;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filter{
+    list-style: none;
+    display: flex;
+  }
+  .filter li{
+    margin: 1.25rem;
+  }
+  .info{
+    display: flex;
+    margin: auto;
+  }
+
+  .itemDetail{
+    display: flex;
+    align-items: center;
+  }
+  #itemImage{
+    display: flex;
+    width: 25rem;
+    height: 28rem;
+    border-radius: 0.9375rem;
+    margin-right: 96px;
+  }
+  .detailInfo{
+    margin-left: 1.25rem;
+  }
+  .detailInfo ul {
+    margin-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .detailInfo ul li {
+    list-style: none;
+    margin: 0.75rem 0rem;
+    font-size: medium;
+  }
+  .star{
+    margin-top: 1.25rem;
+    color: #FFF730;
+  }
+
+  /* Quantity section style */
+  .quantity{
+    padding: 1.5rem 1rem;
+  }
+  .quantity button{
+    height: 1.875rem;
+    width: 2.5rem;
+    background: none;
+    border: solid 0.0625rem;
+    border-radius: 5px;
+    color: var(--main-color);
+    background-color: var(--secondary-bg-color);
+  }
+  .quantity button:hover{
+    background-color: #3b7489;
+  }
+  .quantity input{
+    height: 1.875rem;
+    width: 7rem;
+    color: var(--main-color);
+    background-color: var(--secondary-bg-color);
+    border: none;
+    text-decoration: var(--main-color);
+  }
+
+  /* Hudaldan avah button style */
+  .purchaseBtn{
+    display: block;
+    height: 2.5rem;
+    width: 14rem;
+    color: var(--secondary-bg-color);
+    background-color: #DB504A;
+    border: none;
+    border-radius: 0.9375rem;
+    font-size: 1.125rem;
+    margin-top: 1rem;
+  }
+  .purchaseBtn i{
+    margin-right: 8px;
+  }
+
+  /* Tostei baraa section style */
+  .similarItem {
+    margin-left: 6rem;
+    display: block;
+  }
+  .similarItem h3{
+    display: block;
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+  .similarItem-container{
+    display: grid;
+    grid-template-columns: auto auto;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: space-between;
+  }
+  .similarItem-container div{
+    width: 3.75rem;
+    margin: 0.625rem;
+    text-align: center;
+    line-height: 4.6875rem;
+    min-width: 150px;
+    display: flex;
+  }
+  .similarItem img{
+    display: flex;
+    height: 11rem;    
+    width: 10rem;
+    border-radius: 3px;
+  }
+
+
+  @media (min-width: 720px) and (max-width: 1320px) {
+    main {
+      height: auto;
+    }
+    .itemDetail  {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 16px;
+    }
+    #itemImage{
+      width: 300px;
+      height: auto;
+      margin-right: 0px;
+    }
+    .similarItem {
+      margin-top: 3rem !important;
+      & img{
+        width: 9rem;
+        height: auto;
+      }
+    } 
+
+  }
+
+  @media (max-width: 720px) {
+    main {
+      height: auto !important;
+    }
+    .detailInfo {
+      margin-left: 0px !important;
+      margin-top: 48px;
+    }
+    .itemDetail  {
+      display: grid;
+      grid-template-columns: auto;
+      gap: 16px;
+    }
+    #itemImage{
+      width: 250px;
+      height: auto;
+      margin-right: 0px;
+    }
+    .similarItem {
+      margin-top: 3rem !important;
+      &  img{
+      width: 8rem;
+      height: auto;
+      }
+    }
+    .detailInfo {
+      margin-left: 1.25rem;
+      & .purchaseBtn {
+        margin: auto;
+      }
+      & .quantity {
+        display: flex;
+        justify-content: center;
+        & button {
+          margin: 0px 8px;
+        }
+      }
+      & ul {
+        margin: auto;
+        margin-top: 16px !important;
+        padding-left: 32px;
+      }
+      & h3 {
+        padding-left: 32px;
+      }
+    }
+  }
+
+  @media(max-width: 1060px) {
+    .info{
+      display: flex;
+      flex-direction: column;
+      & .similarItem {
+        margin: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+    }
+  }
+
+  @media(min-width: 1060px) and (max-width: 1320px) {
+    main {
+      height: 60vh;
+    }
+  }
+  @media(prefers-color-scheme: light){
+    main {
+      background-color: var(--background-color-light);
+      color: var(--text-color-light);
+    }
+  }
+</style>

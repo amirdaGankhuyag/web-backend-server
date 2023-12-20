@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Anime" />
+    <meta name="keywords" content="animuk.mn, animuk, Animuk.mn, Animuk" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script type="module" src="./components/header.js"></script>
+    <script type="module" src="./components/footer.js"></script>
+    <link rel="stylesheet" href="headerFooter.css" />
+    <title>Animuk.mn</title>
+  </head>
+  <body>
+    <header-section></header-section>
+    <main style="display: flex;">  
+    <section class="main-nav">
+      <ul id="categoryList">
+        <li>Drama</li>
+        <li>Sci-Fi</li>
+        <li>Romance</li>
+        <li>Action</li>
+        <li>Superpower</li>
+        <li>School</li>
+        <li>Space</li>
+        <li>Adventure</li>
+        <li>Fantasy</li>
+        <li>Comedy</li>
+        <li>Shonen</li>
+        <li>Fight</li>
+      </ul>
+    </section>
+    <section class="containerMainSection" style="width: 85%;"> 
+      <article class="animeSelectionContainer">
+        <p>Шүүлтүүр</p>
+        <select name="animes" id="animeSelection">
+          <option value="Drama">Drama</option>
+          <option value="Sci-Fi">Sci-Fi</option>
+          <option value="Romance">Romance</option>
+          <option value="Action">Action</option>
+          <option value="Superpower">Superpower</option>
+          <option value="School">School</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Shonen">Shonen</option>
+          <option value="Space">Adventure</option>
+          <option value="Space">Fight</option>
+        </select>
+      </article>
+      <section class="main-section">
+        <article class="filterTitle">
+          <h3 class="main">Хайлтын үр дүн</h3>
+          <input type="text" id="filteredType" disabled>
+        </article>
+        <ul id="filteredAnimeList"></ul>
+      </section>
+    </section>
+    </main>
+
+    <footer-section></footer-section>
+
+  </body>
+</html>
+<script src="headerFooter.js"></script>
+
+<style>
+  /* CSS reset */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  :root {
+    --dark-blue: #00171f;
+    --white: #fff;
+
+    --background-color-dark: var(--dark-blue);
+    --text-color-dark: var(--white);
+    --background-color-light: rgb(102, 165, 188);
+    --text-color-light: #232020;
+  }
+
+  body {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+    font-family: "Inter", sans-serif;
+  }
+
+  /* Main nav style */
+  .main-nav {
+    background-color: #18404e;
+    width: 13%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & ul {
+      padding-top: 80px;
+      width: 100%;
+      & li {
+      width: 80%;
+      color: white;
+      padding: 20px;
+      font-size: 14px;
+      list-style: none;
+      cursor: pointer;
+      }
+      & li:hover {
+        background-color: #00171f;
+      }
+    }
+
+  }
+
+  .main-section {
+    width: 100%;
+    & .filterTitle {
+      margin-top: 100px;
+      display: flex;
+      justify-content: center;
+      justify-content: center;
+      align-items: center;
+      & h3 {
+        margin: 0px 20px;
+        font-size: 24px;
+      }
+      & input {
+        margin: 0px 20px;
+        height: 40px;
+        width: 20%;
+        border-radius: 0.4rem;
+        background-color: azure;
+        text-align: center;
+        font-size: 24px;
+      }
+    } 
+  }
+
+  .anime-card {
+    perspective: 1000px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease-in-out;
+    height: 300px;
+    width: 200px;
+    cursor: pointer;
+    border: none;
+  }
+  .anime-card:hover {
+    transform: rotateY(180deg);
+  }
+  .anime-card-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: start;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+  }
+  .anime-card-back {
+    background: linear-gradient(225deg, rgb(102, 238, 220), #1a32e6);
+    transform: rotateY(-180deg);
+    transform-style: preserve-3d;
+    padding: 2rem;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+  }
+
+  .anime-card-back-content {
+    color: black;
+  }
+
+  .anime-card-button {
+    background: linear-gradient(45deg, rgb(238, 131, 102), #e61a3c);
+    cursor: pointer;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
+    transform: translateZ(50px);
+    transition: all 0.5 ease;
+    color: #fff;
+  } 
+
+  #filteredAnimeList {
+    display: flex;
+    min-height: 70vh;
+    flex-wrap: wrap;
+    margin: 0px 48px;
+    & li {
+      list-style: none;
+      margin: 2rem;
+      & img {
+        border-radius: 0.5rem;
+        align-items: center;
+        height: 300px;
+        width: 200px;       
+      }
+    }
+  }
+  
+
+  .animeSelectionContainer {
+    margin-top: 100px;
+    padding-bottom: 16px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    & #animeSelection {
+      height: 30px;
+      width: 150px;
+      border-radius: 20px;
+      padding: 4px;
+      margin-left: 36px;
+    }
+    & p {
+      margin-left: 36px ;
+      font-size: 20px;
+    }
+  }
+
+
+  @media (max-width :960px) {
+    .containerMainSection {
+      width: 100% !important;
+    }
+    .filterTitle {
+      margin-top: 0px !important;
+    }
+    .animeSelectionContainer {
+      display: flex;
+    }
+    .main-nav {
+      display: none;
+    }
+    .filterTitle {
+      flex-direction: column;
+      & h3 {
+        font-size: 16px !important;
+      }
+      & input {
+        margin-top: 24px !important;
+        max-width: 240px;
+        min-width: 150px;
+      }
+    }
+  }
+  @media(prefers-color-scheme: light){
+    body {
+      background-color: var(--background-color-light);
+      color: var(--text-color-light);
+    }
+  }
+</style>
+
+<script src="filter.js"></script>

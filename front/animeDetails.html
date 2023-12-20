@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Anime" />
+    <meta name="keywords" content="animuk.mn, animuk, Animuk.mn, Animuk" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script type="module" src="./components/header.js"></script>
+    <script type="module" src="./components/footer.js"></script>
+    <link rel="stylesheet" href="headerFooter.css" />
+    <title>Animuk.mn</title>
+  </head>
+  <body>
+    <header-section></header-section>
+    <main>
+      <div class="upperInfo">
+        <section class="animeInfo" id="renderAnimeInfo">
+        </section>
+        <!-- setgegdluud section -->
+        <section class="commentInfo">
+          <h3>Сэтгэгдлүүд</h3>
+          <div class="comments">
+            <article class="userComment">
+              <i class="fa-solid fa-user" style="color: #ffffff"></i>
+              <em>User</em>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam et
+                earum perferendis fugiat labore eaque possimus aut odit excepturi
+                dignissimos.
+              </p>
+            </article>
+            <article class="userComment">
+              <i class="fa-solid fa-user" style="color: #ffffff"></i>
+              <em>User</em>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam et
+                earum perferendis fugiat labore eaque possimus aut odit excepturi
+                dignissimos.
+              </p>
+            </article>
+            <article class="userComment">
+              <i class="fa-solid fa-user" style="color: #ffffff"></i>
+              <em>User</em>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam et
+                earum perferendis fugiat labore eaque possimus aut odit excepturi
+                dignissimos.
+              </p>
+            </article>
+            <article class="userComment">
+              <i class="fa-solid fa-user" style="color: #ffffff"></i>
+              <em>User</em>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam et
+                earum perferendis fugiat labore eaque possimus aut odit excepturi
+                dignissimos.
+              </p>
+            </article>
+            <article class="userComment">
+              <i class="fa-solid fa-user" style="color: #ffffff"></i>
+              <em>User</em>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam et
+                earum perferendis fugiat labore eaque possimus aut odit excepturi
+                dignissimos.
+              </p>
+            </article>
+            <article class="userComment">
+              <i class="fa-solid fa-user" style="color: #ffffff"></i>
+              <em>User</em>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam et
+                earum perferendis fugiat labore eaque possimus aut odit excepturi
+                dignissimos.
+              </p>
+            </article>
+          </div>
+          <em class="onlyOneButton">
+            <button class="addComment"><i class="fa-solid fa-comments"></i>Сэтгэгдэл нэмэх</button>
+          </em>
+        </section>
+      </div>
+
+
+      <div class="suggestion">
+        <section class="animeCharacters">
+          <h3>Аниме дүрүүд</h3>
+          <div class="characterList">
+            <article class="character"><img src="https://i.ibb.co/S7Rt7K3/ch3.jpg" alt="Character"/><em>Character name</em></article>
+            <article class="character"><img src="https://i.ibb.co/DD59wyk/ch4.jpg" alt="Character"/><em>Character name</em></article>
+            <article class="character"><img src="https://i.ibb.co/5658cmm/ch6.jpg" alt="Character"/><em>Character name</em></article>
+            <article class="character"><img src="https://i.ibb.co/jht3CLD/char1.jpg" alt="Character"/><em>Character name</em></article>
+            <article class="character"><img src="https://i.ibb.co/hm8Lc7Q/char2.jpg" alt="Character"/><em>Character name</em></article>
+          </div>
+        </section>
+
+        <section class="animeCharacters">
+          <h3>Төстэй аниме</h3>
+          <div class="characterList">
+            <article class="character"><img src="https://i.ibb.co/wp7n7RX/manga3.jpg" alt="Similar anime" /><em>Anime name</em></article>
+            <article class="character"><img src="https://i.ibb.co/CwHPpGD/manga5.jpg" alt="Similar anime" /><em>Anime name</em></article>
+            <article class="character"><img src="https://i.ibb.co/hKxjRDv/login6.jpg" alt="Similar anime" /><em>Anime name</em></article>
+            <article class="character"><img src="https://i.ibb.co/tLJ0jSh/manga1.jpg" alt="Similar anime" /><em>Anime name</em></article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer-section></footer-section>
+
+  </body>
+</html>
+
+<style scoped>
+  .animeImage {
+    object-fit: contain;
+    width: 15.625rem;
+    height: 25rem;
+  }
+  .animeInfo h3 {
+    text-align: center;
+    margin: 1.25rem 0rem;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    padding: 6rem 0rem;
+    align-items: center;
+    background-color: #00171F;
+  }
+
+  .upperInfo {
+    display: flex;
+  }
+  .animeDetails {
+    display: flex;
+  }
+  .animeInfo {
+    margin-right: 3.75rem;
+  }
+
+  .animeImage {
+    margin-right: 1.25rem;
+  }
+
+  .animeDetails ul {
+    margin-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .animeDetails ul li {
+    list-style: none;
+    margin: 12px;
+    font-weight: lighter;
+  }
+
+  .watchAccessBuySection {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .watchAccessBuySection button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .watchAccessBuySection ul {
+    display: flex;
+  }
+
+  .watchAccessBuySection ul li {
+    list-style: none;
+  }
+
+  .comments {
+    display: grid;
+    grid-template-columns: 300px 300px;
+    gap: 1.25rem;
+  }
+
+  .commentInfo h3 {
+    padding-bottom: 1.875rem;
+    text-align: center;
+    color: aliceblue;
+  }
+
+  .addComment {
+    width: 240px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: #DB504A;
+    color: #141434;
+    font-size: 1.125rem;
+    font-weight: 550;
+    cursor: pointer;
+  }
+
+  .userComment {
+    background-color: #042834;
+    padding: 1.25rem;
+    border-radius: 0.9375rem;
+  }
+
+  .userComment p {
+    padding-top: 0.3125rem;
+    font-size: 0.9375rem;
+    color: aliceblue;
+  }
+
+  .userComment em {
+    font-size: 0.9375rem;
+    color: aliceblue;
+    padding-left: 0.625rem;
+  }
+
+  .onlyOneButton {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.875rem;
+  }
+
+  .playButton {
+    width: 6.25rem;
+    height: 2.5rem;
+  }
+
+  .playButton i {
+    margin-right: 0.625rem;
+  }
+
+  .animeInfo h3 {
+    color: aliceblue;
+  }
+
+  .animeDetails ul li {
+    color: aliceblue ;
+  }
+
+  .animeCharacters {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    color: white;
+  }
+
+  .characterList {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .character {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .character img {
+    width: 140px !important;
+    height: 200px !important;
+    border-radius: 0.625rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  /* icon style */
+  i{
+    margin-right: 5px;
+  }
+  .animeDetail i{
+    color: aliceblue;
+  }
+
+  .suggestion {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 600px) {
+    .upperInfo {
+      display: flex;
+      flex-direction: column; 
+    }
+
+    .animeInfo {
+      margin-right: 0rem;
+      & h3 {
+        font-size: 16px;
+      }
+      & .animeDetails {
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        & img {
+          object-fit: contain;
+          height: 280px;
+          width: 150px;
+          margin-right: 0rem;
+        }
+        & ul li {
+          font-size: 12px;
+        }
+      } 
+
+      .watchAccessBuySection {
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        & .addComment {
+          width: 84px;
+          margin: 0px 16px;
+           & p {
+             display: none;
+          }
+        }
+        & ul {
+          margin: 16px;
+        } 
+        & .playButton {
+          width: 84px;
+          & i {
+            margin-right: 0rem;
+          }
+        }
+      }
+    }
+    .comments {
+        grid-template-columns: auto;
+        margin: 0px 18px;
+      }
+      .commentInfo {
+      margin-top: 32px;
+    }
+    .suggestion {
+      display: flex;
+      flex-direction: column;
+    }
+    .character img {
+    width: 80px !important;
+    height: 120px !important;
+    }
+    .character em {
+      font-size: 12px;
+    }
+  }
+
+  @media (min-width: 600px) and (max-width: 1200px) {
+    .animeInfo {
+      margin: auto;
+    }
+    .upperInfo {
+      display: flex;
+      flex-direction: column; 
+    }
+    .comments {
+        grid-template-columns: auto;
+        margin: 0px 18px;
+      }
+    .commentInfo {
+      margin-top: 32px;
+    }
+  }
+
+  @media (min-width: 960px) and (max-width: 1200px) {
+    .suggestion {
+      display: flex;
+      flex-direction: column;
+    }
+    .character img {
+      width: 200px !important;
+      height: 280px !important;
+    }
+  }
+
+  @media  (min-width: 600px) and (max-width: 960px) {
+    .suggestion {
+      display: flex;
+      flex-direction: column;
+    }
+    .character img {
+    width: 140px !important;
+    height: 200px !important;
+    }
+  }
+</style>
+
+
+<script src="headerFooter.js"></script>
+<script src="animeDetailsReload.js"></script>

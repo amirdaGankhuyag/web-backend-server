@@ -19,18 +19,19 @@ app.use(express.json());
 app.use(cookieParser());
 
 login.users.set("99110000", { fullname: "USER ONE", password: "123" });
-login.users.set("99220000", { fullname: "Administrator", password: "123" });
-login.users.set("99330000", { fullname: "USER TWO", password: "123" });
+login.users.set("99220000", { fullname: "Administrator", password: "456" });
+login.users.set("99330000", { fullname: "USER TWO", password: "789" });
 
-const aboutPage = `<html><h1 style="text-align: center">Welcome about</h1><p>ab</p></html>`;
-
-let malRank = 0;
-
-app.post("/animeList", (req, res) => {
-  malRank += req.body.malRank;
-  res.writeHead(201, "CREATED", {"Content-Type": "text/plain"});
-  res.send();
-});
+// const aboutPage = `<html><h1 style="text-align: center">Welcome about</h1><p>ab</p></html>`;
+// let malRank = 0;
+// app.get("/about", (req, res) => { //jsonbin.io-s dataga awy gewel ene url uud der tohiruulaad ugchinu, huwisagchid hiij bolno, eswel taashni chigluulchij bolno, tsaad servicees awaad bolowsruulaad shideh
+//   res.send(aboutPage);
+// });
+// app.post("/animeList", (req, res) => {
+//   malRank += req.body.malRank;
+//   res.writeHead(201, "CREATED", {"Content-Type": "text/plain"});
+//   res.send();
+// });
 
 app.get("/", (req, res) => {
   res.sendFile("/front/login.html", options);
@@ -41,7 +42,7 @@ app.post("/login", login.verifyLogin.bind(login));
 
 app.get("/emails", (req, res) => {
   if (!login.sessions.has(Number(req.cookies.session_id))) {
-    res.sendFile("./forbidden.html", options);
+    res.sendFile("forbidden.html", options);
     return;
   }
 
@@ -52,9 +53,7 @@ app.get("/emails", (req, res) => {
   );
 });
 
-app.get("/about", (req, res) => { //jsonbin.io-s dataga awy gewel ene url uud der tohiruulaad ugchinu, huwisagchid hiij bolno, eswel taashni chigluulchij bolno, tsaad servicees awaad bolowsruulaad shideh
-    res.send(aboutPage);
-  });
+
 
   app.get("/animeList", (req, res) => {
     res.send(data);

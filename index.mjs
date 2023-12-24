@@ -1,48 +1,27 @@
-// // https://nodejs.org/docs/latest/api/synopsis.html - documentation
-// // common js
-// const http = require("node:http"); // import  // https -> performance udaashirna, nuutslah shaardlagatai yman der hereglene
-
-// const hostname = "127.0.0.1"; // local
-// const port = 3000;
-
-// const url = "/company/products.html";
-
-// const server = http.createServer((req, res) => {
-//   const homePage = `<html><h1>Welcome home</h1><p>${req.url}</p></html>`;
-//   const aboutPage = `<html><h1>Welcome about</h1><p>${req.url}</p></html>`;
-
-//   res.statusCode = 200;
-
-//   res.setHeader("Content-Type", "text/html"); // "text/html"
-
-//   if (req.url == "/") {
-//     res.write(homePage);
-//   } else {
-//     res.write(aboutPage);
-//   }
-
-//   res.end();
-//   // endees hoish ymar neg command baij bolohgui
-// });
-
-// server.listen(port, hostname, () => {
-//   //ene funktsiij ajilluul
-//   console.log(`Server running at http://${hostname}:${port}/`);
-// });
-
 import data from "./anime-list.json" assert {type: "json"};
 import express from "express";
 
 import swaggerUi from "swagger-ui-express"; // swagger
 import swaggerJsondoc from "swagger-jsdoc"; // swagger documentation
 
+import path from "path";
+import cookieParser from "cookie-parser";
+import { login } from "./login.mjs"; // object import
+import Login from "./login.mjs"; // class import
+
 const app = express();
 const port = 3000;
+const __dirname = path.resolve(path.dirname(""));
 
 app.use("/front", express.static("front")); // front folderoos 
 app.use(express.json());
 
-const homePage = `<html><h1>Welcome home</h1><p>cmp</p></html>`;
+app.use(cookieParser());
+
+login.users.set("99110000", { fullname: "USER ONE", password: "123" });
+login.users.set("99220000", { fullname: "Administrator", password: "123" });
+login.users.set("99330000", { fullname: "USER TWO", password: "123" });
+
 const aboutPage = `<html><h1 style="text-align: center">Welcome about</h1><p>ab</p></html>`;
 
 let malRank = 0;
@@ -53,8 +32,24 @@ app.post("/animeList", (req, res) => {
   res.send();
 });
 
-app.get("/", (req, res) => { //post, delete, update
-  res.send(homePage);
+app.get("/", (req, res) => {
+  res.sendFile("/front/login.html", options);
+});
+
+
+app.post("/login", login.verifyLogin.bind(login));
+
+app.get("/emails", (req, res) => {
+  if (!login.sessions.has(Number(req.cookies.session_id))) {
+    res.sendFile("./forbidden.html", options);
+    return;
+  }
+
+  res.send(
+    `<html><h1>Inbox for ${
+      login.sessions.get(Number(req.cookies.session_id)).fullname
+    } </h1><ul><li>Email1</li><li>Email2</li></ul></html>`
+  );
 });
 
 app.get("/about", (req, res) => { //jsonbin.io-s dataga awy gewel ene url uud der tohiruulaad ugchinu, huwisagchid hiij bolno, eswel taashni chigluulchij bolno, tsaad servicees awaad bolowsruulaad shideh
@@ -91,7 +86,8 @@ const options = {
       }
     }
   },
-  apis: ["./index.mjs"]
+  apis: ["./index.mjs"],
+  root: path.join(__dirname)
 };
 
 const specs = swaggerJsondoc(options); // Assuming you have imported swaggerJsondoc

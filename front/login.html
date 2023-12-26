@@ -29,7 +29,7 @@
             <label for="phone"
               ><i class="fa-solid fa-phone"></i> Утасны дугаар
             </label>
-            <input type="tel" id="phone" pattern="\(\d{3})+\d{4}-\d{4}" />
+            <input type="tel" id="phone" />
           </article>
           <article class="formField">
             <label for="password">
@@ -42,7 +42,7 @@
             type="button"
             value="Нэвтрэх"
             style="background-color: #db504a"
-            onclick="login();"
+            onclick="test();"
           /><br />
           <input
             class="formFieldButton"
@@ -63,44 +63,23 @@
 
 <script src="headerFooter.js"></script>
 <script>
-  async function login() {
-    const phone = document.getElementById("phone").value;
-    const password = document.getElementById("password").value;
-
-    fetch("http://localhost:3000/login", {
-      method: "POST",
-      cache: "no-cache",
-      headers: { "Content-Type": "application/json; chaerset=UTF-8" },
-      body: JSON.stringify({
-        phone: phone,
-        password: password,
-      }),
-    }).then((result) => {
-      if (result.status != 200) {
-        document
-          .getElementsByClassName("formFiledButton")
-          .insertAdjacentHTML(
-            "afterend",
-            "<div style='display:inline-block;color:red;'> 🚷 </div>"
-          );
-        return;
+  async function test() {
+    fetch("http://localhost:3000/test").then(response => response.json()).then(data => {
+      const phone = document.getElementById("phone").value;
+      const password = document.getElementById("password").value;
+      const users = data;
+      let count = 0;
+      for(let user of users) {
+        if(user.phone == phone && user.password == password) {
+          window.location.href = "/front/index.html";
+        } else {
+          count++;
+        }
       }
-
-      // amjilttai 200 OK bwal index.html ruu shiljine
-      result
-        .json()
-        .then(
-          (loginResponse) => {
-            window.location.href = "/front/index.html";
-          }
-            // (document.getElementById("username").innerHTML =
-            //   loginResponse.username +
-            //   '<button onclick="logout();">LOGOUT</button>')
-        );
+      if(count === users.length) {
+        window.alert("asdfasdf");
+      }
     });
-  }
-  function logout() {
-    fetch("http://localhost:3000/logout", {}).then();
   }
 </script>
 

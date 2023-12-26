@@ -69,7 +69,8 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
 
-                                        //    SWAGGER documentation 3 deer hiihed l bolno gesen
+
+// SWAGGER documentation 3 deer hiihed l bolno gesen
 
 const options = {
   swaggerDefinition: {

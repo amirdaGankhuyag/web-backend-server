@@ -57,6 +57,16 @@ app.get("/animeList" , async(req, res) => {
   }
 })
 
+app.get("/productList" , async(req , res) => {
+  try {
+    const productsInfo = await client.query('SELECT * FROM productList');
+    res.status(200).json(productsInfo.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+})
+
 app.listen(port, () => {
   console.log("Server is listening on port: " + port);
 });

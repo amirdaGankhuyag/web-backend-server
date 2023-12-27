@@ -1,11 +1,12 @@
 // const apiProductUrl = "https://api.jsonbin.io/v3/b/65791b331f5677401f0d116d";
-const apiProductUrl = "https://api.jsonbin.io/v3/b/657b00cb1f5677401f0dbb4f"
+// const apiProductUrl = "https://api.jsonbin.io/v3/b/657b00cb1f5677401f0dbb4f"
+const apiProductUrl = "http://localhost:3000/productList"
 
 document.addEventListener("DOMContentLoaded" , function() {
     const urlParams = new URLSearchParams(window.location.search);
     const productName = urlParams.get("name");
     fetch(apiProductUrl).then(response => response.json()).then(data => {
-      let productList = data.record;
+      let productList = data;
       const productInstance = getProductInfoByName(productList , productName);
       const productViewSection = document.getElementById("itemDetailSection");
       productViewSection.innerHTML = `

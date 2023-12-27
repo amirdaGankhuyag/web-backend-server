@@ -21,3 +21,14 @@ CREATE TABLE animelist (
     anime_img VARCHAR(255),
     views INTEGER
 );
+
+create table productList(
+    id INTEGER PRIMARY key,
+    name VARCHAR(255),
+    img VARCHAR(255),
+    type VARCHAR(255),
+    material varchar(255),
+    color varchar(255),
+    size varchar(255),
+    price INTEGER
+);

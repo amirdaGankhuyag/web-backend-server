@@ -1,4 +1,5 @@
 import data from "./anime-list.json" assert { type: "json" };
+import products from "./products.json" assert {type: "json"};
 import pkg from "pg";
 const { Client } = pkg;
 
@@ -11,6 +12,7 @@ const dbConfig = {
 };
 
 const client = new Client(dbConfig);
+
 
 async function insertData() {
   try {
@@ -43,10 +45,8 @@ async function insertData() {
         console.log(`Data for anime ${anime.name} inserted successfully`);
       } catch (insertError) {
         console.error(`Error inserting data for anime ${anime.name}:`, insertError.message);
-        // Continue with the next iteration even if one insert fails
       }
     }
-
     console.log("All data inserted successfully");
   } catch (connectError) {
     console.error("Error connecting to the database:", connectError.message);
@@ -55,4 +55,39 @@ async function insertData() {
   }
 }
 
-insertData();
+async function insertProduct() {
+  try {
+    await client.connect();
+    for (let product of products) {
+      console.log(product);
+      const query = {
+        text: `
+          INSERT INTO productlist (
+            id, name, img, type, material,
+            color, size, price
+          ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+        `,
+        values: [
+          product.id,
+          product.name,
+          product.img,
+          product.type,
+          product.material,
+          product.color,
+          product.size,
+          product.price
+        ],
+      };
+      await client.query(query);
+    }
+    console.log("All data inserted successfully");
+  } catch (connectError) {
+    console.error("Error connecting to the database:", connectError.message);
+  } finally {
+    await client.end();
+  }
+}
+
+
+// insertData();
+// insertProduct()

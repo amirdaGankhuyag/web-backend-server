@@ -61,10 +61,10 @@ changeCarouselImageLeft = function() {
 class Anime {
   constructor(animeListItem) {
     this.name = animeListItem.name;
-    this.releasedDate = animeListItem.releasedDate;
-    this.totalEpisode = animeListItem.totalEpisode;
-    this.animeImg = animeListItem.animeImg;
-    this.malRank = animeListItem.malRank;
+    this.releasedDate = animeListItem.released_date;
+    this.totalEpisode = animeListItem.total_episode;
+    this.animeImg = animeListItem.anime_img;
+    this.malRank = animeListItem.mal_rank;
     this.category = animeListItem.category;
     this.id = animeListItem.id;
   }
@@ -141,7 +141,7 @@ class App {
 
   sortByDate = function(list) {
     const sortedArray = list.sort((anime1, anime2) => {
-      return anime2.releasedDate - anime1.releasedDate;
+      return anime2.released_date - anime1.released_date;
     });
     return sortedArray;
   };

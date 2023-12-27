@@ -41,13 +41,21 @@ app.get("/test", async (req, res) => {
     try {
         const userInfo = await client.query('SELECT * FROM users');
         res.status(200).json(userInfo.rows);
-        console.log(userInfo.rows);
-        console.log(userInfo.rows[0].email);
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: "Server error" });
     }
 });
+
+app.get("/animeList" , async(req, res) => {
+  try {
+    const animeInfo = await client.query('SELECT * FROM animelist');
+    res.status(200).json(animeInfo.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+})
 
 app.listen(port, () => {
   console.log("Server is listening on port: " + port);

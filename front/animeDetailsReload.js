@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <section class="animeInfo" id="renderAnimeInfo">
               <h3>Дэлгэрэнгүй мэдээлэл</h3>
               <article class="animeDetails">
-                <img class="animeImage" src="${animeDetails.animeImg}" alt="Anime img" />
+                <img class="animeImage" src="${animeDetails.anime_img}" alt="Anime img" />
                 <ul>
                   <li>
                     <i class="fa-solid fa-pen"></i>
@@ -30,15 +30,15 @@ document.addEventListener("DOMContentLoaded", function () {
                   </li>
                   <li>
                     <i class="fa-solid fa-calendar"></i>
-                    Гарсан он: <span><strong>${animeDetails.releasedDate}</strong></span>
+                    Гарсан он: <span><strong>${animeDetails.released_date}</strong></span>
                   </li>
                   <li>
                     <i class="fa-solid fa-arrow-down-1-9"></i>
-                    Анги: <span><strong>${animeDetails.totalEpisode}</strong></span>
+                    Анги: <span><strong>${animeDetails.total_episode}</strong></span>
                   </li>
                   <li>
                     <i class="fa-solid fa-clock"></i>
-                    Нийт хугацаа: <span><strong>${animeDetails.totalDuration}</strong></span>
+                    Нийт хугацаа: <span><strong>${animeDetails.total_duration}</strong></span>
                   </li>
                   <li>
                     <i class="fa-solid fa-list-ul"></i>
@@ -46,11 +46,11 @@ document.addEventListener("DOMContentLoaded", function () {
                   </li>
                   <li>
                     <i class="fa-solid fa-music"></i>
-                    Дууны төрөл: <span><strong>${animeDetails.songType}</strong></span>
+                    Дууны төрөл: <span><strong>${animeDetails.song_type}</strong></span>
                   </li>
                   <li>
                     <i class="fa-solid fa-ranking-star"></i>
-                    MyAnimeList Rank: <span><strong>${animeDetails.malRank}</strong></span>
+                    MyAnimeList Rank: <span><strong>${animeDetails.mal_rank}</strong></span>
                   </li>  
                 </ul>
                 </article>

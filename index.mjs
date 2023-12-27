@@ -7,7 +7,6 @@ import swaggerJsondoc from "swagger-jsdoc"; // swagger documentation
 import path from "path";
 import cookieParser from "cookie-parser";
 import { login } from "./login.mjs"; // object import
-import Login from "./login.mjs"; // class import
 
 const app = express();
 const port = 3000;

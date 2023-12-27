@@ -14,10 +14,10 @@ const  apiUrl ="http://localhost:3000/animeList"
 class Anime {
   constructor(animeListItem) {
     this.name = animeListItem.name;
-    this.releasedDate = animeListItem.releasedDate;
-    this.totalEpisode = animeListItem.totalEpisode;
-    this.animeImg = animeListItem.animeImg;
-    this.malRank = animeListItem.malRank;
+    this.releasedDate = animeListItem.released_date;
+    this.totalEpisode = animeListItem.total_episode;
+    this.animeImg = animeListItem.anime_img;
+    this.malRank = animeListItem.mal_rank;
     this.category = animeListItem.category;
     this.id = animeListItem.id;
   }

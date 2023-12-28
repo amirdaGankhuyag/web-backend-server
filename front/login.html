@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Anime" />
     <meta name="keyword" content="animuk.mn, animuk, Animuk.mn, Animuk" />
-    <script type="module" src="./components/header.js"></script>
+    <!-- <script type="module" src="./components/header.js"></script>
     <script type="module" src="./components/footer.js"></script>
-    <link rel="stylesheet" href="headerFooter.css" />
+    <link rel="stylesheet" href="headerFooter.css" /> -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -19,7 +19,7 @@
     <title>Animuk</title>
   </head>
   <body>
-    <header-section></header-section>
+    <!-- <header-section></header-section> -->
     <main>
       <form>
         <section class="formContainer">
@@ -58,37 +58,55 @@
         alt=""
       />
     </main>
-    <footer-section></footer-section>
+    <!-- <footer-section></footer-section> -->
   </body>
 </html>
 
-<script src="headerFooter.js"></script>
+<!-- <script src="headerFooter.js"></script> -->
 <script>
   async function test() {
-    fetch("http://localhost:3000/test").then(response => response.json()).then(data => {
-      const phone = document.getElementById("phone").value;
-      const password = document.getElementById("password").value;
-      const users = data;
-      let count = 0;
-      for(let user of users) {
-        if(user.phone == phone && user.password == password) {
-          window.location.href = "/front/index.html";
-        } else {
-          count++;
+    fetch("http://localhost:3000/test")
+      .then((response) => response.json())
+      .then((data) => {
+        const phone = document.getElementById("phone").value;
+        const password = document.getElementById("password").value;
+        const users = data;
+        let count = 0;
+        for (let user of users) {
+          if (user.phone == phone && user.password == password) {
+            if (
+              localStorage.getItem("userToken") === null ||
+              localStorage.getItem("userToken") === undefined
+            ) {
+              console.log("local deer item bairluullaa");
+              localStorage.setItem("userToken", phone);
+            } else {
+              console.log("local deer ugiin item baina");
+              localStorage.setItem("userToken", phone);
+            }
+            console.log(localStorage.getItem("userToken"));
+            window.location.href = "/front/index.html";
+            return;
+          } else {
+            count++;
+          }
         }
-      }
-      if(count === users.length) {
-        window.alert("asdfasdf");
-      }
-    });
+        if (count === users.length) {
+          window.alert("Дахин оролдоно уу");
+        }
+      });
   }
 
-  signUp = function() {
+  signUp = function () {
     window.location.href = "http://localhost:3000/signup";
-  }
+  };
 </script>
 
 <style scoped>
+  body {
+    margin: 0;
+    padding: 0;
+  }
   :root {
     --dark-blue: #00171f;
     --white: #fff;
@@ -103,7 +121,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 72vh;
+    height: 78vh;
     padding: 5rem 0rem;
     background-color: var(--background-color-dark);
     color: var(--text-color-dark);

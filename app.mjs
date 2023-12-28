@@ -40,6 +40,7 @@ app.get("/signUp" , (req , res) => {
   res.sendFile("./front/signUp.html" , options); 
 })
 
+
 app.post("/register" , async(req , res) => {
   try {
     const email = req.body.email;

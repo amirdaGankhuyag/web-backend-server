@@ -63,20 +63,20 @@
         <p>Таны мэдээлэл</p>
         <ul>
           <li>
-            <i class="fa-solid fa-play"></i>Үзсэн аниме тоо:
-            <strong style="padding-left: 50px">10</strong>
+            <i class="fa-solid fa-play"></i>Хэрэглэгчийн овог
+            <strong style="padding-left: 50px" id="lname">10</strong>
           </li>
           <li>
-            <i class="fa-solid fa-heart"></i>Дуртай төрөл:
-            <strong style="padding-left: 70px">Action</strong>
+            <i class="fa-solid fa-heart"></i>Хэрэглэгчийн нэр
+            <strong style="padding-left: 70px" id="fname"></strong>
           </li>
           <li>
-            <i class="fa-solid fa-comment"></i>Нийт сэтгэгдлийн тоо:
-            <strong style="padding-left: 10px">9</strong>
+            <i class="fa-solid fa-comment"></i>Утасны дугаар
+            <strong style="padding-left: 10px" id="phone"></strong>
           </li>
           <li>
-            <i class="fa-solid fa-star"></i>Дуртай аниме:
-            <strong style="padding-left: 65px">Bleach</strong>
+            <i class="fa-solid fa-star"></i>Мэйл хаяг
+            <strong style="padding-left: 65px" id="email"></strong>
           </li>
           <li>
             <i class="fa-solid fa-music"></i>Дуртай дууны төрөл:
@@ -100,6 +100,23 @@
     <footer-section></footer-section>
   </body>
 </html>
+
+<script>
+  setUser = async function() {
+    fetch('http://localhost:3000/test').then(response => response.json()).then(data => {
+      for(let user of data) {
+        if(user.phone == localStorage.getItem("userToken")) {
+          document.getElementById("fname").innerText = user.fname;
+          document.getElementById("lname").innerText = user.lname;
+          document.getElementById("phone").innerText = user.phone;
+          document.getElementById("email").innerText = user.email;
+          break;
+        }
+      }
+    });
+  }
+  setUser();
+</script>
 
 <style>
   * {

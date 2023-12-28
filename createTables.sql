@@ -1,7 +1,7 @@
 CREATE DATABASE animuk;
 
 CREATE TABLE users (
-    id INTEGER PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     fname VARCHAR(255),
     lname VARCHAR(255),
     phone VARCHAR(255),
@@ -10,7 +10,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE animelist (
-    id INTEGER PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(255) ,
     released_date INTEGER ,
     total_episode INTEGER ,

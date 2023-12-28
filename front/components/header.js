@@ -4,7 +4,12 @@ class HeaderSection extends HTMLElement {
     this.#render();
   }
 
-  connectedCallback() {}
+  connectedCallback() {
+    const button = document.getElementById("logoutButton");
+    button.addEventListener("click", () => {
+      document.getElementById("logoutWindow").style.display = "flex";
+    });
+  }
 
   #render() {
     this.innerHTML = `
@@ -24,8 +29,7 @@ class HeaderSection extends HTMLElement {
             </ul>
           </nav>
           <nav class="btns">          
-            <a href="login.html"><i class="fa-solid fa-user"></i>Login</a>
-            <a href="signup.html"><i class="fa-solid fa-user-plus"></i>Sign Up</a>
+            <button id="logoutButton"><i class="fa-solid fa-user" ></i>Log out</button>
           </nav>
         </div>
       </header>
@@ -35,10 +39,19 @@ class HeaderSection extends HTMLElement {
           <li><a href="filter.html"><i class="fa-solid fa-bars"></i>Anime list</a></li>
           <li><a href="shopping.html"><i class="fa-solid fa-cart-shopping"></i>Shopping</a></li>
           <li><a href="service.html"><i class="fa-regular fa-credit-card"></i>Service</a></li>
-          <li><a href="login.html"><i class="fa-solid fa-user"></i>Login</a></li>
-          <li style="border-bottom: 2px solid #00171f;"><a href="signup.html"><i class="fa-solid fa-user-plus"></i>Sign Up</a></li>
+          <li><a href="login.html"><i class="fa-solid fa-user"></i>Log out</a></li>
         </ul>
       </nav>
+      
+      <section id="logoutWindow" style="display: none; height: 100%; width: 100%; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.5); position: fixed; z-index: 8;">
+        <article style="width: 300px; height: 150px; background-color: brown;display: flex; flex-direction: column; align-items: center; padding: 8px 16px 16px 16px;" >
+            <p style="padding-top: 16px; color: white; font-size: 18px; font-weight: 450;">Та гарахдаа итгэлтэй байна уу?</p>
+            <div style="width: 100%; display: flex; align-items: center; justify-content: space-around; padding-top: 24px;">
+                <button class="logoutBtn" onclick="logout()">Yes</button>
+                <button class="logoutBtn" onclick="closeWindow()">No</button>
+            </div>
+        </article>
+      </section>
     `;
   }
 }

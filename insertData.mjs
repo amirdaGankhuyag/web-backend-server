@@ -11,10 +11,10 @@ const dbConfig = {
   port: 5432,
 };
 
-const client = new Client(dbConfig);
-
-
 async function insertData() {
+
+  const client = new Client(dbConfig);
+
   try {
     await client.connect();
     for (let anime of data) {
@@ -56,6 +56,9 @@ async function insertData() {
 }
 
 async function insertProduct() {
+
+  const client = new Client(dbConfig);
+
   try {
     await client.connect();
     for (let product of products) {
@@ -90,4 +93,4 @@ async function insertProduct() {
 
 
 // insertData();
-// insertProduct()
+// insertProduct();

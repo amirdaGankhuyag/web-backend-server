@@ -32,3 +32,7 @@ create table productList(
     size varchar(255),
     price INTEGER
 );
+
+INSERT INTO users (fname, lname, phone, email, password)
+VALUES ('John', 'Doe', '99110000', 'johndoe@gmail.com', 'neko1007'), 
+        ('Sarah', 'Doe', '88110000', 'sarahdoe@gmail.com', 'sara1007');

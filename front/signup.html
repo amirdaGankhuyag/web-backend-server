@@ -6,9 +6,9 @@
     <meta name="description" content="Anime" />
     <meta name="keyword" content="animuk.mn, animuk, Animuk.mn, Animuk" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script type="module" src="./components/header.js"></script>
-    <script type="module" src="./components/footer.js"></script>
-    <link rel="stylesheet" href="headerFooter.css" />
+    <!-- <script type="module" src="./components/header.js"></script>
+    <script type="module" src="./components/footer.js"></script> -->
+    <!-- <link rel="stylesheet" href="headerFooter.css" /> -->
     <title>Animuk.mn</title>
   </head>
   <body>
@@ -16,35 +16,33 @@
     <main>
         <section class="signUpForm">
          <h3>Шинээр бүртгэл үүсгэх</h3>
-          <form action="">
           <div class="formFieldsCombo">
             <article class="dualFields">
-              <label for="input"><i class="fa-solid fa-user"></i>Овог</label><input type="text" />
+              <label for="input"><i class="fa-solid fa-user"></i>Овог</label><input id="lname" type="text" />
             </article>
             <article class="dualFields">
-              <label for="input"><i class="fa-solid fa-user"></i>Нэр</label><input type="text" />
+              <label for="input"><i class="fa-solid fa-user"></i>Нэр</label><input id="fname" type="text" />
             </article class="dualFields">
           </div>
           <div class="formFieldsCombo">
             <article class="dualFields">
-              <label for="input"><i class="fa-solid fa-phone"></i>Утасны дугаар</label><input type="text" />
+              <label for="input"><i class="fa-solid fa-phone"></i>Утасны дугаар</label><input id="phone" type="text" />
             </article>
             <article class="dualFields">
-              <label for="input"><i class="fa-solid fa-envelope"></i>Мейл хаяг</label><input type="text" />
+              <label for="input"><i class="fa-solid fa-envelope"></i>Мейл хаяг</label><input id="email" type="text" />
             </article>
           </div>
           <div class="formFieldsCombo">
             <article class="dualFields">
-              <label for="input"><i class="fa-solid fa-lock"></i>Нууц үг</label><input type="password" />
+              <label for="input"><i class="fa-solid fa-lock"></i>Нууц үг</label><input id="pass1" type="password" />
             </article>
             <article class="dualFields">
               <label for="input"><i class="fa-solid fa-lock"></i>Дахин давтана уу</label>
-              <input type="password"
+              <input id="pass2" type="password"
             />
             </article> 
           </div>
-          <center><button>Бүртгүүлэх</button></center>
-        </form>
+          <center><button onclick="signUp()">Бүртгүүлэх</button></center>
         </section>
 
 
@@ -57,7 +55,43 @@
 </body>
 </html>
 
-<script src="headerFooter.js"></script>
+<!-- <script src="headerFooter.js"></script> -->
+<script>
+  signUp = function() {
+    const fname = document.getElementById("fname").value;
+    const lname = document.getElementById("lname").value;
+    const phone = document.getElementById("phone").value;
+    const email = document.getElementById("email").value;
+    const pass1 = document.getElementById("pass1").value;
+    const pass2 = document.getElementById("pass2").value;
+    if(fname == "" && lname == "" && phone == "" && email == ""  && pass1 == "" &&  pass2 == "" ) {
+      window.alert("boldgue sd");
+    } 
+    fetch("http://localhost:3000/register" , {
+      method: 'POST',
+      cachde: 'no-cache',
+      headers: {
+        "Content-Type" : 'application/json; charset=UTF-8'
+      },
+      body: JSON.stringify(
+        {
+          fname: fname,
+          lname: lname,
+          phone: phone,
+          email: email,
+          password1: pass1,
+          password2: pass2
+        }
+      )
+    }).then(result => {
+      if(result.status != 200) {
+        window.alert("amjiltgu");
+        return;
+      }
+      window.alert("amjilttai");
+    })
+  }
+</script>
 
 <style scoped>
     :root {
@@ -122,7 +156,7 @@
     margin-right: 8px;
   }
 
-  form button {
+   button {
     width: 50%;
     height: 3.125rem;
     margin-top: 1.25rem;

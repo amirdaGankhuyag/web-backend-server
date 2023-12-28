@@ -49,6 +49,7 @@
             type="button"
             value="Бүртгүүлэх"
             style="background-color: #ffd977"
+            onclick="signUp()"
           />
         </section>
       </form>
@@ -80,6 +81,10 @@
         window.alert("asdfasdf");
       }
     });
+  }
+
+  signUp = function() {
+    window.location.href = "http://localhost:3000/signup";
   }
 </script>
 

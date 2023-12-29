@@ -44,11 +44,11 @@ class HeaderSection extends HTMLElement {
       </nav>
       
       <section id="logoutWindow" style="display: none; height: 100%; width: 100%; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.5); position: fixed; z-index: 8;">
-        <article style="width: 300px; height: 150px; background-color: brown;display: flex; flex-direction: column; align-items: center; padding: 8px 16px 16px 16px;" >
+        <article style="width: 300px; height: 150px; background-color: brown;display: flex; flex-direction: column; align-items: center; padding: 8px 16px 16px 16px; border-radius: 5px;" >
             <p style="padding-top: 16px; color: white; font-size: 18px; font-weight: 450;">Та гарахдаа итгэлтэй байна уу?</p>
             <div style="width: 100%; display: flex; align-items: center; justify-content: space-around; padding-top: 24px;">
-                <button class="logoutBtn" onclick="logout()">Yes</button>
-                <button class="logoutBtn" onclick="closeWindow()">No</button>
+                <button class="logoutBtn" onclick="logout()">Тийм</button>
+                <button class="logoutBtn" onclick="closeWindow()">Үгүй</button>
             </div>
         </article>
       </section>

@@ -63,25 +63,25 @@
         <p>Таны мэдээлэл</p>
         <ul>
           <li>
-            <i class="fa-solid fa-play"></i>Хэрэглэгчийн овог
-            <strong style="padding-left: 50px" id="lname">10</strong>
+            <i class="fa-solid fa-play"></i>Хэрэглэгчийн овог:
+            <strong style="padding-left: 12px" id="lname">10</strong>
           </li>
           <li>
-            <i class="fa-solid fa-heart"></i>Хэрэглэгчийн нэр
-            <strong style="padding-left: 70px" id="fname"></strong>
+            <i class="fa-solid fa-heart"></i>Хэрэглэгчийн нэр:
+            <strong style="padding-left: 14px" id="fname"></strong>
           </li>
           <li>
-            <i class="fa-solid fa-comment"></i>Утасны дугаар
-            <strong style="padding-left: 10px" id="phone"></strong>
+            <i class="fa-solid fa-comment"></i>Утасны дугаар:
+            <strong style="padding-left: 37px" id="phone"></strong>
           </li>
           <li>
-            <i class="fa-solid fa-star"></i>Мэйл хаяг
-            <strong style="padding-left: 65px" id="email"></strong>
+            <i class="fa-solid fa-star"></i>Мэйл хаяг:
+            <strong style="padding-left: 70px" id="email"></strong>
           </li>
-          <li>
+          <!-- <li>
             <i class="fa-solid fa-music"></i>Дуртай дууны төрөл:
             <strong style="padding-left: 20px">Rock</strong>
-          </li>
+          </li> -->
         </ul>
       </section>
     </article>
@@ -298,6 +298,9 @@
       font-size: 14px;
       margin-bottom: 32px;
     }
+    .anime-card-back-content p {
+      margin: 10px 0 10px 0;
+    }
   }
 
   @media (max-width: 440px) {
@@ -307,8 +310,8 @@
       & li {
         margin-bottom: 16px;
         & img {
-          width: 120px;
-          height: 150px;
+          width: 180px;
+          height: 260px;
         }
       }
     }
@@ -322,6 +325,14 @@
           margin-top: 16px;
         }
       }
+    }
+    .anime-card {
+      width: 180px;
+      height: 260px;
+    }
+    .anime-card-back-content p {
+      margin: 5px 0 5px 0;
+      font-size: 14px;
     }
   }
 

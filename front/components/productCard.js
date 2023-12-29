@@ -84,7 +84,7 @@ class ProductCard extends HTMLElement {
         }
       }
       &:hover {
-        background: linear-gradient(45deg, rgb(176, 161, 156), #eeeaeb);
+        border: 1px solid white;
       }
     }
     .shop-card-buttons {

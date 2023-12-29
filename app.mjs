@@ -1,7 +1,7 @@
 import express from "express";
 import path from "path";
 import pkg from 'pg';
-import cookieParser from "cookie-parser";
+// import cookieParser from "cookie-parser";
 const { Client } = pkg;
 const __dirname = path.resolve(path.dirname(""));
 
@@ -9,7 +9,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
-app.use(cookieParser());
+// app.use(cookieParser());
 
 const dbConfig = {
     user: 'postgres',

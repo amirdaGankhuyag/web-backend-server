@@ -2,23 +2,25 @@
 // const apiUrl = "https://api.jsonbin.io/v3/b/654f4bb354105e766fce7c86"
 
 // amirda
-// const apiUrl = "https://api.jsonbin.io/v3/b/655d6c2b0574da7622ca003f" 
+// const apiUrl = "https://api.jsonbin.io/v3/b/655d6c2b0574da7622ca003f"
 
 // haliunaa
 // const apiUrl = "https://api.jsonbin.io/v3/b/655d82ba54105e766fd367c6"
 
 // main
-const  apiUrl ="http://localhost:3000/animeList"
+const apiUrl = "http://localhost:3000/animeList";
 
-// ene functionoor page ee shinechlene parameteree huleej avaad info haruulas section doo bicsn htmlee renderlesen 
+// ene functionoor page ee shinechlene parameteree huleej avaad info haruulas section doo bicsn htmlee renderlesen
 document.addEventListener("DOMContentLoaded", function () {
-    const urlParams = new URLSearchParams(window.location.search);
-    const animeId = urlParams.get("id");
-    fetch(apiUrl).then(response => response.json()).then(data=> {
-        let animes = data;
-        const animeDetails = getAnimeById(animeId, animes);
-        const animeInfoSection = document.getElementById("renderAnimeInfo");
-        animeInfoSection.innerHTML = `
+  const urlParams = new URLSearchParams(window.location.search);
+  const animeId = urlParams.get("id");
+  fetch(apiUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      let animes = data;
+      const animeDetails = getAnimeById(animeId, animes);
+      const animeInfoSection = document.getElementById("renderAnimeInfo");
+      animeInfoSection.innerHTML = `
         <section class="animeInfo" id="renderAnimeInfo">
               <h3>Дэлгэрэнгүй мэдээлэл</h3>
               <article class="animeDetails">
@@ -65,19 +67,38 @@ document.addEventListener("DOMContentLoaded", function () {
                   </ul>
                   <button class="addComment" onclick = "moveToShoppingPage()"" ><i class="fa-solid fa-cart-shopping"></i><p>Худалдан авах</p> </button>
               </article>
-        `;
-    })
+           `;
+            const animeComments = animeDetails.comments;
+            const commentContainer = document.getElementById("commentsId");
+            let count = 0;
+            for (let comment of animeComments.reverse()) {
+              let commentValue = `
+                <article class="userComment">
+                <i class="fa-solid fa-user" style="color: #ffffff"></i>
+                <em>User</em>
+                <p>
+                ${comment}
+                </p>
+              </article>
+                `;
+              commentContainer.insertAdjacentHTML("afterbegin", commentValue);
+              count++;
+              if (count === 6) {
+                break;
+              }
+            }
+    });
 });
 
-// enuuugeer jsonoo oosoo anime name r ni anime infogo avsan 
-function getAnimeById(animeId , list) {
-    return list.find(anime => anime.id == animeId);
+// enuuugeer jsonoo oosoo anime name r ni anime infogo avsan
+function getAnimeById(animeId, list) {
+  return list.find((anime) => anime.id == animeId);
 }
 
 function moveToShoppingPage() {
-  const nowUrl =new URL(window.location.href);
-  nowUrl.search="";
-  let newUrl = nowUrl.href.replace("animeDetails.html" , "shopping.html")
+  const nowUrl = new URL(window.location.href);
+  nowUrl.search = "";
+  let newUrl = nowUrl.href.replace("animeDetails.html", "shopping.html");
   console.log(newUrl);
   window.location.href = newUrl;
 }

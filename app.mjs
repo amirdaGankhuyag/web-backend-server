@@ -40,6 +40,36 @@ app.get("/signUp" , (req , res) => {
   res.sendFile("./front/signUp.html" , options); 
 })
 
+app.post("/addComment",  async (req, res) => {
+  try {
+    const comment = req.body.comment;
+    const id = req.body.id;
+    const result1 = await client.query('SELECT * FROM animeList WHERE id = $1', [id]);
+    if(result1.rowCount > 0) {
+      const query = {
+        text: `
+          UPDATE animeList
+          SET comments = comments || ARRAY[$1]
+          WHERE id = $2;
+        `,
+        values: [
+          comment,
+          id
+        ]
+      };
+      await client.query(query);
+      res.status(200).send("Comment added successfully");
+    } else {
+      res.status(400).json({ error: 'Ийм аниме байхгүй байна.' });
+    }
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
+
 
 app.post("/register" , async(req , res) => {
   try {
@@ -72,6 +102,7 @@ app.post("/register" , async(req , res) => {
     }
   } catch(err) {
       console.error(err);
+      res.status(500).json({ error: 'Алдаа гарлаа' });
   }
 })
 

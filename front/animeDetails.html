@@ -18,6 +18,15 @@
     <title>Animuk.mn</title>
   </head>
   <body>
+    <section id="addCommentSection">
+      <article>
+        <center><input id="animeComment" type="text"></center>
+        <div class="commentButtonContainer">
+          <button onclick="sendComment()">Add comment</button>
+          <button onclick="cancelComment()">Cancel</button>
+        </div>
+      </article>
+    </section>
     <header-section></header-section>
     <main>
       <div class="upperInfo">
@@ -26,8 +35,8 @@
         <!-- setgegdluud section -->
         <section class="commentInfo">
           <h3>Сэтгэгдлүүд</h3>
-          <div class="comments">
-            <article class="userComment">
+          <div class="comments" id="commentsId">
+            <!-- <article class="userComment">
               <i class="fa-solid fa-user" style="color: #ffffff"></i>
               <em>User</em>
               <p>
@@ -80,15 +89,13 @@
                 earum perferendis fugiat labore eaque possimus aut odit excepturi
                 dignissimos.
               </p>
-            </article>
+            </article> -->
           </div>
           <em class="onlyOneButton">
-            <button class="addComment"><i class="fa-solid fa-comments"></i>Сэтгэгдэл нэмэх</button>
+            <button onclick="appearCommentBox()" class="addComment"><i class="fa-solid fa-comments"></i>Сэтгэгдэл нэмэх</button>
           </em>
         </section>
       </div>
-
-
       <div class="suggestion">
         <section class="animeCharacters">
           <h3>Аниме дүрүүд</h3>
@@ -112,9 +119,7 @@
         </section>
       </div>
     </main>
-
     <footer-section></footer-section>
-
   </body>
 </html>
 
@@ -361,6 +366,49 @@
     }
   }
 
+  #addCommentSection {
+    display: none; 
+    align-items: center ; 
+    justify-content: center;
+    width: 100%; 
+    height: 100vh; 
+    position: fixed; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 10;
+    & article {
+      height: 200px; 
+      width: 400px; 
+      background-color: #00171f;
+      border-radius: 16px;;
+      & input {
+        width: 320px;
+        margin-top: 24px;
+        height: 72px;
+        font-size: 24px;
+        border-radius: 16px;
+        border: none;
+        padding-left: 8px;
+        background-color: #18404e;
+        color: white;
+      }
+      & .commentButtonContainer {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 32px;
+        & button {
+          width: 100px;
+          height: 50px;
+          border-radius: 16px;
+          border: none;
+          cursor: pointer;
+          background-color: #DB504A;
+          font-weight: 550;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
   @media (min-width: 600px) and (max-width: 1200px) {
     .animeInfo {
       margin: auto;
@@ -400,6 +448,45 @@
     }
   }
 </style>
+
+<script>
+  cancelComment = function() {
+    document.getElementById("addCommentSection").style.display='none';
+    document.getElementById('animeComment').value= "";
+  }
+  appearCommentBox = function() {
+    document.getElementById("addCommentSection").style.display='flex';
+  } 
+
+  sendComment = async function() {
+    const animeComment = document.getElementById("animeComment").value;
+    const urlParams = new URLSearchParams(window.location.search);
+    const animeId = urlParams.get("id");
+    console.log(animeId);
+    console.log(animeComment);
+    fetch("http://localhost:3000/addComment" , {
+      method: 'POST',
+      cachde: 'no-cache',
+      headers: {
+        "Content-Type" : 'application/json; charset=UTF-8'
+      },
+      body: JSON.stringify(
+        {
+          comment: animeComment,
+          id: animeId     
+        }
+      )
+    }).then(result => {
+      if(result.status === 500) {
+        window.alert("bolsongue bro");
+      } else {
+        cancelComment();
+        window.alert("amjilttai nemegdlee");
+        location.reload();
+      } 
+    })
+  }
+</script>
 
 
 <script src="headerFooter.js"></script>

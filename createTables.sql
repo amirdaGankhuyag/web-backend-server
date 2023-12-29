@@ -9,18 +9,7 @@ CREATE TABLE users (
     password VARCHAR(255)
 );
 
-CREATE TABLE animelist (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255) ,
-    released_date INTEGER ,
-    total_episode INTEGER ,
-    total_duration INTEGER ,
-    category VARCHAR(255)[] ,
-    song_type VARCHAR(255) ,
-    mal_rank INTEGER ,
-    anime_img VARCHAR(255),
-    views INTEGER
-);
+
 
 create table productList(
     id INTEGER PRIMARY key,
@@ -36,3 +25,13 @@ create table productList(
 INSERT INTO users (fname, lname, phone, email, password)
 VALUES ('John', 'Doe', '99110000', 'johndoe@gmail.com', 'neko1007'), 
         ('Sarah', 'Doe', '88110000', 'sarahdoe@gmail.com', 'sara1007');
+
+
+alter table animelist 
+	add comments varchar(255)[]
+	
+select * from animelist
+
+update animeList
+	set comments = comments || ARRAY['gl bros']
+	where id = 2;

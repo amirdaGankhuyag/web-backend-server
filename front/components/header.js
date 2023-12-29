@@ -16,9 +16,9 @@ class HeaderSection extends HTMLElement {
         <header>
         <div class="rightMenu">
           <i class="fa-solid fa-bars sidebarActivator" id="activator" onclick="appearSideBarView()"></i>
-          <a href="index.html"><img src="https://i.ibb.co/hD8WWBT/logo-no-bck.png" alt="logo" style="width: 100px; height: 68px;"></a>
-          <input type="text" aria-label="Search" placeholder="Search..."/>
-          <i class="fa-solid fa-magnifying-glass" style="color: #6d6b6b"></i>
+          <a href="index.html"><img src="https://i.ibb.co/hD8WWBT/logo-no-bck.png" alt="logo" style="width: 100px; height: 68px; margin-left: 25px"></a>
+          <input type="text" aria-label="Search" placeholder="Search..." style="margin-left: 25px;"/>
+          <i class="fa-solid fa-magnifying-glass" style="color: #6d6b6b;"></i>
         </div>
         <div class="leftMenu">
           <nav class="menu">

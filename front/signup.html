@@ -42,7 +42,8 @@
             />
             </article> 
           </div>
-          <center><button onclick="signUp()">Бүртгүүлэх</button></center>
+          <center><button style="background-color: #ffd977;" onclick="signUp()">Бүртгүүлэх</button></center>
+          <center><button style="background-color: #db504a" onclick="back()">Буцах</button></center>
         </section>
 
 
@@ -96,6 +97,14 @@
       // window.location.href="http://localhost:3000/"
     })
   }
+  back = function (){
+    window.history.back();
+  }
+  document.addEventListener("keydown", function(event) {
+    if(event.key === "Enter") {
+      signUp();
+    } 
+  });
 </script>
 
 <style scoped>
@@ -121,6 +130,10 @@
     padding: 6rem 0rem;
     color: var(--text-color-dark);
     height: 85vh;
+    font-family: "Inter", sans-serif;
+  }
+  main img {
+    border-radius: 5px;
   }
   .signUpForm {
     display: flex;
@@ -145,9 +158,11 @@
     margin: 0.625rem 0rem 0.625rem 0rem;
     width: 80%;
     padding-left: 0.5rem;
-    font-size: 16px;
-    border-radius: 0.625rem;
-    border: none;   
+    font-size: 1rem;
+    border: none;  
+    color: white; 
+    background: none;
+    border-bottom: 1px solid white;
   }
 
   .dualFields label {
@@ -160,23 +175,27 @@
   .signUpForm h3 {
     text-align: center;
     font-size: 1.75rem;
+    font-weight: 400;
+    padding-bottom: 1.5rem;
   }
   .signUpForm i{
     margin-right: 8px;
   }
 
-   button {
+  button {
     width: 50%;
     height: 3.125rem;
     margin-top: 1.25rem;
     justify-content: center;
-    border-radius: 1.25rem;
+    border-radius: 10px;
     border: none;
     color: #040d25;
     font-weight: 450;
     font-size: 1.25rem;
     cursor: pointer;
-    background-color: #ffd977
+  }
+  button:hover {
+    box-shadow: 0 0 5px #fff;
   }
 
   @media (max-width: 600px) {

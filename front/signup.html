@@ -86,15 +86,15 @@
       )
     }).then(result => {
       if(result.status === 400) {
-        window.alert("pass aa zuv oruulna uu");
+        window.alert("Нууц үгээ зөв давтана уу.");
         return;
       }
       if(result.status === 401) {
-        window.alert("zuv mail oruulna uu");
+        window.alert("Мэйл хаяг эсвэл утасны дугаар бүртгэлтэй байна.");
         return;
       }
       window.alert("amjilttai");
-      // window.location.href="http://localhost:3000/"
+      window.location.href="http://localhost:3000/"
     })
   }
   back = function (){

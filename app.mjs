@@ -50,13 +50,9 @@ app.post("/register" , async(req , res) => {
     const password1 = req.body.password1;
     const password2 = req.body.password2;
     console.log(req.body);
-    // const result1 = await client.query(`SELECT * FROM users WHERE email = ${email}`);
-    const result2 = await client.query(`SELECT * FROM users WHERE phone = ${phone}`);
-    // console.log("davharsan email:");
-    // console.log(result1.rows);
-    console.log("davharsan utas:");
-    console.log(result2.rows);
-    if(result2.rowCount.length > 0) {
+    const result1 = await client.query('SELECT * FROM users WHERE email = $1', [email]);
+    const result2 = await client.query('SELECT * FROM users WHERE phone = $1', [phone]);
+    if(result2.rowCount > 0 || result1.rowCount > 0) {
       res.status(401).json({ error: 'Email or phone is already registered' });
     } else if(password1 != password2) {
       res.status(400).json({ error: 'Нууц үгээ зөв давтаж оруулна уу' });

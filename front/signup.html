@@ -65,7 +65,7 @@
     const pass1 = document.getElementById("pass1").value;
     const pass2 = document.getElementById("pass2").value;
     if(fname == "" && lname == "" && phone == "" && email == ""  && pass1 == "" &&  pass2 == "" ) {
-      window.alert("boldgue sd");
+      window.alert("boldgue");
     } 
     fetch("http://localhost:3000/register" , {
       method: 'POST',
@@ -84,12 +84,16 @@
         }
       )
     }).then(result => {
-      if(result.status != 200) {
-        window.alert("amjiltgu");
+      if(result.status === 400) {
+        window.alert("pass aa zuv oruulna uu");
+        return;
+      }
+      if(result.status === 401) {
+        window.alert("zuv mail oruulna uu");
         return;
       }
       window.alert("amjilttai");
-      window.location.href="http://localhost:3000/"
+      // window.location.href="http://localhost:3000/"
     })
   }
 </script>

@@ -44,6 +44,7 @@ app.post("/addComment",  async (req, res) => {
   try {
     const comment = req.body.comment;
     const id = req.body.id;
+    const user = req.body.user;
     const result1 = await client.query('SELECT * FROM animeList WHERE id = $1', [id]);
     if(result1.rowCount > 0) {
       const query = {
@@ -53,7 +54,7 @@ app.post("/addComment",  async (req, res) => {
           WHERE id = $2;
         `,
         values: [
-          comment,
+          comment + ',' + user,
           id
         ]
       };

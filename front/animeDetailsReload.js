@@ -75,9 +75,9 @@ document.addEventListener("DOMContentLoaded", function () {
               let commentValue = `
                 <article class="userComment">
                 <i class="fa-solid fa-user" style="color: #ffffff"></i>
-                <em>User</em>
+                <em>${comment.split(",")[1]}</em>
                 <p>
-                ${comment}
+                ${comment.split(",")[0]}
                 </p>
               </article>
                 `;

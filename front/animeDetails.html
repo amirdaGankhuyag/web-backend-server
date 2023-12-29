@@ -462,8 +462,7 @@
     const animeComment = document.getElementById("animeComment").value;
     const urlParams = new URLSearchParams(window.location.search);
     const animeId = urlParams.get("id");
-    console.log(animeId);
-    console.log(animeComment);
+    const userToken = localStorage.getItem('userToken');
     fetch("http://localhost:3000/addComment" , {
       method: 'POST',
       cachde: 'no-cache',
@@ -473,7 +472,8 @@
       body: JSON.stringify(
         {
           comment: animeComment,
-          id: animeId     
+          id: animeId,
+          user: userToken
         }
       )
     }).then(result => {

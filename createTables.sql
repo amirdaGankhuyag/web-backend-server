@@ -35,3 +35,6 @@ select * from animelist
 update animeList
 	set comments = comments || ARRAY['gl bros']
 	where id = 2;
+
+ALTER TABLE animelist
+DROP COLUMN comments;

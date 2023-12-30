@@ -251,7 +251,7 @@ i {
   z-index: 8;
   & article {
     width: 300px; 
-    height: 120px;
+    height: 135px;
     background-color: #00171f;
     display: flex; 
     flex-direction: column; 

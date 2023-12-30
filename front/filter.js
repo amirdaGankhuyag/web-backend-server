@@ -82,13 +82,20 @@ document.addEventListener("DOMContentLoaded" , async() => {
     let listOfAnime = await response.json();
     let urlParams = new URLSearchParams(window.location.search);
     let categoryType = urlParams.get("category");
-    document.getElementById("filteredType").value = categoryType;
     let target = document.getElementById("filteredAnimeList");
-    let selectedAnimes = listOfAnime.filter((anime) => anime.category.includes(categoryType));
-    selectedAnimes.map((anime) => {
-      const renderedAnime = new Anime(anime);
-      target.insertAdjacentHTML("beforeend" , renderedAnime.render());
-    })
+    if(categoryType === null) {
+      for(let item of listOfAnime){
+        const renderedAnime = new Anime(item);
+        target.insertAdjacentHTML("beforeend" , renderedAnime.render()); 
+      }
+    } else {
+      document.getElementById("filteredType").value = categoryType;
+      let selectedAnimes = listOfAnime.filter((anime) => anime.category.includes(categoryType));
+      selectedAnimes.map((anime) => {
+        const renderedAnime = new Anime(anime);
+        target.insertAdjacentHTML("beforeend" , renderedAnime.render());
+      })
+    }
 })
 
 // enuuger anime iin delgerengu page iihe dataga url aar damjulad avn deer render dree onclick der ni zaagd ugcin

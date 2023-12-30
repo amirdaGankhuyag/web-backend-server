@@ -5,40 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Anime" />
     <meta name="keywords" content="animuk.mn, animuk, Animuk.mn, Animuk" />
-    <script type="module" src="./components/header.js"></script>
+
     <link rel="stylesheet" href="headerFooter.css" />
+    <!-- for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    
+    <script type="module" src="./components/header.js"></script>   
     <script type="module" src="./components/footer.js"></script>
     <script type="module" src="./components/productCard.js"></script>
-    <script type="module" src="./components/CartInfo.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
+    <script type="module" src="./components/CartInfo.js"></script> 
     <script type="module" src="./components/AddedProduct.js"></script>
     <script type="module" src="./components/favoriteIcon.js"></script>
     <script type="module" src="./components/favoriteItem.js"></script>
+    <script src="productInfo.js"></script>
+    <script src="headerFooter.js"></script>
+
     <title>Animuk | Дэлхийн шилдэг анимуудыг танд хүргэнэ</title>
   </head>
 
   <body>
     <header-section></header-section>
+
     <cart-info style="display: none"></cart-info>
+
     <favorite-list style="display: none;"></favorite-list>
+
     <section class="contents">
       <article class="headerSection">
         <h2>Categories</h2>
-        <div class="cartContainer">
-          🛒<div class="cartTitle">Таны сагс:</div>
+        <div class="cartContainer">🛒
+          <div class="cartTitle">Таны сагс:</div>
           <div id="totalProduct"></div>
         </div>
 
-        <div class="favorite">
-          ❤️ <div class="cartTitle">Таалагдсан бараанууд: </div>
+        <div class="favorite">❤️ 
+          <div class="cartTitle">Таалагдсан бараанууд: </div>
           <div id="testCount" style="margin-left: 8px; font-size: 24px; margin-top: 4px;">0</div>
         </div>
       </article>
-      <!-- <p>Best sellers</p>    
-      <section id="bestSellerSection"></section> -->
+
       <p>Clothes</p>
       <section id="clothesSection"></section>
       <p>Manga & Books</p>
@@ -48,157 +53,26 @@
       <p>Figures</p>
       <section id="figuresSection"></section>
     </section>
+
     <footer-section></footer-section>
   </body>
 </html>
 
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-  }
-
-  :root {
-    --dark-blue: #00171f;
-    --white: #fff;
-
-    --background-color-dark: var(--dark-blue);
-    --text-color-dark: var(--white);
-    --background-color-light: rgb(102, 165, 188);
-    --text-color-light: #232020;
-  }
-
-  body {
-    background-color: var(--background-color-dark);
-    color: var(--text-color-dark);
-    font-family: "Inter", sans-serif;
-  }
-
-  .contents {
-    padding-top: 6.5rem;
-    padding-left: 4rem;
-    margin-bottom: 6.25rem;
-
-    & section {
-      display: flex;
-    }
-
-    & h3 {
-      margin-top: 2.5rem;
-      margin-left: 2.5rem;
-    }
-
-    & p {
-      font-weight: 550;
-      margin: 2.5rem 0 0.8rem 0;
-      font-size: large;
-    }
-
-    & i {
-      margin: 6.25rem;
-      color: var(--color);
-    }
-  }
-
-  .headerSection {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    & .cartContainer {
-      font-size: 25px;
-      cursor: pointer;
-      padding: 8px 16px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-
-      & #totalProduct {
-        margin-top: 5px;
-        margin-left: 5px;
-      }
-    }
-
-    & .cartContainer:hover {
-      background: rgb(101, 103, 125);
-    }
-  }
-
-  .cartTitle {
-    margin-left: 4px; 
-    margin-top: 4px;
-  }
-
-  @media (max-width: 1200px) {
-    .contents {
-      & section {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-      }
-
-      & h2 {
-        text-align: center;
-      }
-
-      & p {
-        text-align: center;
-      }
-    }
-  }
-
-  @media (max-width: 960px) {
-      .cartTitle {
-        display: none;
-      }
-  }
-
-  .favorite {
-    border-radius: 8px;
-    padding: 8px 16px;
-    font-size: 24px;
-    cursor: pointer;
-    display: flex;
-    text-align: center;
-  }
-
-  .favorite:hover {
-    background: rgb(101, 103, 125);
-  }
-
-  @media (prefers-color-scheme: light) {
-    body {
-      background-color: var(--background-color-light);
-      color: var(--text-color-light);
-    }
-  }
-</style>
-
-<script src="productInfo.js"></script>
-<script src="headerFooter.js"></script>
-
 <script>
-
-  if (
-    localStorage.getItem("productList") === null ||
-    localStorage.getItem("productList") === undefined
-  ) {
+  if ( localStorage.getItem("productList") === null || localStorage.getItem("productList") === undefined ) {
     console.log("local deer item bairluullaa");
     let array = [];
     localStorage.setItem("productList", JSON.stringify(array));
   } else {
-    console.log("local deer ugiin item baina");
+    console.log("local deer item baina");
   }
 
-  if (
-    localStorage.getItem("itemList") === null ||
-    localStorage.getItem("itemList") === undefined
-  ) {
+  if ( localStorage.getItem("itemList") === null || localStorage.getItem("itemList") === undefined ) {
     console.log("local deer item bairluullaa");
     let array = [];
     localStorage.setItem("itemList", JSON.stringify(array));
   } else {
-    console.log("local deer ugiin item baina");
+    console.log("local deer item baina");
   }
 
   document.querySelector(".cartContainer").addEventListener("click", () => {
@@ -217,9 +91,11 @@
 
   let tempList = JSON.parse(localStorage.getItem("productList"));
   let totalCount = 0;
+
   for (let item of tempList) {
     totalCount += item.count;
   }
+
   document.querySelector("#totalProduct").textContent = totalCount;
 
   const app2 = new App("clothesSection");
@@ -231,3 +107,115 @@
   const app5 = new App("figuresSection");
   app5.init("Figures");
 </script>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --dark-blue: #00171f;
+    --white: #fff;
+    --background-color-dark: var(--dark-blue);
+    --text-color-dark: var(--white);
+    --background-color-light: rgb(102, 165, 188);
+    --text-color-light: #232020;
+  }
+
+  body {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+    font-family: "Inter", sans-serif;
+  }
+
+  .contents {
+    padding-top: 6.5rem;
+    padding-left: 4rem;
+    margin-bottom: 6.25rem;
+    & section {
+      display: flex;
+    }
+    & h3 {
+      margin-top: 2.5rem;
+      margin-left: 2.5rem;
+    }
+    & p {
+      font-weight: 550;
+      margin: 2.5rem 0 0.8rem 0;
+      font-size: large;
+    }
+    & i {
+      margin: 6.25rem;
+      color: var(--color);
+    }
+  }
+
+  .favorite {
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    text-align: center;
+  }
+
+  .favorite:hover {
+    background: rgb(101, 103, 125);
+  }
+
+  .headerSection {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    & .cartContainer {
+      font-size: 25px;
+      cursor: pointer;
+      padding: 8px 16px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      & #totalProduct {
+        margin-top: 5px;
+        margin-left: 5px;
+      }
+    }
+    & .cartContainer:hover {
+      background: rgb(101, 103, 125);
+    }
+  }
+
+  .cartTitle {
+    margin-left: 4px; 
+    margin-top: 4px;
+  }
+
+  @media (max-width: 1200px) {
+    .contents {
+      & section {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+      }
+      & h2 {
+        text-align: center;
+      }
+      & p {
+        text-align: center;
+      }
+    }
+  }
+
+  @media (max-width: 960px) {
+      .cartTitle {
+        display: none;
+      }
+  }
+
+  @media (prefers-color-scheme: light) {
+    body {
+      background-color: var(--background-color-light);
+      color: var(--text-color-light);
+    }
+  }
+</style>

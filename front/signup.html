@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Anime" />
     <meta name="keyword" content="animuk.mn, animuk, Animuk.mn, Animuk" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- <script type="module" src="./components/header.js"></script>
-    <script type="module" src="./components/footer.js"></script> -->
-    <!-- <link rel="stylesheet" href="headerFooter.css" /> -->
+    
     <title>Animuk | Дэлхийн шилдэг анимуудыг танд хүргэнэ</title>
   </head>
   <body>
     <header-section></header-section>
     <main>
-        <section class="signUpForm">
-         <h3>Шинээр бүртгэл үүсгэх</h3>
+      <section class="signUpForm">
+        <h3>Шинээр бүртгэл үүсгэх</h3>
           <div class="formFieldsCombo">
             <article class="dualFields">
               <label for="input"><i class="fa-solid fa-user"></i>Овог</label><input id="lname" type="text" />
@@ -38,25 +37,18 @@
             </article>
             <article class="dualFields">
               <label for="input"><i class="fa-solid fa-lock"></i>Дахин давтана уу</label>
-              <input id="pass2" type="password"
-            />
+              <input id="pass2" type="password" />
             </article> 
           </div>
           <center><button style="background-color: #ffd977;" onclick="signUp()">Бүртгүүлэх</button></center>
           <center><button style="background-color: #db504a" onclick="back()">Буцах</button></center>
-        </section>
-
-
-      <img
-        src="https://www.yolo.mn/img/content_image/cover_image/040820231691143972_1458689631.png"
-        alt=""
-      />
-      </main>
-      <footer-section></footer-section>
-</body>
+      </section>
+      <img src="https://www.yolo.mn/img/content_image/cover_image/040820231691143972_1458689631.png" alt="" />
+    </main>
+    <footer-section></footer-section>
+  </body>
 </html>
 
-<!-- <script src="headerFooter.js"></script> -->
 <script>
   signUp = function() {
     const fname = document.getElementById("fname").value;
@@ -112,10 +104,10 @@
     margin: 0;
     padding: 0;
   }
-    :root {
+
+  :root {
     --dark-blue: #00171f;
     --white: #fff;
-
     --background-color-dark: var(--dark-blue);
     --text-color-dark: var(--white);
     --background-color-light: rgb(102, 165, 188);
@@ -132,9 +124,11 @@
     height: 85vh;
     font-family: "Inter", sans-serif;
   }
+
   main img {
     border-radius: 5px;
   }
+  
   .signUpForm {
     display: flex;
     flex-direction: column;
@@ -153,6 +147,7 @@
     justify-content: left;
     width: 50%;
   }
+
   .dualFields input{
     height: 2.5rem;
     margin: 0.625rem 0rem 0.625rem 0rem;
@@ -172,12 +167,14 @@
   form {
     margin-top: 1.25rem;
   }
+
   .signUpForm h3 {
     text-align: center;
     font-size: 1.75rem;
     font-weight: 400;
     padding-bottom: 1.5rem;
   }
+
   .signUpForm i{
     margin-right: 8px;
   }
@@ -194,6 +191,7 @@
     font-size: 1.25rem;
     cursor: pointer;
   }
+
   button:hover {
     box-shadow: 0 0 5px #fff;
   }
@@ -231,10 +229,12 @@
     img {
       display: none;
     }
+
     .signUpForm {
       margin: auto;
     }
   }
+
   @media(prefers-color-scheme: light){
       main {
         background-color: var(--background-color-light);

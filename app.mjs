@@ -1,15 +1,16 @@
 import express, { query } from "express";
-import path from "path";
 import pkg from 'pg';
-// import cookieParser from "cookie-parser";
+import path from "path";
+
+// swagger
+import swaggerUi from "swagger-ui-express";
+import swaggerJsondoc from "swagger-jsdoc";
+
 const { Client } = pkg;
 const __dirname = path.resolve(path.dirname(""));
 
 const app = express();
 const port = 3000;
-
-app.use(express.json());
-// app.use(cookieParser());
 
 const dbConfig = {
     user: 'postgres',
@@ -30,7 +31,95 @@ client.connect()
     console.error(err);
   });
 
+
 app.use("/front", express.static("front")); // front folderoos 
+app.use(express.json());
+
+const options = {
+  swaggerDefinition: {
+    openapi: "3.0.0", // present supported openapi version
+    info: {
+      title: "Animuk.mn APIs",
+      version: "1.0.0", 
+      description: "Дэлхийн шилдэг анимуудыг танд хүргэнэ.",
+      contact: {
+        name: "Admin", 
+        email: "animukmn@gmail.com",
+        url: "animuk.mn"
+      }
+    },
+    servers: [
+      {
+          url: "http://localhost:3000/"
+      }
+    ]
+  },
+  apis: ["./app.mjs"],
+  root: path.join(__dirname)
+};
+
+const specs = swaggerJsondoc(options);
+app.use("/docs", swaggerUi.serve);
+app.get("/docs", swaggerUi.setup(specs, {
+  explorer: true
+}));
+
+// Routes
+
+/**
+ * @swagger
+ * tags:
+ *   -
+ *     name: "Anime List"
+ *     description: Anime List related options
+ *   -
+ *     name: "Products"
+ *     description: Products info
+ *   -
+ *     name: "Nemelt neg"
+ *     description: nemelteer oruulj bolno, ustgasan ch bolno
+ */
+
+/**
+ *  @swagger
+ *   paths:
+ *       /animeList/{animeId}:
+ *           get:
+ *              tags:
+ *                  - Anime List
+ *              summary: Shows anime details by ID
+ *              parameters:
+ *                - in: path
+ *                  name: animeId
+ *                  schema:
+ *                    type: integer
+ *                  required: true
+ *                  description: Numeric ID of the anime
+ *              responses:
+ *                "200":
+ *                  description: Successful response with anime details
+ *                  content:
+ *                    application/json:
+ *                      schema:
+ *                        type: object
+ *                        properties:
+ *                          id:
+ *                            type: integer
+ *                          title:
+ *                            type: string
+ *                          # Add other properties based on your anime data structure
+ *                "404":
+ *                  description: Anime not found
+ *                  content:
+ *                    application/json:
+ *                      schema:
+ *                        type: object
+ *                        properties:
+ *                          message:
+ *                            type: string
+ *                            example: Anime not found
+ *                # Add more response codes and descriptions as needed
+ */
 
 app.get("/", (req, res) => {
   res.sendFile("./front/login.html", options);
@@ -38,7 +127,37 @@ app.get("/", (req, res) => {
 
 app.get("/signUp" , (req , res) => {
   res.sendFile("./front/signUp.html" , options); 
+});
+
+app.get("/test", async (req, res) => {
+  try {
+      const userInfo = await client.query('SELECT * FROM users');
+      res.status(200).json(userInfo.rows);
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: "Server error" });
+  }
+});
+
+app.get("/animeList" , async(req, res) => {
+try {
+  const animeInfo = await client.query('SELECT * FROM animelist');
+  res.status(200).json(animeInfo.rows);
+} catch (err) {
+  console.error(err);
+  res.status(500).json({ error: "Server error" });
+}
 })
+
+app.get("/productList" , async(req , res) => {
+try {
+  const productsInfo = await client.query('SELECT * FROM productList');
+  res.status(200).json(productsInfo.rows);
+} catch (err) {
+  console.error(err);
+  res.status(500).json({ error: "Server error" });
+}
+});
 
 app.post("/addComment",  async (req, res) => {
   try {
@@ -69,8 +188,6 @@ app.post("/addComment",  async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 });
-
-
 
 app.post("/register" , async(req , res) => {
   try {
@@ -105,44 +222,8 @@ app.post("/register" , async(req , res) => {
       console.error(err);
       res.status(500).json({ error: 'Алдаа гарлаа' });
   }
-})
-
-
-app.get("/test", async (req, res) => {
-    try {
-        const userInfo = await client.query('SELECT * FROM users');
-        res.status(200).json(userInfo.rows);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: "Server error" });
-    }
 });
-
-app.get("/animeList" , async(req, res) => {
-  try {
-    const animeInfo = await client.query('SELECT * FROM animelist');
-    res.status(200).json(animeInfo.rows);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Server error" });
-  }
-})
-
-app.get("/productList" , async(req , res) => {
-  try {
-    const productsInfo = await client.query('SELECT * FROM productList');
-    res.status(200).json(productsInfo.rows);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Server error" });
-  }
-})
-
 
 app.listen(port, () => {
   console.log("Server is listening on port: " + port);
 });
-
-const options = {
-  root: path.join(__dirname)
-};

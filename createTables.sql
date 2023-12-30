@@ -24,17 +24,17 @@ create table productList(
 
 INSERT INTO users (fname, lname, phone, email, password)
 VALUES ('John', 'Doe', '99110000', 'johndoe@gmail.com', 'neko1007'), 
-        ('Sarah', 'Doe', '88110000', 'sarahdoe@gmail.com', 'sara1007');
+       ('Sarah', 'Doe', '88110000', 'sarahdoe@gmail.com', 'sara1007');
 
 
 alter table animelist 
-	add comments varchar(255)[]
+add comments varchar(255)[];
 	
-select * from animelist
+select * from animelist;
 
 update animeList
-	set comments = comments || ARRAY['gl bros']
-	where id = 2;
+set comments = comments || ARRAY['gl bros']
+where id = 2;
 
 ALTER TABLE animelist
 DROP COLUMN comments;

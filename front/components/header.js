@@ -5,9 +5,14 @@ class HeaderSection extends HTMLElement {
   }
 
   connectedCallback() {
-    const button = document.getElementById("logoutButton");
-    button.addEventListener("click", () => {
+    const button1 = document.getElementById("logoutButton");
+    button1.addEventListener("click", () => {
       document.getElementById("logoutWindow").style.display = "flex";
+    });
+
+    const button2 = document.getElementById("addAnimeButton");
+    button2.addEventListener("click", () => {
+      document.getElementById("addAnimeWindow").style.display = "flex";
     });
   }
 
@@ -29,10 +34,12 @@ class HeaderSection extends HTMLElement {
             </ul>
           </nav>
           <nav class="btns">          
+            <button id="addAnimeButton"><i class="fa-solid fa-user" ></i>Add</button>
             <button id="logoutButton"><i class="fa-solid fa-user" ></i>Log out</button>
           </nav>
         </div>
       </header>
+
       <nav class="sidebar" id="sidebarId">
         <ul>
           <i class="fa-solid fa-xmark sidebarActivator" id="remover" onclick="hideSideBarView()"></i>
@@ -52,6 +59,64 @@ class HeaderSection extends HTMLElement {
             </div>
         </article>
       </section>
+
+      <section id="addAnimeWindow">
+        <article id="details">
+          <center><p>Шинэ аниме нэмэх</p></center>
+          <div class="dataContainer">
+              <article>
+                <label>Name</label>
+                <input id="addAnimeName" type="text">
+              </article>
+              <article>
+                <label>Released Date</label>
+                <input id="addAnimeReleasedDate" type="number">
+              </article>
+              <article>
+                <label >Total episode</label>
+                <input id="addedAnimeTotalEpisode" type="number">
+              </article>
+              <article>
+                <label>Total duration</label>
+                <input id="addedAnimeTotalDuration" type="number">
+              </article>
+              <article>
+                <label>Song type</label>
+                <input id="addedAnimeSongType" type="text">
+              </article>
+              <article>
+                <label>Mal rank</label>
+                <input id="addedAnimeMalRank" type="number">
+              </article>
+              <article>
+                <label>image URL</label>
+                <input id="addedAnimeImgURL" type="text">
+              </article>
+              <article>
+                <label>Category</label>
+                <select id="addedAnimeCategory" name="categories" id="categories">
+                  <option value="Drama">Drama</option>
+                  <option value="Sci-Fi">Sci-Fi</option>
+                  <option value="Action">Action</option>
+                  <option value="Superpower">Superpower</option>
+                  <option value="School">School</option>
+                  <option value="Space">Space</option>
+                  <option value="Adventure">Adventure</option>
+                  <option value="Fantasy">Fantasy</option>
+                  <option value="Comedy">Comedy</option>
+                  <option value="Shonen">Audi</option>
+                  <option value="Fight">Fight</option>
+                </select>
+              </article>
+          </div>
+          <div class="windowButtonContainer">
+            <button onclick="addAnime()">Add</button>
+            <button onclick="closeAddAnimeWindow()">Cancel</button>
+          </div>
+        </article>
+      </section>
+
+
     `;
   }
 }

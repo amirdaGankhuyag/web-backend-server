@@ -286,6 +286,67 @@ i {
   font-size: 15px;
 }
 
+#addAnimeWindow {
+  display: none; 
+  height: 100%; 
+  width: 100%; 
+  align-items: center; 
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed; 
+  z-index: 8;
+  & #details {
+    height: 480px;
+    width: 500px;
+    background-color: #00171f;
+    padding: 24px;
+    & p {
+      color: white;
+      font-size: 24px;
+    }
+    & .dataContainer {
+      display: grid;
+      grid-template-columns: auto auto;
+      color: white;
+      & article {
+        display: flex;
+        flex-direction: column;
+        margin: 12px;
+        & input  {
+          height: 36px;
+          border-radius: 8px;
+          padding-left: 8px;
+          margin-top: 4px;
+          border: none;
+          font-size: 16px;
+        }
+        & select {
+          height: 36px;
+          border-radius: 8px;
+          padding-left: 8px;
+          margin-top: 4px;
+        }
+      }
+    }
+    & .windowButtonContainer {
+      margin-top: 32px;
+      display: flex;
+      justify-content: space-around;
+      & button {
+        height: 50px;
+        width: 100px;
+        cursor: pointer;
+        background-color: #DB504A;
+        color: #040d25;
+        font-size: 16px;
+        font-weight: 550;
+        border-radius: 16px;
+        border: none;
+      }
+    }
+  }
+}
+
 @media (max-width: 600px) {
   footer {
     display: flex;

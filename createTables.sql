@@ -22,6 +22,20 @@ create table productList(
     price INTEGER
 );
 
+create table animeList2(
+    id SERIAL PRIMARY KEY,
+    name varchar(255),
+    released_date INTEGER,
+    total_episode INTEGER,
+    total_duration INTEGER,
+    category varchar(255)[],
+    song_type varchar(50),
+    mal_rank INTEGER,
+    anime_img varchar(255),
+    views integer,
+    comments varchar(255)[]
+);
+
 INSERT INTO users (fname, lname, phone, email, password)
 VALUES ('John', 'Doe', '99110000', 'johndoe@gmail.com', 'neko1007'), 
        ('Sarah', 'Doe', '88110000', 'sarahdoe@gmail.com', 'sara1007');

@@ -65,10 +65,10 @@
     const email = document.getElementById("email").value;
     const pass1 = document.getElementById("pass1").value;
     const pass2 = document.getElementById("pass2").value;
-    if(fname == "" && lname == "" && phone == "" && email == ""  && pass1 == "" &&  pass2 == "" ) {
+    if(fname == "" || lname == "" || phone == "" || email == ""  || pass1 == "" ||  pass2 == "" ) {
       window.alert("Талбаруудыг бүтэн бөглөнө үү");
-    } 
-    fetch("http://localhost:3000/register" , {
+    } else {
+      fetch("http://localhost:3000/register" , {
       method: 'POST',
       cachde: 'no-cache',
       headers: {
@@ -96,6 +96,7 @@
       window.alert("amjilttai");
       window.location.href="http://localhost:3000/"
     })
+    }
   }
   back = function (){
     window.history.back();

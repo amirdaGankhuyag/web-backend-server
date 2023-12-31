@@ -1,5 +1,5 @@
-import data from "./anime-list.json" assert { type: "json" };
-import products from "./products.json" assert {type: "json"};
+import data from "./jsons/anime-list.json" assert { type: "json" }
+import products from "./jsons/products.json" assert {type: "json"};
 import pkg from "pg";
 const { Client } = pkg;
 
@@ -21,10 +21,11 @@ async function insertData() {
       console.log(anime);
       const query = {
         text: `
-          INSERT INTO animelist (
+          INSERT INTO public.animelist2 (
             name, released_date, total_episode, total_duration, category,
-            song_type, mal_rank, anime_img, views, id
-          ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+            song_type, mal_rank, anime_img, views
+          ) 
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);
         `,
         values: [
           anime.name,
@@ -36,9 +37,9 @@ async function insertData() {
           anime.malRank,
           anime.animeImg,
           anime.views,
-          anime.id,
         ],
       };
+      
       
       try {
         await client.query(query);
@@ -92,5 +93,5 @@ async function insertProduct() {
 }
 
 
-// insertData();
+insertData();
 // insertProduct();

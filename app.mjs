@@ -467,6 +467,44 @@ app.post("/register", async (req, res) => {
   }
 });
 
+app.post("/addAnime", async (req, res) => {
+  try {
+    const id = req.body.id;
+    const name = req.body.name;
+    const releasedDate = req.body.releasedDate;
+    const totalEpisode = req.body.totalEpisode;
+    const totalDuration = req.body.totalDuration;
+    const songType = req.body.songType;
+    const malRank = req.body.malRank;
+    const category = req.body.category;
+    const animeImg = req.body.animeImg;
+
+    const query = {
+      text: `
+        INSERT INTO animelist( name, released_date, total_episode, total_duration, category, song_type, mal_rank, anime_img)
+        VALUES($1, $2, $3, $4, $5, $6, $7, $8);
+      `,
+      values: [
+        name,
+        releasedDate,
+        totalEpisode,
+        totalDuration,
+        [category], 
+        songType,
+        malRank,
+        animeImg
+      ],
+    };
+
+    await client.query(query);
+    res.status(200).json({ message: "Amjilttai nemlee successful" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Алдаа гарлаа' });
+  }
+});
+
+
 
 app.listen(port, () => {
   console.log("Server is listening on port: " + port);

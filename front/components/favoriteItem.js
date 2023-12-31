@@ -19,9 +19,7 @@ class FavoriteItem extends HTMLElement {
             })
             document.dispatchEvent(event);
         })
-    }
-
-    
+    }  
 
     #Render() {
         this.myRoot.innerHTML = `

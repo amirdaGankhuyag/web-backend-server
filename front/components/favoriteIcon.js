@@ -16,7 +16,7 @@ class FavoriteIcon extends HTMLElement {
     connectedCallback() {    
         this.myRoot.querySelector("i").addEventListener("click" , () => {
             this.style.display = "none";
-        }) 
+        });
         document.addEventListener("favorite" , (event) => {
             let item = new testObject(event.detail);
             let hasThisItem = false;
@@ -31,10 +31,10 @@ class FavoriteIcon extends HTMLElement {
             }
             localStorage.setItem("itemList" , JSON.stringify(this.itemList));
             this.#Render();
-        })
+        });
         document.addEventListener("removeFavorite" , (event) => {
             this.deleteItem(event.detail.name);
-        })
+        });
     }
 
     renderCartProduct = function() {
@@ -65,9 +65,8 @@ class FavoriteIcon extends HTMLElement {
                     <h2>Favorite</h2>
                     <i style="color: black;" id="closer" class="fa-solid fa-xmark fa-sm"></i>
                 </article>
-                <section id="productContainer">
-
-                </section>
+                
+                <section id="productContainer"></section>
 
             </section>
         </section>
@@ -137,12 +136,12 @@ class FavoriteIcon extends HTMLElement {
                 }
             }
         </style>
-    `;
-    this.myRoot.querySelector("i").addEventListener("click" , () => {
-        this.style.display = "none";
-    }) 
-    document.getElementById("testCount").innerText = this.itemList.length;
-    this.renderCartProduct();
+        `;
+        this.myRoot.querySelector("i").addEventListener("click" , () => {
+            this.style.display = "none";
+        });
+        document.getElementById("testCount").innerText = this.itemList.length;
+        this.renderCartProduct();
     }
 }
 

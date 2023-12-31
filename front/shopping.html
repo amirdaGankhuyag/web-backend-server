@@ -3,21 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Anime" />
+    <meta name="description" content="Дэлхийн шилдэг анимуудыг танд хүргэнэ." />
     <meta name="keywords" content="animuk.mn, animuk, Animuk.mn, Animuk" />
 
+    <!-- header and footer's style -->
     <link rel="stylesheet" href="headerFooter.css" />
-    <!-- for icons -->
+    <!-- icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
     
-    <script type="module" src="./components/header.js"></script>   
+    <!-- header-section component -->
+    <script type="module" src="./components/header.js"></script>    
+    <!-- footer-section component -->
     <script type="module" src="./components/footer.js"></script>
+    <!-- shopping-card component -->
     <script type="module" src="./components/productCard.js"></script>
+    <!-- sagslah background component -->
     <script type="module" src="./components/CartInfo.js"></script> 
+    <!-- sagsand nemegdeh 1 baraa -->
     <script type="module" src="./components/AddedProduct.js"></script>
+    <!-- taalagdsan baraanuud -->
     <script type="module" src="./components/favoriteIcon.js"></script>
+    <!-- taalagdsan 1 baraa -->
     <script type="module" src="./components/favoriteItem.js"></script>
+    <!-- product details -->
     <script src="productInfo.js"></script>
+
     <script src="headerFooter.js"></script>
 
     <title>Animuk | Дэлхийн шилдэг анимуудыг танд хүргэнэ</title>
@@ -57,56 +67,6 @@
     <footer-section></footer-section>
   </body>
 </html>
-
-<script>
-  if ( localStorage.getItem("productList") === null || localStorage.getItem("productList") === undefined ) {
-    console.log("local deer item bairluullaa");
-    let array = [];
-    localStorage.setItem("productList", JSON.stringify(array));
-  } else {
-    console.log("local deer item baina");
-  }
-
-  if ( localStorage.getItem("itemList") === null || localStorage.getItem("itemList") === undefined ) {
-    console.log("local deer item bairluullaa");
-    let array = [];
-    localStorage.setItem("itemList", JSON.stringify(array));
-  } else {
-    console.log("local deer item baina");
-  }
-
-  document.querySelector(".cartContainer").addEventListener("click", () => {
-    const cart = document.querySelector("cart-info");
-    cart.style.display = "block";
-  });
-
-  document.querySelector(".favorite").addEventListener("click", () => {
-    const favorite = document.querySelector("favorite-list");
-    favorite.style.display = "block";
-  });
-
-  document.querySelector("#totalProduct").textContent = JSON.parse(
-    localStorage.getItem("productList")
-  ).length;
-
-  let tempList = JSON.parse(localStorage.getItem("productList"));
-  let totalCount = 0;
-
-  for (let item of tempList) {
-    totalCount += item.count;
-  }
-
-  document.querySelector("#totalProduct").textContent = totalCount;
-
-  const app2 = new App("clothesSection");
-  app2.init("Clothes");
-  const app3 = new App("mangaSection");
-  app3.init("Manga");
-  const app4 = new App("accessoriesSection");
-  app4.init("Accessories");
-  const app5 = new App("figuresSection");
-  app5.init("Figures");
-</script>
 
 <style>
   * {
@@ -219,3 +179,53 @@
     }
   }
 </style>
+
+<script>
+  if ( localStorage.getItem("productList") === null || localStorage.getItem("productList") === undefined ) {
+    console.log("local deer item bairluullaa");
+    let array = [];
+    localStorage.setItem("productList", JSON.stringify(array));
+  } else {
+    console.log("local deer item baina");
+  }
+
+  if ( localStorage.getItem("itemList") === null || localStorage.getItem("itemList") === undefined ) {
+    console.log("local deer item bairluullaa");
+    let array = [];
+    localStorage.setItem("itemList", JSON.stringify(array));
+  } else {
+    console.log("local deer item baina");
+  }
+
+  document.querySelector(".cartContainer").addEventListener("click", () => {
+    const cart = document.querySelector("cart-info");
+    cart.style.display = "block";
+  });
+
+  document.querySelector(".favorite").addEventListener("click", () => {
+    const favorite = document.querySelector("favorite-list");
+    favorite.style.display = "block";
+  });
+
+  document.querySelector("#totalProduct").textContent = JSON.parse(
+    localStorage.getItem("productList")
+  ).length;
+
+  let tempList = JSON.parse(localStorage.getItem("productList"));
+  let totalCount = 0;
+
+  for (let item of tempList) {
+    totalCount += item.count;
+  }
+
+  document.querySelector("#totalProduct").textContent = totalCount;
+
+  const app2 = new App("clothesSection");
+  app2.init("Clothes");
+  const app3 = new App("mangaSection");
+  app3.init("Manga");
+  const app4 = new App("accessoriesSection");
+  app4.init("Accessories");
+  const app5 = new App("figuresSection");
+  app5.init("Figures");
+</script>

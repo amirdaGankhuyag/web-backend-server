@@ -9,8 +9,6 @@ CREATE TABLE users (
     password VARCHAR(255)
 );
 
-
-
 create table productList(
     id INTEGER PRIMARY key,
     name VARCHAR(255),
@@ -25,7 +23,6 @@ create table productList(
 INSERT INTO users (fname, lname, phone, email, password)
 VALUES ('John', 'Doe', '99110000', 'johndoe@gmail.com', 'neko1007'), 
        ('Sarah', 'Doe', '88110000', 'sarahdoe@gmail.com', 'sara1007');
-
 
 alter table animelist 
 add comments varchar(255)[];

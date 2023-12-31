@@ -3,15 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Anime" />
+    <meta name="description" content="Дэлхийн шилдэг анимуудыг танд хүргэнэ." />
     <meta name="keyword" content="animuk.mn, animuk, Animuk.mn, Animuk" />
 
+    <!-- for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <title>Animuk | Дэлхийн шилдэг анимуудыг танд хүргэнэ</title>
   </head>
   <body>
     <header-section></header-section>
+
     <main>
       <section class="signUpForm">
         <h3>Шинээр бүртгэл үүсгэх</h3>
@@ -23,6 +25,7 @@
               <label for="input"><i class="fa-solid fa-user"></i>Нэр</label><input id="fname" type="text" />
             </article class="dualFields">
           </div>
+
           <div class="formFieldsCombo">
             <article class="dualFields">
               <label for="input"><i class="fa-solid fa-phone"></i>Утасны дугаар</label><input id="phone" type="text" />
@@ -31,6 +34,7 @@
               <label for="input"><i class="fa-solid fa-envelope"></i>Мейл хаяг</label><input id="email" type="text" />
             </article>
           </div>
+
           <div class="formFieldsCombo">
             <article class="dualFields">
               <label for="input"><i class="fa-solid fa-lock"></i>Нууц үг</label><input id="pass1" type="password" />
@@ -40,64 +44,17 @@
               <input id="pass2" type="password" />
             </article> 
           </div>
+
           <center><button style="background-color: #ffd977;" onclick="signUp()">Бүртгүүлэх</button></center>
           <center><button style="background-color: #db504a" onclick="back()">Буцах</button></center>
+
       </section>
       <img src="https://www.yolo.mn/img/content_image/cover_image/040820231691143972_1458689631.png" alt="" />
     </main>
+
     <footer-section></footer-section>
   </body>
 </html>
-
-<script>
-  signUp = function() {
-    const fname = document.getElementById("fname").value;
-    const lname = document.getElementById("lname").value;
-    const phone = document.getElementById("phone").value;
-    const email = document.getElementById("email").value;
-    const pass1 = document.getElementById("pass1").value;
-    const pass2 = document.getElementById("pass2").value;
-    if(fname == "" && lname == "" && phone == "" && email == ""  && pass1 == "" &&  pass2 == "" ) {
-      window.alert("Талбаруудыг бүтэн бөглөнө үү");
-    } 
-    fetch("http://localhost:3000/register" , {
-      method: 'POST',
-      cachde: 'no-cache',
-      headers: {
-        "Content-Type" : 'application/json; charset=UTF-8'
-      },
-      body: JSON.stringify(
-        {
-          fname: fname,
-          lname: lname,
-          phone: phone,
-          email: email,
-          password1: pass1,
-          password2: pass2
-        }
-      )
-    }).then(result => {
-      if(result.status === 400) {
-        window.alert("Нууц үгээ зөв давтана уу.");
-        return;
-      }
-      if(result.status === 401) {
-        window.alert("Мэйл хаяг эсвэл утасны дугаар бүртгэлтэй байна.");
-        return;
-      }
-      window.alert("amjilttai");
-      window.location.href="http://localhost:3000/"
-    })
-  }
-  back = function (){
-    window.history.back();
-  }
-  document.addEventListener("keydown", function(event) {
-    if(event.key === "Enter") {
-      signUp();
-    } 
-  });
-</script>
 
 <style scoped>
   * {
@@ -242,3 +199,57 @@
       }
   }
 </style>
+
+<script>
+  signUp = function() {
+    const fname = document.getElementById("fname").value;
+    const lname = document.getElementById("lname").value;
+    const phone = document.getElementById("phone").value;
+    const email = document.getElementById("email").value;
+    const pass1 = document.getElementById("pass1").value;
+    const pass2 = document.getElementById("pass2").value;
+
+    if(fname == "" && lname == "" && phone == "" && email == ""  && pass1 == "" &&  pass2 == "" ) {
+      window.alert("Талбаруудыг бүтэн бөглөнө үү!");
+    } 
+
+    fetch("http://localhost:3000/register" , {
+      method: 'POST',
+      cachde: 'no-cache',
+      headers: {
+        "Content-Type" : 'application/json; charset=UTF-8'
+      },
+      body: JSON.stringify(
+        {
+          fname: fname,
+          lname: lname,
+          phone: phone,
+          email: email,
+          password1: pass1,
+          password2: pass2
+        }
+      )
+    }).then(result => {
+      if(result.status === 400) {
+        window.alert("Нууц үгээ зөв давтана уу!");
+        return;
+      }
+      if(result.status === 401) {
+        window.alert("Мэйл хаяг эсвэл утасны дугаар бүртгэлтэй байна!");
+        return;
+      }
+      window.alert("Амжилттай бүртгэлээ. Нэвтэрч орно уу.");
+      window.location.href="http://localhost:3000/"
+    })
+  }
+
+  back = function (){
+    window.history.back();
+  }
+
+  document.addEventListener("keydown", function(event) {
+    if(event.key === "Enter") {
+      signUp();
+    } 
+  });
+</script>

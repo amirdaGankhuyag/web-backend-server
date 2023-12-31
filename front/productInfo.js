@@ -43,7 +43,6 @@ function clickedButton() {
     console.log("clicked");
 }
 
-
 moveToItemDetails = function(name) {
     const nowUrl = window.location.href;
     let newUrl = nowUrl.replace("shopping.html" , "itemDetails.html");

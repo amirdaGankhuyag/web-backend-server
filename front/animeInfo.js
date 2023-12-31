@@ -47,8 +47,6 @@ changeCarouselImageLeft = function() {
   }
 }
 
-
-
 class Anime {
   constructor(animeListItem) {
     this.name = animeListItem.name;
@@ -117,10 +115,6 @@ class App {
       }
     })
   }
-
-  // testInit = function() {
-  //   fetch(this.apiUrl).then(response => response.json()).then(data => console.log(data));
-  // }
 
   sortAnimeType = function(list ,sortType) {
     switch(sortType) {

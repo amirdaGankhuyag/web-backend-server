@@ -1,7 +1,6 @@
 // main
 const  apiUrl ="http://localhost:3000/animeList"
 
-
 class Anime {
   constructor(animeListItem) {
     this.name = animeListItem.name;
@@ -47,8 +46,8 @@ class Anime {
   };
 }
 
-
 let listCatogeries =  document.getElementById("categoryList").getElementsByTagName('li');
+
 for(let list of listCatogeries) {
   list.addEventListener("click" , (event) => {
     let categoryType = event.target.textContent
@@ -65,8 +64,7 @@ document.getElementById("animeSelection").addEventListener("change" , (event) =>
   let newUrl = nowUrl.origin; 
   newUrl += `${nowUrl.pathname}?category=${categoryType}`;
   window.location.href = newUrl;
-})
-
+});
 
 document.addEventListener("DOMContentLoaded" , async() => {
     let response = await fetch(apiUrl);
@@ -87,7 +85,7 @@ document.addEventListener("DOMContentLoaded" , async() => {
         target.insertAdjacentHTML("beforeend" , renderedAnime.render());
       })
     }
-})
+});
 
 // enuuger anime iin delgerengu page iihe dataga url aar damjulad avn deer render dree onclick der ni zaagd ugcin
 moveToAnimeDetailPage = function(id) {

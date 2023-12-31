@@ -1,6 +1,7 @@
 import data from "./anime-list.json" assert { type: "json" };
 import products from "./products.json" assert {type: "json"};
 import pkg from "pg";
+
 const { Client } = pkg;
 
 const dbConfig = {
@@ -90,7 +91,6 @@ async function insertProduct() {
     await client.end();
   }
 }
-
 
 // insertData();
 // insertProduct();

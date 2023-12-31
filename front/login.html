@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Anime" />
+    <meta name="description" content="Дэлхийн шилдэг анимуудыг танд хүргэнэ." />
     <meta name="keyword" content="animuk.mn, animuk, Animuk.mn, Animuk" />
 
+    <!-- icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -54,50 +55,6 @@
     </main>
   </body>
 </html>
-
-<script>
-  async function test() {
-    fetch("http://localhost:3000/test")
-      .then((response) => response.json())
-      .then((data) => {
-        const phone = document.getElementById("phone").value;
-        const password = document.getElementById("password").value;
-        const users = data;
-        let count = 0;
-        for (let user of users) {
-          if (user.phone == phone && user.password == password) {
-            if (
-              localStorage.getItem("userToken") === null ||
-              localStorage.getItem("userToken") === undefined
-            ) {
-              console.log("local deer item bairluullaa");
-              localStorage.setItem("userToken", phone);
-            } else {
-              console.log("local deer ugiin item baina");
-              localStorage.setItem("userToken", phone);
-            }
-            console.log(localStorage.getItem("userToken"));
-            window.location.href = "/front/index.html";
-            return;
-          } else {
-            count++;
-          }
-        }
-        if (count === users.length) {
-          window.alert("Дахин оролдоно уу");
-        }
-      });
-  }
-  signUp = function () {
-    window.location.href = "http://localhost:3000/signup";
-  };
-
-  document.addEventListener("keydown", function(event) {
-    if(event.key === "Enter") {
-      test();
-    } 
-  });
-</script>
 
 <style scoped>
   body {
@@ -204,3 +161,47 @@
     }
   }
 </style>
+
+<script>
+  async function test() {
+    fetch("http://localhost:3000/test")
+      .then((response) => response.json())
+      .then((data) => {
+        const phone = document.getElementById("phone").value;
+        const password = document.getElementById("password").value;
+        const users = data;
+        let count = 0;
+        for (let user of users) {
+          if (user.phone == phone && user.password == password) {
+            if (
+              localStorage.getItem("userToken") === null ||
+              localStorage.getItem("userToken") === undefined
+            ) {
+              console.log("local deer item bairluullaa");
+              localStorage.setItem("userToken", phone);
+            } else {
+              console.log("local deer item baina");
+              localStorage.setItem("userToken", phone);
+            }
+            console.log(localStorage.getItem("userToken"));
+            window.location.href = "/front/index.html";
+            return;
+          } else {
+            count++;
+          }
+        }
+        if (count === users.length) {
+          window.alert("Дахин оролдоно уу");
+        }
+      });
+  }
+  signUp = function () {
+    window.location.href = "http://localhost:3000/signup";
+  };
+
+  document.addEventListener("keydown", function(event) {
+    if(event.key === "Enter") {
+      test();
+    } 
+  });
+</script>

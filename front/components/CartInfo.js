@@ -10,7 +10,7 @@ class CartInfo extends HTMLElement {
     connectedCallback() {    
         this.myRoot.querySelector("i").addEventListener("click" , () => {
             this.style.display = "none";
-        }) 
+        });
         this.myRoot.getElementById("totalItems").innerText = this.getTotalCount();
         this.myRoot.getElementById("totalPrice").innerText = this.getTotalPrice().toLocaleString();
     }
@@ -80,13 +80,12 @@ class CartInfo extends HTMLElement {
                     <h2>Таны сагс</h2>
                     <i style="color: black;" id="closer" class="fa-solid fa-xmark fa-sm"></i>
                 </article>
-                    <article class="cartTotalData">  
-                        <div style="display: flex; color: gray;">Барааны тоо: <p class="innerData" id="totalItems">${this.productList.length}</p></div>
-                        <div style="display: flex; color: gray;">Нийт үнэ: <p style="color: red" class="innerData" id="totalPrice"> ${this.getTotalPrice.toLocaleString()} </p>₮ </div> 
-                    </article>
-                <section id="productContainer">
+                <article class="cartTotalData">  
+                    <div style="display: flex; color: gray;">Барааны тоо: <p class="innerData" id="totalItems">${this.productList.length}</p></div>
+                    <div style="display: flex; color: gray;">Нийт үнэ: <p style="color: red" class="innerData" id="totalPrice"> ${this.getTotalPrice.toLocaleString()} </p>₮ </div> 
+                </article>
 
-                </section>
+                <section id="productContainer"></section>
             </section>
         </section>
 
@@ -174,10 +173,6 @@ class CartInfo extends HTMLElement {
     }) 
     this.renderCartProduct();
     }
-
-    // closeCartSection = function() {
-    //     console.log(document.getElementsByClassName("templateSection"))
-    // }
 }   
 
 window.customElements.define("cart-info", CartInfo);

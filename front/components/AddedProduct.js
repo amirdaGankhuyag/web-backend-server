@@ -32,7 +32,9 @@ class AddedProduct extends HTMLElement {
                 <div class="dataContainer">
                     <p style="color: gray;">${this.productName}</p>
                     <p style="font-weight: bold;">${parseInt(this.price).toLocaleString()}₮</p>
-                    <p style="color: gray;"> Тоо ширхэг: <em style="font-weight: bold; color: black;">${this.count}</em></p>
+                    <p style="color: gray;"> Тоо ширхэг: 
+                        <em style="font-weight: bold; color: black;">${this.count}</em>
+                    </p>
                     <hr>
                     <p style="color: gray;">Total: <em style="color: black; font-weight: bold; font-size: 20px; color: red;">${parseInt(this.price * this.count).toLocaleString()}</em> ₮</p>
                     <button class="deleteProduct">Бараа хасах</button>

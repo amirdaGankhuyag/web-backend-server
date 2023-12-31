@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <li><i class="fa-regular fa-star" style="color: #fbff00"></i></li>
                     <li><i class="fa-regular fa-star" style="color: #fbff00"></i></li>
                   </ul>
-                  <button class="addComment" onclick = "moveToShoppingPage()"" ><i class="fa-solid fa-cart-shopping"></i><p>Худалдан авах</p> </button>
+                  <button class="addComment" onclick = "moveToShoppingPage()"" ><i class="fa-solid fa-cart-shopping"></i><p>Дэлгүүр хэсэх</p> </button>
               </article>
            `;
             const animeComments = animeDetails.comments;

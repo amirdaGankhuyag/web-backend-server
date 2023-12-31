@@ -50,7 +50,7 @@ const options = {
     },
     servers: [
       {
-          url: "http://localhost:3000/"
+        url: "http://localhost:3000/"
       }
     ]
   },
@@ -223,6 +223,16 @@ app.get("/animeList", async (req, res) => {
  *                   example: Server error
  */
 
+app.get("/productList", async (req, res) => {
+  try {
+    const productsInfo = await client.query('SELECT * FROM productList');
+    res.status(200).json(productsInfo.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
 /**
  * @swagger
  * /productList:
@@ -261,15 +271,6 @@ app.get("/animeList", async (req, res) => {
  *                   type: string
  *                   example: Server error
  */
-app.get("/productList", async (req, res) => {
-  try {
-    const productsInfo = await client.query('SELECT * FROM productList');
-    res.status(200).json(productsInfo.rows);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Server error" });
-  }
-});
 
 //----------------------------------------------------POST
 
@@ -467,6 +468,73 @@ app.post("/register", async (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /addAnime:
+ *   post:
+ *     tags:
+ *       - Anime List
+ *     summary: Add a new anime to the list.
+ *     description: Adds a new anime to the list with the provided information.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               id:
+ *                 type: integer
+ *                 description: The ID of the anime.
+ *               name:
+ *                 type: string
+ *                 description: The name of the anime.
+ *               releasedDate:
+ *                 type: string
+ *                 format: date
+ *                 description: The release date of the anime.
+ *               totalEpisode:
+ *                 type: integer
+ *                 description: The total number of episodes.
+ *               totalDuration:
+ *                 type: string
+ *                 description: The total duration of the anime.
+ *               songType:
+ *                 type: string
+ *                 description: The type of songs in the anime.
+ *               malRank:
+ *                 type: integer
+ *                 description: The MAL (MyAnimeList) rank of the anime.
+ *               category:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *                 description: The categories or genres of the anime.
+ *               animeImg:
+ *                 type: string
+ *                 description: URL or path to the anime image.
+ *     responses:
+ *       200:
+ *         description: Anime added successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Amjilttai nemlee successful
+ *       500:
+ *         description: Server error.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Алдаа гарлаа
+ */
 app.post("/addAnime", async (req, res) => {
   try {
     const id = req.body.id;
@@ -481,19 +549,10 @@ app.post("/addAnime", async (req, res) => {
 
     const query = {
       text: `
-        INSERT INTO animelist( name, released_date, total_episode, total_duration, category, song_type, mal_rank, anime_img)
+        INSERT INTO animelist(name, released_date, total_episode, total_duration, category, song_type, mal_rank, anime_img)
         VALUES($1, $2, $3, $4, $5, $6, $7, $8);
       `,
-      values: [
-        name,
-        releasedDate,
-        totalEpisode,
-        totalDuration,
-        [category], 
-        songType,
-        malRank,
-        animeImg
-      ],
+      values: [name, releasedDate, totalEpisode, totalDuration, [category], songType, malRank, animeImg],
     };
 
     await client.query(query);
@@ -503,8 +562,6 @@ app.post("/addAnime", async (req, res) => {
     res.status(500).json({ error: 'Алдаа гарлаа' });
   }
 });
-
-
 
 app.listen(port, () => {
   console.log("Server is listening on port: " + port);

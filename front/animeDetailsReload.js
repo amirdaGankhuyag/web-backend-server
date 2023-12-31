@@ -1,12 +1,3 @@
-// uunuu
-// const apiUrl = "https://api.jsonbin.io/v3/b/654f4bb354105e766fce7c86"
-
-// amirda
-// const apiUrl = "https://api.jsonbin.io/v3/b/655d6c2b0574da7622ca003f"
-
-// haliunaa
-// const apiUrl = "https://api.jsonbin.io/v3/b/655d82ba54105e766fd367c6"
-
 // main
 const apiUrl = "http://localhost:3000/animeList";
 
@@ -65,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <li><i class="fa-regular fa-star" style="color: #fbff00"></i></li>
                     <li><i class="fa-regular fa-star" style="color: #fbff00"></i></li>
                   </ul>
-                  <button class="addComment" onclick = "moveToShoppingPage()"" ><i class="fa-solid fa-cart-shopping"></i><p>Худалдан авах</p> </button>
+                  <button class="addComment" onclick = "moveToShoppingPage()"" ><i class="fa-solid fa-cart-shopping"></i><p>Дэлгүүр хэсэх</p> </button>
               </article>
            `;
             const animeComments = animeDetails.comments;

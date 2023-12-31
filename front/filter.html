@@ -3,8 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Anime" />
+    <meta name="description" content="Дэлхийн шилдэг анимуудыг танд хүргэнэ." />
     <meta name="keywords" content="animuk.mn, animuk, Animuk.mn, Animuk" />
+
+    <link rel="stylesheet" href="headerFooter.css" />
+    <!-- icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -12,63 +15,64 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
     <script type="module" src="./components/header.js"></script>
     <script type="module" src="./components/footer.js"></script>
-    <link rel="stylesheet" href="headerFooter.css" />
+    <script src="headerFooter.js"></script>
+
     <title>Animuk | Дэлхийн шилдэг анимуудыг танд хүргэнэ</title>
   </head>
   <body>
     <header-section></header-section>
+
     <main style="display: flex;">  
-    <section class="main-nav">
-      <ul id="categoryList">
-        <li>Drama</li>
-        <li>Sci-Fi</li>
-        <li>Romance</li>
-        <li>Action</li>
-        <li>Superpower</li>
-        <li>School</li>
-        <li>Space</li>
-        <li>Adventure</li>
-        <li>Fantasy</li>
-        <li>Comedy</li>
-        <li>Shonen</li>
-        <li>Fight</li>
-      </ul>
-    </section>
-    <section class="containerMainSection" style="width: 85%;"> 
-      <article class="animeSelectionContainer">
-        <p>Шүүлтүүр</p>
-        <select name="animes" id="animeSelection">
-          <option value="Drama">Drama</option>
-          <option value="Sci-Fi">Sci-Fi</option>
-          <option value="Romance">Romance</option>
-          <option value="Action">Action</option>
-          <option value="Superpower">Superpower</option>
-          <option value="School">School</option>
-          <option value="Adventure">Adventure</option>
-          <option value="Fantasy">Fantasy</option>
-          <option value="Comedy">Comedy</option>
-          <option value="Shonen">Shonen</option>
-          <option value="Space">Adventure</option>
-          <option value="Space">Fight</option>
-        </select>
-      </article>
-      <section class="main-section">
-        <article class="filterTitle">
-          <h3 class="main">Хайлтын үр дүн</h3>
-          <input type="text" id="filteredType" disabled>
-        </article>
-        <ul id="filteredAnimeList"></ul>
+      <section class="main-nav">
+        <ul id="categoryList">
+          <li>Drama</li>
+          <li>Sci-Fi</li>
+          <li>Romance</li>
+          <li>Action</li>
+          <li>Superpower</li>
+          <li>School</li>
+          <li>Space</li>
+          <li>Adventure</li>
+          <li>Fantasy</li>
+          <li>Comedy</li>
+          <li>Shonen</li>
+          <li>Fight</li>
+        </ul>
       </section>
-    </section>
+      <section class="containerMainSection" style="width: 85%;"> 
+        <article class="animeSelectionContainer">
+          <p>Шүүлтүүр</p>
+          <select name="animes" id="animeSelection">
+            <option value="Drama">Drama</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Romance">Romance</option>
+            <option value="Action">Action</option>
+            <option value="Superpower">Superpower</option>
+            <option value="School">School</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Shonen">Shonen</option>
+            <option value="Space">Adventure</option>
+            <option value="Space">Fight</option>
+          </select>
+        </article>
+        <section class="main-section">
+          <article class="filterTitle">
+            <h3 class="main">Хайлтын үр дүн</h3>
+            <input type="text" id="filteredType" disabled>
+          </article>
+          <ul id="filteredAnimeList"></ul>
+        </section>
+      </section>
     </main>
 
     <footer-section></footer-section>
-
   </body>
 </html>
-<script src="headerFooter.js"></script>
 
 <style>
   /* CSS reset */
@@ -211,7 +215,6 @@
       }
     }
   }
-  
 
   .animeSelectionContainer {
     margin-top: 100px;
@@ -231,7 +234,6 @@
       font-size: 20px;
     }
   }
-
 
   @media (max-width :960px) {
     .containerMainSection {
@@ -266,4 +268,5 @@
   }
 </style>
 
+<!-- filter hiih js -->
 <script src="filter.js"></script>

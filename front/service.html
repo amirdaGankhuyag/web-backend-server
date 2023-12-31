@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Anime" />
+    <meta name="description" content="Дэлхийн шилдэг анимуудыг танд хүргэнэ." />
     <meta name="keywords" content="animuk.mn, animuk, Animuk.mn, Animuk" />
-    <script type="module" src="./components/header.js"></script>
-    <script type="module" src="./components/footer.js"></script>
+
     <link rel="stylesheet" href="headerFooter.css" />
+    <!-- icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -16,11 +16,20 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <!-- header-section component -->
+    <script type="module" src="./components/header.js"></script>
+    <!-- footer-section component -->
+    <script type="module" src="./components/footer.js"></script>
+
+    <script src="headerFooter.js"></script>
+
     <title>Animuk | Дэлхийн шилдэг анимуудыг танд хүргэнэ</title>
   </head>
 
   <body>
     <header-section></header-section>
+
     <main>
       <section class="overlayInfo" id="overlayInfo1"  onclick="closeSelectServiceVariant1()">
         <div class="overlayContainer">
@@ -35,11 +44,7 @@
                 <li>Мэдээлэл цаг алдалгүй авах</li>
               </ul>
               <article>
-                <img
-                  class="qrCode"
-                  src="https://i.ibb.co/JFq7zKh/qrTest.png"
-                  alt=""
-                />
+                <img src="https://i.ibb.co/JFq7zKh/qrTest.png" class="qrCode" alt="" />
               </article>
             </div>
             <article class="transactionDesc">
@@ -63,11 +68,7 @@
                 <li>Мэдээлэл цаг алдалгүй авах</li>
               </ul>
               <article>
-                <img
-                  class="qrCode"
-                  src="https://i.ibb.co/JFq7zKh/qrTest.png"
-                  alt=""
-                />
+                <img src="https://i.ibb.co/JFq7zKh/qrTest.png"  class="qrCode" alt="" />
               </article>
             </div>
             <article class="transactionDesc">
@@ -91,11 +92,7 @@
                 <li>Мэдээлэл цаг алдалгүй авах</li>
               </ul>
               <article>
-                <img
-                  class="qrCode"
-                  src="https://i.ibb.co/JFq7zKh/qrTest.png"
-                  alt=""
-                />
+                <img src="https://i.ibb.co/JFq7zKh/qrTest.png"  class="qrCode" alt="" />
               </article>
             </div>
             <article class="transactionDesc">
@@ -119,11 +116,7 @@
                 <li>Мэдээлэл цаг алдалгүй авах</li>
               </ul>
               <article>
-                <img
-                  class="qrCode"
-                  src="https://i.ibb.co/JFq7zKh/qrTest.png"
-                  alt=""
-                />
+                <img src="https://i.ibb.co/JFq7zKh/qrTest.png"  class="qrCode" alt="" />
               </article>
             </div>
             <article class="transactionDesc">
@@ -147,11 +140,7 @@
                 <li>Мэдээлэл цаг алдалгүй авах</li>
               </ul>
               <article>
-                <img
-                  class="qrCode"
-                  src="https://i.ibb.co/JFq7zKh/qrTest.png"
-                  alt=""
-                />
+                <img src="https://i.ibb.co/JFq7zKh/qrTest.png"  class="qrCode" alt="" />
               </article>
             </div>
             <article class="transactionDesc">
@@ -205,25 +194,16 @@
           </article>
         </div>
       </section>
-
-      <section class="recommendation">
-        <h3>Хэрэв та бүртгүүлж амжаагүй бол бүртгүүлээрэй.</h3>
-        <a href="signup.html">
-          <button>Бүртгүүлэх</button>
-        </a>
-      </section>
     </main>
+
     <footer-section></footer-section>
   </body>
 </html>
-
-<script src="headerFooter.js"></script>
 
 <style scoped>
   :root {
     --dark-blue: #00171f;
     --white: #fff;
-
     --background-color-dark: var(--dark-blue);
     --text-color-dark: var(--white);
     --background-color-light: rgb(102, 165, 188);
@@ -348,32 +328,6 @@
     }
   }
 
-  .recommendation {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 36px;
-    align-items: center;
-    & h3 {
-      text-align: center;
-      margin-top: 16px;
-    }
-    & button {
-      padding: 8px;
-      height: 50px;
-      width: 200px;
-      font-size: 20px;
-      background-color: #ffd977;
-      color: #040d25;
-      border: none;
-      border-radius: 8px;
-      max-width: 200px;
-      min-width: 100px;
-      cursor: pointer;
-      &:hover {
-        box-shadow: 0 0 5px #fff;
-      }
-    }
-  }
   .service-info-containers article {
     & h3 {
       font-size: 24px;

@@ -1,6 +1,7 @@
 import data from "./jsons/anime-list.json" assert { type: "json" }
 import products from "./jsons/products.json" assert {type: "json"};
 import pkg from "pg";
+
 const { Client } = pkg;
 
 const dbConfig = {

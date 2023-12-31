@@ -4,9 +4,7 @@ class FooterSection extends HTMLElement {
         this.#render();
     }
 
-    connectedCallback() {
-
-    }
+    connectedCallback() {}
 
     #render() {
         this.innerHTML =`

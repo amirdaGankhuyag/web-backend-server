@@ -3,19 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Anime" />
+    <meta name="description" content="Дэлхийн шилдэг анимуудыг танд хүргэнэ." />
     <meta name="keyword" content="animuk.mn, animuk, Animuk.mn, Animuk" />
+
+    <!-- for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- <script type="module" src="./components/header.js"></script>
-    <script type="module" src="./components/footer.js"></script> -->
-    <!-- <link rel="stylesheet" href="headerFooter.css" /> -->
+    
     <title>Animuk | Дэлхийн шилдэг анимуудыг танд хүргэнэ</title>
   </head>
   <body>
     <header-section></header-section>
+
     <main>
-        <section class="signUpForm">
-         <h3>Шинээр бүртгэл үүсгэх</h3>
+      <section class="signUpForm">
+        <h3>Шинээр бүртгэл үүсгэх</h3>
           <div class="formFieldsCombo">
             <article class="dualFields">
               <label for="input"><i class="fa-solid fa-user"></i>Овог</label><input id="lname" type="text" />
@@ -24,6 +25,7 @@
               <label for="input"><i class="fa-solid fa-user"></i>Нэр</label><input id="fname" type="text" />
             </article class="dualFields">
           </div>
+
           <div class="formFieldsCombo">
             <article class="dualFields">
               <label for="input"><i class="fa-solid fa-phone"></i>Утасны дугаар</label><input id="phone" type="text" />
@@ -32,30 +34,29 @@
               <label for="input"><i class="fa-solid fa-envelope"></i>Мейл хаяг</label><input id="email" type="text" />
             </article>
           </div>
+
           <div class="formFieldsCombo">
             <article class="dualFields">
               <label for="input"><i class="fa-solid fa-lock"></i>Нууц үг</label><input id="pass1" type="password" />
             </article>
             <article class="dualFields">
               <label for="input"><i class="fa-solid fa-lock"></i>Дахин давтана уу</label>
-              <input id="pass2" type="password"
-            />
+              <input id="pass2" type="password" />
             </article> 
           </div>
+
           <center><button style="background-color: #ffd977;" onclick="signUp()">Бүртгүүлэх</button></center>
           <center><button style="background-color: #db504a" onclick="back()">Буцах</button></center>
-        </section>
 
+      </section>
+      <img src="https://www.yolo.mn/img/content_image/cover_image/040820231691143972_1458689631.png" alt="" />
+    </main>
 
-      <img
-        src="https://www.yolo.mn/img/content_image/cover_image/040820231691143972_1458689631.png"
-        alt=""
-      />
-      </main>
-      <footer-section></footer-section>
-</body>
+    <footer-section></footer-section>
+  </body>
 </html>
 
+<<<<<<< HEAD
 <!-- <script src="headerFooter.js"></script> -->
 <script>
   signUp = function() {
@@ -108,15 +109,17 @@
   });
 </script>
 
+=======
+>>>>>>> 3f1a78cab91eec3bc8ab5431c688e2c612b4d603
 <style scoped>
   * {
     margin: 0;
     padding: 0;
   }
-    :root {
+
+  :root {
     --dark-blue: #00171f;
     --white: #fff;
-
     --background-color-dark: var(--dark-blue);
     --text-color-dark: var(--white);
     --background-color-light: rgb(102, 165, 188);
@@ -133,9 +136,11 @@
     height: 85vh;
     font-family: "Inter", sans-serif;
   }
+
   main img {
     border-radius: 5px;
   }
+  
   .signUpForm {
     display: flex;
     flex-direction: column;
@@ -154,6 +159,7 @@
     justify-content: left;
     width: 50%;
   }
+
   .dualFields input{
     height: 2.5rem;
     margin: 0.625rem 0rem 0.625rem 0rem;
@@ -173,12 +179,14 @@
   form {
     margin-top: 1.25rem;
   }
+
   .signUpForm h3 {
     text-align: center;
     font-size: 1.75rem;
     font-weight: 400;
     padding-bottom: 1.5rem;
   }
+
   .signUpForm i{
     margin-right: 8px;
   }
@@ -195,6 +203,7 @@
     font-size: 1.25rem;
     cursor: pointer;
   }
+
   button:hover {
     box-shadow: 0 0 5px #fff;
   }
@@ -232,10 +241,12 @@
     img {
       display: none;
     }
+
     .signUpForm {
       margin: auto;
     }
   }
+
   @media(prefers-color-scheme: light){
       main {
         background-color: var(--background-color-light);
@@ -243,3 +254,57 @@
       }
   }
 </style>
+
+<script>
+  signUp = function() {
+    const fname = document.getElementById("fname").value;
+    const lname = document.getElementById("lname").value;
+    const phone = document.getElementById("phone").value;
+    const email = document.getElementById("email").value;
+    const pass1 = document.getElementById("pass1").value;
+    const pass2 = document.getElementById("pass2").value;
+
+    if(fname == "" && lname == "" && phone == "" && email == ""  && pass1 == "" &&  pass2 == "" ) {
+      window.alert("Талбаруудыг бүтэн бөглөнө үү!");
+    } 
+
+    fetch("http://localhost:3000/register" , {
+      method: 'POST',
+      cachde: 'no-cache',
+      headers: {
+        "Content-Type" : 'application/json; charset=UTF-8'
+      },
+      body: JSON.stringify(
+        {
+          fname: fname,
+          lname: lname,
+          phone: phone,
+          email: email,
+          password1: pass1,
+          password2: pass2
+        }
+      )
+    }).then(result => {
+      if(result.status === 400) {
+        window.alert("Нууц үгээ зөв давтана уу!");
+        return;
+      }
+      if(result.status === 401) {
+        window.alert("Мэйл хаяг эсвэл утасны дугаар бүртгэлтэй байна!");
+        return;
+      }
+      window.alert("Амжилттай бүртгэлээ. Нэвтэрч орно уу.");
+      window.location.href="http://localhost:3000/"
+    })
+  }
+
+  back = function (){
+    window.history.back();
+  }
+
+  document.addEventListener("keydown", function(event) {
+    if(event.key === "Enter") {
+      signUp();
+    } 
+  });
+</script>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
   hideSideBarView = function() {
     document.getElementById("sidebarId").style.display = "none";
   }
@@ -63,3 +64,18 @@
     localStorage.setItem("userToken", -1);
     window.location.href = "/";
   }
+=======
+hideSideBarView = function() {
+  document.getElementById("sidebarId").style.display = "none";
+}
+appearSideBarView = function() {
+  document.getElementById("sidebarId").style.display = "flex";
+}
+closeWindow = function() {
+  document.getElementById('logoutWindow').style.display = 'none'
+}
+logout = function() {
+  localStorage.setItem("userToken", -1);
+  window.location.href = "/";
+}
+>>>>>>> 3f1a78cab91eec3bc8ab5431c688e2c612b4d603

@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Anime" />
+    <meta name="description" content="Дэлхийн шилдэг анимуудыг танд хүргэнэ." />
     <meta name="keywords" content="animuk.mn, animuk, Animuk.mn, Animuk" />
+
     <!-- font-awesome -->
     <link
       rel="stylesheet"
@@ -21,14 +22,15 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="headerFooter.css" />
+
     <!-- for header and footer of page -->
     <script type="module" src="./components/header.js"></script>
     <script type="module" src="./components/footer.js"></script>
-
-    <!-- for dark and light mode -->
-    <script type="module" src="./components/darkLightMode.js"></script>
-
-    <link rel="stylesheet" href="headerFooter.css" />
+    <script src="headerFooter.js"></script>
+    <!-- anime medeelel dynamicaar renderlene -->
+    <script src="animeInfo.js"></script>
+    
     <title>Animuk | Дэлхийн шилдэг анимуудыг танд хүргэнэ</title>
   </head>
 
@@ -44,11 +46,7 @@
             style="margin-right: 16px; cursor: pointer; opacity: 0.4"
             onclick="changeCarouselImageLeft()"
           ></i>
-          <img
-            id="carouselImage"
-            src="https://i.ibb.co/sHGpqYf/040820231691143972-1458689631.webp"
-            alt=""
-          />
+          <img id="carouselImage" src="https://i.ibb.co/sHGpqYf/040820231691143972-1458689631.webp" alt="" />
           <i
             class="fa-solid fa-chevron-right fa-2xl"
             id="rightClick"
@@ -56,9 +54,9 @@
             onclick="changeCarouselImageRight()"
           ></i>
         </div>
-
         <p id="carouselDescription">Saturday, August 5, 2023 at 12pm - 8pm</p>
       </article>
+
       <section class="user-status">
         <p>Таны мэдээлэл</p>
         <ul>
@@ -88,35 +86,18 @@
 
     <section class="contents">
       <h3>Санал болгох аниме</h3>
-      <ul id="malRank"></ul>
+        <ul id="malRank"></ul>
       <h3>Сүүлд үзсэн</h3>
-      <ul id="target"></ul>
+        <ul id="target"></ul>
       <h3>Их хандалттай</h3>
-      <ul id="mostViews"></ul>
+        <ul id="mostViews"></ul>
       <h3>Сүүлд гарсан</h3>
-      <ul id="recentlyAdded"></ul>
+        <ul id="recentlyAdded"></ul>
     </section>
 
     <footer-section></footer-section>
   </body>
 </html>
-
-<script>
-  setUser = async function() {
-    fetch('http://localhost:3000/test').then(response => response.json()).then(data => {
-      for(let user of data) {
-        if(user.phone == localStorage.getItem("userToken")) {
-          document.getElementById("fname").innerText = user.fname;
-          document.getElementById("lname").innerText = user.lname;
-          document.getElementById("phone").innerText = user.phone;
-          document.getElementById("email").innerText = user.email;
-          break;
-        }
-      }
-    });
-  }
-  setUser();
-</script>
 
 <style>
   * {
@@ -132,11 +113,9 @@
     --text-color-dark: var(--white);
     --background-color-light: rgb(102, 165, 188);
     --text-color-light: #232020;
-    /* --background-color:var(----background-color-dark); */
   }
 
   body {
-    /* background-color: var(--background-color); */
     background-color: var(--background-color-dark);
     color: var(--text-color-dark);
     font-family: "Inter", sans-serif;
@@ -157,11 +136,9 @@
     & p {
       text-align: center;
     }
-
     & .user-status {
       display: flex;
       flex-direction: column;
-      /* text-align: left; */
       & ul {
         & li {
           list-style: none;
@@ -197,6 +174,7 @@
       }
     }
   }
+
   .user-status ul i {
     margin-right: 8px;
   }
@@ -340,14 +318,10 @@
     body {
       background-color: var(--background-color-light);
       color: var(--text-color-light);
-/* 
-      --background-color: var(--background-color-light); */
     }
   }
 </style>
 
-<script src="headerFooter.js"></script>
-<script src="animeInfo.js"></script>
 <script>
   const app1 = new App("malRank");
   app1.init("MalRank");
@@ -357,6 +331,20 @@
   app3.init("MostViews");
   const app4 = new App("recentlyAdded");
   app4.init("RecentlyAdded");
-</script>
 
-<!-- <script src="getData.js"></script> -->
+  setUser = async function() {
+    fetch('http://localhost:3000/test').then(response => response.json()).then(data => {
+      for(let user of data) {
+        if(user.phone == localStorage.getItem("userToken")) {
+          document.getElementById("fname").innerText = user.fname;
+          document.getElementById("lname").innerText = user.lname;
+          document.getElementById("phone").innerText = user.phone;
+          document.getElementById("email").innerText = user.email;
+          break;
+        }
+      }
+    });
+  }
+  setUser();
+
+</script>

@@ -1,15 +1,5 @@
-// uunuu
-// const apiUrl = "https://api.jsonbin.io/v3/b/654f4bb354105e766fce7c86"
-
-// amirda
-// const apiUrl = "https://api.jsonbin.io/v3/b/655d6c2b0574da7622ca003f" 
-
-// haliunaa
-// const apiUrl = "https://api.jsonbin.io/v3/b/655d82ba54105e766fd367c6"
-
 // main
 const  apiUrl ="http://localhost:3000/animeList"
-
 
 class Anime {
   constructor(animeListItem) {
@@ -56,8 +46,8 @@ class Anime {
   };
 }
 
-
 let listCatogeries =  document.getElementById("categoryList").getElementsByTagName('li');
+
 for(let list of listCatogeries) {
   list.addEventListener("click" , (event) => {
     let categoryType = event.target.textContent
@@ -74,8 +64,7 @@ document.getElementById("animeSelection").addEventListener("change" , (event) =>
   let newUrl = nowUrl.origin; 
   newUrl += `${nowUrl.pathname}?category=${categoryType}`;
   window.location.href = newUrl;
-})
-
+});
 
 document.addEventListener("DOMContentLoaded" , async() => {
     let response = await fetch(apiUrl);
@@ -96,7 +85,7 @@ document.addEventListener("DOMContentLoaded" , async() => {
         target.insertAdjacentHTML("beforeend" , renderedAnime.render());
       })
     }
-})
+});
 
 // enuuger anime iin delgerengu page iihe dataga url aar damjulad avn deer render dree onclick der ni zaagd ugcin
 moveToAnimeDetailPage = function(id) {

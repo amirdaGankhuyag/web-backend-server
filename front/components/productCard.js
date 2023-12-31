@@ -109,12 +109,10 @@ class ProductCard extends HTMLElement {
     attributeChangedCallback(name, oldVal, newVal) {
         switch (name) {
             case "name":
-                // console.log(`${name} has changed. old=${oldVal}, new=${newVal}`);
                 this.productName = newVal;
                 this.#Render();
                 break;
             case "price":
-                // console.log(`${name} has changed. old=${oldVal}, new=${newVal}`);
                 this.price = newVal;
                 this.#Render();
                 break;

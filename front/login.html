@@ -4,11 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Anime" />
+    <meta name="description" content="Дэлхийн шилдэг анимуудыг танд хүргэнэ." />
     <meta name="keyword" content="animuk.mn, animuk, Animuk.mn, Animuk" />
-    <!-- <script type="module" src="./components/header.js"></script>
-    <script type="module" src="./components/footer.js"></script>
-    <link rel="stylesheet" href="headerFooter.css" /> -->
+
+    <!-- icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -16,25 +15,24 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
     <title>Animuk | Дэлхийн шилдэг анимуудыг танд хүргэнэ</title>
   </head>
   <body>
-    <!-- <header-section></header-section> -->
     <main>
       <form>
-        <section class="formContainer">
-          <br />
+        <section class="formContainer"> <br/>
           <center><h3>Нэвтрэх</h3></center>
           <article class="formField">
-            <label for="phone"
-              ><i class="fa-solid fa-phone"></i> Утасны дугаар
+            <label for="phone">
+              <i class="fa-solid fa-phone"></i> Утасны дугаар
             </label>
             <input type="tel" id="phone" required/>
           </article>
           <article class="formField">
             <label for="password">
-              <i class="fa-solid fa-lock"></i>Нууц үг</label
-            >
+              <i class="fa-solid fa-lock"></i>Нууц үг
+            </label>
             <input type="password" id="password" required/>
           </article>
           <input
@@ -43,7 +41,7 @@
             value="Нэвтрэх"
             style="background-color: #db504a"
             onclick="test();"
-          /><br />
+          /><br/>
           <input
             class="formFieldButton"
             type="button"
@@ -53,58 +51,10 @@
           />
         </section>
       </form>
-      <img
-        src="https://www.yolo.mn/img/content_image/cover_image/040820231691143972_1458689631.png"
-        alt=""
-      />
+      <img src="https://www.yolo.mn/img/content_image/cover_image/040820231691143972_1458689631.png" alt=""/>
     </main>
-    <!-- <footer-section></footer-section> -->
   </body>
 </html>
-
-<!-- <script src="headerFooter.js"></script> -->
-<script>
-  async function test() {
-    fetch("http://localhost:3000/test")
-      .then((response) => response.json())
-      .then((data) => {
-        const phone = document.getElementById("phone").value;
-        const password = document.getElementById("password").value;
-        const users = data;
-        let count = 0;
-        for (let user of users) {
-          if (user.phone == phone && user.password == password) {
-            if (
-              localStorage.getItem("userToken") === null ||
-              localStorage.getItem("userToken") === undefined
-            ) {
-              console.log("local deer item bairluullaa");
-              localStorage.setItem("userToken", phone);
-            } else {
-              console.log("local deer ugiin item baina");
-              localStorage.setItem("userToken", phone);
-            }
-            console.log(localStorage.getItem("userToken"));
-            window.location.href = "/front/index.html";
-            return;
-          } else {
-            count++;
-          }
-        }
-        if (count === users.length) {
-          window.alert("Дахин оролдоно уу");
-        }
-      });
-  }
-  signUp = function () {
-    window.location.href = "http://localhost:3000/signup";
-  };
-  document.addEventListener("keydown", function(event) {
-    if(event.key === "Enter") {
-      test();
-    } 
-  });
-</script>
 
 <style scoped>
   body {
@@ -112,10 +62,10 @@
     padding: 0;
     font-family: "Inter", sans-serif;
   }
+
   :root {
     --dark-blue: #00171f;
     --white: #fff;
-
     --background-color-dark: var(--dark-blue);
     --text-color-dark: var(--white);
     --background-color-light: rgb(102, 165, 188);
@@ -131,18 +81,22 @@
     background-color: var(--background-color-dark);
     color: var(--text-color-dark);
   }
+
   main img {
     border-radius: 5px;
   }
+
   .formContainer {
     margin-right: 12.5rem;
     width: 15.625rem;
   }
+
   .formField {
     display: flex;
     flex-direction: column;
     margin-top: 0.625rem;
   }
+
   .formField input {
     margin-top: 0.5rem;
     height: 2.4rem;
@@ -168,6 +122,7 @@
     font-size: 20px;
     cursor: pointer;
   }
+
   .formFieldButton:hover {
     box-shadow: 0 0 5px #fff;
   }
@@ -199,8 +154,6 @@
     }
   }
 
-  @media (min-width: 1080px) {
-  }
   @media (prefers-color-scheme: light) {
     main {
       background-color: var(--background-color-light);
@@ -208,3 +161,47 @@
     }
   }
 </style>
+
+<script>
+  async function test() {
+    fetch("http://localhost:3000/test")
+      .then((response) => response.json())
+      .then((data) => {
+        const phone = document.getElementById("phone").value;
+        const password = document.getElementById("password").value;
+        const users = data;
+        let count = 0;
+        for (let user of users) {
+          if (user.phone == phone && user.password == password) {
+            if (
+              localStorage.getItem("userToken") === null ||
+              localStorage.getItem("userToken") === undefined
+            ) {
+              console.log("local deer item bairluullaa");
+              localStorage.setItem("userToken", phone);
+            } else {
+              console.log("local deer item baina");
+              localStorage.setItem("userToken", phone);
+            }
+            console.log(localStorage.getItem("userToken"));
+            window.location.href = "/front/index.html";
+            return;
+          } else {
+            count++;
+          }
+        }
+        if (count === users.length) {
+          window.alert("Дахин оролдоно уу");
+        }
+      });
+  }
+  signUp = function () {
+    window.location.href = "http://localhost:3000/signup";
+  };
+
+  document.addEventListener("keydown", function(event) {
+    if(event.key === "Enter") {
+      test();
+    } 
+  });
+</script>

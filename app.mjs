@@ -1,4 +1,4 @@
-import express, { query } from "express";
+import express from "express";
 import pkg from 'pg';
 import path from "path";
 
@@ -80,47 +80,6 @@ app.get("/docs", swaggerUi.setup(specs, {
  *     description: Product List related options
  */
 
-/**
- *  @swagger
- *   paths:
- *       /animeList/{animeId}:
- *           get:
- *              tags:
- *                  - Anime List
- *              summary: Shows anime details by ID
- *              parameters:
- *                - in: path
- *                  name: animeId
- *                  schema:
- *                    type: integer
- *                  required: true
- *                  description: Numeric ID of the anime
- *              responses:
- *                "200":
- *                  description: Successful response with anime details
- *                  content:
- *                    application/json:
- *                      schema:
- *                        type: object
- *                        properties:
- *                          id:
- *                            type: integer
- *                          title:
- *                            type: string
- *                          # Add other properties based on your anime data structure
- *                "404":
- *                  description: Anime not found
- *                  content:
- *                    application/json:
- *                      schema:
- *                        type: object
- *                        properties:
- *                          message:
- *                            type: string
- *                            example: Anime not found
- *                # Add more response codes and descriptions as needed
- */
-
 //---------------------------------------------------------GET
 app.get("/", (req, res) => {
   res.sendFile("./front/login.html", options);
@@ -145,11 +104,11 @@ app.get("/test", async (req, res) => {
  *   get:
  *     tags:
  *       - Users
- *     summary: Retrieve user information
- *     description: Retrieve all users from the database.
+ *     summary: Хэрэглэгчдийн мэдээллийг өгөгдлийн сангаас авах.
+ *     description: Бүх user-үүдийн мэдээллийг өгөгдлийн сангаас авах.
  *     responses:
  *       200:
- *         description: Successful response with user information
+ *         description: Амжиллтай хэрэглэгчдийн мэдээллийг авлаа.
  *         content:
  *           application/json:
  *             schema:
@@ -190,13 +149,13 @@ app.get("/animeList", async (req, res) => {
  * @swagger
  * /animeList:
  *   get:
- *     summary: Get a list of anime.
- *     description: Retrieves a list of anime from the database.
+ *     summary: Бүх анимуудын жагсаалтыг авах
+ *     description: Бүх анимуудын мэдээллийг өгөгдлийн сангаас авах.
  *     tags:
  *       - Anime List
  *     responses:
  *       200:
- *         description: Successful response with a list of anime.
+ *         description: Анимуудын мэдээллийг амжилттай авлаа.
  *         content:
  *           application/json:
  *             schema:
@@ -239,11 +198,11 @@ app.get("/productList", async (req, res) => {
  *   get:
  *     tags:
  *       - Product List
- *     summary: Get a list of products.
- *     description: Retrieves a list of products from the database.
+ *     summary: Бүх бараануудын жагсаалтыг авах
+ *     description: Бүх бараануудын мэдээллийг өгөгдлийн сангаас авах.
  *     responses:
  *       200:
- *         description: Successful response with a list of products.
+ *         description: Бараануудын мэдээллийг амжилттай авлаа.
  *         content:
  *           application/json:
  *             schema:
@@ -280,8 +239,8 @@ app.get("/productList", async (req, res) => {
  *   post:
  *     tags:
  *       - Anime List
- *     summary: Add a comment to an anime.
- *     description: Adds a user's comment to a specific anime based on its ID.
+ *     summary: Anime-д сэтгэгдэл нэмэх
+ *     description: Тухайн anime-д id-гаар нь дамжуулж хэрэглэгчийн сэтгэгдлийг нэмэх.
  *     requestBody:
  *       required: true
  *       content:
@@ -291,16 +250,16 @@ app.get("/productList", async (req, res) => {
  *             properties:
  *               comment:
  *                 type: string
- *                 description: The user's comment.
+ *                 description: Хэрэглэгчийн сэтгэгдэл.
  *               id:
  *                 type: integer
- *                 description: Numeric ID of the anime.
+ *                 description: Тухайн anime-ийн id.
  *               user:
  *                 type: string
- *                 description: The user adding the comment.
+ *                 description: Хэрэглэгчийн нэмэх сэтгэгдэл.
  *     responses:
  *       200:
- *         description: Comment added successfully.
+ *         description: Сэтгэгдэл амжилттай нэмэгдлээ.
  *         content:
  *           application/json:
  *             schema:
@@ -308,9 +267,9 @@ app.get("/productList", async (req, res) => {
  *               properties:
  *                 message:
  *                   type: string
- *                   example: Comment added successfully
+ *                   example: Сэтгэгдэл амжилттай нэмэгдлээ.
  *       400:
- *         description: Anime not found.
+ *         description: Ийм аниме байхгүй байна.
  *         content:
  *           application/json:
  *             schema:
@@ -348,7 +307,7 @@ app.post("/addComment", async (req, res) => {
       };
 
       await client.query(query);
-      res.status(200).json({ message: "Comment added successfully" });
+      res.status(200).json({ message: "Сэтгэгдэл амжилттай нэмэгдлээ." });
     } else {
       res.status(400).json({ error: 'Ийм аниме байхгүй байна.' });
     }
@@ -365,8 +324,8 @@ app.post("/addComment", async (req, res) => {
  *   post:
  *     tags:
  *       - Users
- *     summary: User registration
- *     description: Registers a new user with the provided information.
+ *     summary: Хэрэглэгчийн бүртгэл
+ *     description: Хэрэглэгчийн оруулсан мэдээллүүдээр бүртгэл үүсгэнэ.
  *     requestBody:
  *       required: true
  *       content:
@@ -397,7 +356,7 @@ app.post("/addComment", async (req, res) => {
  *                 description: Confirmation of the user's password.
  *     responses:
  *       200:
- *         description: User registration successful.
+ *         description: Хэрэглэгч амжилттай бүртгэглээ.
  *         content:
  *           application/json:
  *             schema:
@@ -405,9 +364,9 @@ app.post("/addComment", async (req, res) => {
  *               properties:
  *                 message:
  *                   type: string
- *                   example: Registration successful
+ *                   example: Хэрэглэгч амжилттай бүртгэглээ.
  *       400:
- *         description: Bad request, validation failed.
+ *         description: Баталгаажуулалтын алдаа
  *         content:
  *           application/json:
  *             schema:
@@ -417,7 +376,7 @@ app.post("/addComment", async (req, res) => {
  *                   type: string
  *                   example: Нууц үгээ зөв давтаж оруулна уу
  *       401:
- *         description: Email or phone is already registered.
+ *         description: Имэйл эсвэл утасны дугаар бүртгэлтэй байна.
  *         content:
  *           application/json:
  *             schema:
@@ -425,7 +384,7 @@ app.post("/addComment", async (req, res) => {
  *               properties:
  *                 error:
  *                   type: string
- *                   example: Email or phone is already registered
+ *                   example: Имэйл эсвэл утасны дугаар бүртгэлтэй байна.
  *       500:
  *         description: Server error.
  *         content:
@@ -450,7 +409,7 @@ app.post("/register", async (req, res) => {
     const result2 = await client.query('SELECT * FROM users WHERE phone = $1', [phone]);
 
     if (result2.rowCount > 0 || result1.rowCount > 0) {
-      res.status(401).json({ error: 'Email or phone is already registered' });
+      res.status(401).json({ error: 'Имэйл эсвэл утасны дугаар бүртгэлтэй байна.' });
     } else if (password1 !== password2) {
       res.status(400).json({ error: 'Нууц үгээ зөв давтаж оруулна уу' });
     } else {
@@ -460,7 +419,7 @@ app.post("/register", async (req, res) => {
       };
 
       await client.query(query);
-      res.status(200).json({ message: "Registration successful" });
+      res.status(200).json({ message: "Хэрэглэгч амжилттай бүртгэглээ." });
     }
   } catch (err) {
     console.error(err);
@@ -474,8 +433,8 @@ app.post("/register", async (req, res) => {
  *   post:
  *     tags:
  *       - Anime List
- *     summary: Add a new anime to the list.
- *     description: Adds a new anime to the list with the provided information.
+ *     summary: Шинэ anime нэмэх
+ *     description: Оруулсан мэдээллүүдийг ашиглан anime шинээр нэмэх.
  *     requestBody:
  *       required: true
  *       content:
@@ -515,7 +474,7 @@ app.post("/register", async (req, res) => {
  *                 description: URL or path to the anime image.
  *     responses:
  *       200:
- *         description: Anime added successfully.
+ *         description: Anime амжилттай нэмэгдлээ.
  *         content:
  *           application/json:
  *             schema:
@@ -523,7 +482,7 @@ app.post("/register", async (req, res) => {
  *               properties:
  *                 message:
  *                   type: string
- *                   example: Amjilttai nemlee successful
+ *                   example: Амжилттай нэмэгдлээ.
  *       500:
  *         description: Server error.
  *         content:
@@ -556,7 +515,7 @@ app.post("/addAnime", async (req, res) => {
     };
 
     await client.query(query);
-    res.status(200).json({ message: "Amjilttai nemlee successful" });
+    res.status(200).json({ message: "Амжилттай нэмэгдлээ." });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Алдаа гарлаа' });

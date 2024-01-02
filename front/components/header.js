@@ -14,6 +14,11 @@ class HeaderSection extends HTMLElement {
     button2.addEventListener("click", () => {
       document.getElementById("addAnimeWindow").style.display = "flex";
     });
+
+    const button3 = document.getElementById("listMobile");
+    button3.addEventListener("click", () => {
+      document.getElementById("addAnimeWindow").style.display = "flex";
+    });
   }
 
   #render() {
@@ -46,6 +51,7 @@ class HeaderSection extends HTMLElement {
           <li><a href="filter.html"><i class="fa-solid fa-bars"></i>Anime list</a></li>
           <li><a href="shopping.html"><i class="fa-solid fa-cart-shopping"></i>Shopping</a></li>
           <li><a href="service.html"><i class="fa-regular fa-credit-card"></i>Service</a></li>
+          <li id="listMobile"><button id="addAnimeButtonMobile"><i class="fa-solid fa-user"></i>Add</button></li>
           <li><a href="login.html"><i class="fa-solid fa-user"></i>Log out</a></li>
         </ul>
       </nav>
@@ -115,8 +121,6 @@ class HeaderSection extends HTMLElement {
           </div>
         </article>
       </section>
-
-
     `;
   }
 }

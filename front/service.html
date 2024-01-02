@@ -21,6 +21,7 @@
     <script type="module" src="./components/header.js"></script>
     <!-- footer-section component -->
     <script type="module" src="./components/footer.js"></script>
+    <script type="module" src="./components/serviceInfo.js"></script>
 
     <script src="headerFooter.js"></script>
 
@@ -32,124 +33,41 @@
 
     <main>
       <section class="overlayInfo" id="overlayInfo1"  onclick="closeSelectServiceVariant1()">
-        <div class="overlayContainer">
-          <section class="overlayContent">
-            <h3>1 сарын Animuk багц</h3>
-            <p class="price">Багц худалдан авах үнэ: 6900₮</p>
-            <div class="overlayBody">
-              <ul class="overlayList">
-                <li>Бүх төрлийн аниме үзэх эрх</li>
-                <li>Худалдан авалт хийх эрх</li>
-                <li>Хэрэглэгчийн буланд нэгдэх</li>
-                <li>Мэдээлэл цаг алдалгүй авах</li>
-              </ul>
-              <article>
-                <img src="https://i.ibb.co/JFq7zKh/qrTest.png" class="qrCode" alt="" />
-              </article>
-            </div>
-            <article class="transactionDesc">
-              5926252543 Б.Өнөбаатар хаан банк дансанд гүйлгээний утга дээр
-              нэвтрэх нэрээ оруулан шилжүүлснээр эрх баталгаажна.
-            </article>
-          </section>
-        </div>
+        <service-info>
+          <h3 slot="title">1 сарын Animuk багц</h3>
+          <p class="price" slot="price">Багц худалдан авах үнэ: 6900₮</p>
+        </service-info>
       </section>
 
       <section class="overlayInfo" id="overlayInfo2"  onclick="closeSelectServiceVariant2()">
-        <div class="overlayContainer">
-          <section class="overlayContent">
-            <h3>3 сарын Animuk багц</h3>
-            <p class="price">Багц худалдан авах үнэ: 12900₮</p>
-            <div class="overlayBody">
-              <ul class="overlayList">
-                <li>Бүх төрлийн аниме үзэх эрх</li>
-                <li>Худалдан авалт хийх эрх</li>
-                <li>Хэрэглэгчийн буланд нэгдэх</li>
-                <li>Мэдээлэл цаг алдалгүй авах</li>
-              </ul>
-              <article>
-                <img src="https://i.ibb.co/JFq7zKh/qrTest.png"  class="qrCode" alt="" />
-              </article>
-            </div>
-            <article class="transactionDesc">
-              5926252543 Б.Өнөбаатар хаан банк дансанд гүйлгээний утга дээр
-              нэвтрэх нэрээ оруулан шилжүүлснээр эрх баталгаажна.
-            </article>
-          </section>
-        </div>
-      </section>
-
-      <section class="overlayInfo" id="overlayInfo3"  onclick="closeSelectServiceVariant3()">
-        <div class="overlayContainer">
-          <section class="overlayContent">
-            <h3>6 сарын Animuk багц</h3>
-            <p class="price">Багц худалдан авах үнэ: 19900₮</p>
-            <div class="overlayBody">
-              <ul class="overlayList">
-                <li>Бүх төрлийн аниме үзэх эрх</li>
-                <li>Худалдан авалт хийх эрх</li>
-                <li>Хэрэглэгчийн буланд нэгдэх</li>
-                <li>Мэдээлэл цаг алдалгүй авах</li>
-              </ul>
-              <article>
-                <img src="https://i.ibb.co/JFq7zKh/qrTest.png"  class="qrCode" alt="" />
-              </article>
-            </div>
-            <article class="transactionDesc">
-              5926252543 Б.Өнөбаатар хаан банк дансанд гүйлгээний утга дээр
-              нэвтрэх нэрээ оруулан шилжүүлснээр эрх баталгаажна.
-            </article>
-          </section>
-        </div>
+        <service-info>
+          <h3 slot="title">3 сарын Animuk багц</h3>
+          <p class="price" slot="price">Багц худалдан авах үнэ: 12900₮</p>
+        </service-info>
       </section>
 
       <section class="overlayInfo" id="overlayInfo4"  onclick="closeSelectServiceVariant4()">
-        <div class="overlayContainer">
-          <section class="overlayContent">
-            <h3>1 жилийн Animuk багц</h3>
-            <p class="price">Багц худалдан авах үнэ: 29900₮</p>
-            <div class="overlayBody">
-              <ul class="overlayList">
-                <li>Бүх төрлийн аниме үзэх эрх</li>
-                <li>Худалдан авалт хийх эрх</li>
-                <li>Хэрэглэгчийн буланд нэгдэх</li>
-                <li>Мэдээлэл цаг алдалгүй авах</li>
-              </ul>
-              <article>
-                <img src="https://i.ibb.co/JFq7zKh/qrTest.png"  class="qrCode" alt="" />
-              </article>
-            </div>
-            <article class="transactionDesc">
-              5926252543 Б.Өнөбаатар хаан банк дансанд гүйлгээний утга дээр
-              нэвтрэх нэрээ оруулан шилжүүлснээр эрх баталгаажна.
-            </article>
-          </section>
-        </div>
+        <service-info>
+          <h3 slot="title">6 сарын Animuk багц</h3>
+          <p class="price" slot="price">Багц худалдан авах үнэ: 19900₮</p>
+        </service-info>
       </section>
 
-      <section class="overlayInfo" id="overlayInfo5" onclick="closeSelectServiceVariant5()">
-        <div class="overlayContainer">
-          <section class="overlayContent">
-            <h3>2 жилийн Animuk багц </h3>
-            <p class="price">Багц худалдан авах үнэ: 49900₮</p>
-            <div class="overlayBody">
-              <ul class="overlayList">
-                <li>Бүх төрлийн аниме үзэх эрх</li>
-                <li>Худалдан авалт хийх эрх</li>
-                <li>Хэрэглэгчийн буланд нэгдэх</li>
-                <li>Мэдээлэл цаг алдалгүй авах</li>
-              </ul>
-              <article>
-                <img src="https://i.ibb.co/JFq7zKh/qrTest.png"  class="qrCode" alt="" />
-              </article>
-            </div>
-            <article class="transactionDesc">
-              5926252543 Б.Өнөбаатар хаан банк дансанд гүйлгээний утга дээр
-              нэвтрэх нэрээ оруулан шилжүүлснээр эрх баталгаажна.
-            </article>
-          </section>
-        </div>
+      <section class="overlayInfo" id="overlayInfo3"  onclick="closeSelectServiceVariant3()">
+        <service-info>
+          <h3 slot="title">1 жилийн Animuk багц</h3>
+          <p class="price" slot="price">Багц худалдан авах үнэ: 25900₮</p>
+        </service-info>
       </section>
+
+
+      <section class="overlayInfo" id="overlayInfo5" onclick="closeSelectServiceVariant5()">
+        <service-info>
+          <h3 slot="title">2 жилийн Animuk багц</h3>
+          <p class="price" slot="price">Багц худалдан авах үнэ: 39900₮</p>
+        </service-info>
+      </section>
+
 
       <section class="service-info-containers">
         <article>
@@ -373,37 +291,8 @@
     }
   }
 
-  .overlayBody {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    & .qrCode {
-      object-fit: contain;
-      width: 200px;
-    }
-    & .overlayList {
-      font-size: 20px;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: start;
-      & li {
-        margin: 8px 0px;
-        list-style: none;
-      }
-    }
-  }
 
-  .transactionDesc {
-    font-size: 18px;
-    color: white;
-    margin: 0px 64px;
-    margin-top: 24px !important;
-    padding: 16px;
-    border: 2px solid #6d6b6b;
-    border-radius: 7px;
-  }
+
 
   @media (min-width: 840px) and (max-width: 1080px) {
     .bagts-container article {
@@ -436,26 +325,8 @@
     }
   }
 
-  @media (max-width: 600px) {
-    .overlayContent {
-      width: 80% !important;
-      height: 560px !important;
-      & .price{
-        font-size: 16px !important;
-      }
-      & h3 {
-        font-size: 20px;
-      }
-      & .overlayBody {
-        & .overlayList {
-          display: none;
-        }
-      }
-      & .transactionDesc {
-        font-size: 16px;
-      }
-    }
-  }
+
+
   @media(prefers-color-scheme: light){
     main {
       background-color: var(--background-color-light);

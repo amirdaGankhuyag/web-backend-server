@@ -56,61 +56,6 @@
   </body>
 </html>
 
-<<<<<<< HEAD
-<!-- <script src="headerFooter.js"></script> -->
-<script>
-  signUp = function() {
-    const fname = document.getElementById("fname").value;
-    const lname = document.getElementById("lname").value;
-    const phone = document.getElementById("phone").value;
-    const email = document.getElementById("email").value;
-    const pass1 = document.getElementById("pass1").value;
-    const pass2 = document.getElementById("pass2").value;
-    if(fname == "" || lname == "" || phone == "" || email == ""  || pass1 == "" ||  pass2 == "" ) {
-      window.alert("Талбаруудыг бүтэн бөглөнө үү");
-    } else {
-      fetch("http://localhost:3000/register" , {
-      method: 'POST',
-      cachde: 'no-cache',
-      headers: {
-        "Content-Type" : 'application/json; charset=UTF-8'
-      },
-      body: JSON.stringify(
-        {
-          fname: fname,
-          lname: lname,
-          phone: phone,
-          email: email,
-          password1: pass1,
-          password2: pass2
-        }
-      )
-    }).then(result => {
-      if(result.status === 400) {
-        window.alert("Нууц үгээ зөв давтана уу.");
-        return;
-      }
-      if(result.status === 401) {
-        window.alert("Мэйл хаяг эсвэл утасны дугаар бүртгэлтэй байна.");
-        return;
-      }
-      window.alert("amjilttai");
-      window.location.href="http://localhost:3000/"
-    })
-    }
-  }
-  back = function (){
-    window.history.back();
-  }
-  document.addEventListener("keydown", function(event) {
-    if(event.key === "Enter") {
-      signUp();
-    } 
-  });
-</script>
-
-=======
->>>>>>> 3f1a78cab91eec3bc8ab5431c688e2c612b4d603
 <style scoped>
   * {
     margin: 0;
@@ -266,6 +211,7 @@
 
     if(fname == "" && lname == "" && phone == "" && email == ""  && pass1 == "" &&  pass2 == "" ) {
       window.alert("Талбаруудыг бүтэн бөглөнө үү!");
+      return;
     } 
 
     fetch("http://localhost:3000/register" , {

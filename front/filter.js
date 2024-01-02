@@ -50,7 +50,7 @@ let listCatogeries =  document.getElementById("categoryList").getElementsByTagNa
 
 for(let list of listCatogeries) {
   list.addEventListener("click" , (event) => {
-    let categoryType = event.target.textContent
+    let categoryType = event.target.textContent;
     const nowUrl = new URL(window.location.href);
     let newUrl = nowUrl.origin; 
     newUrl += `${nowUrl.pathname}?category=${categoryType}`;

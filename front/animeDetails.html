@@ -27,7 +27,9 @@
         </div>
       </article>
     </section>
+
     <header-section></header-section>
+    
     <main>
       <div class="upperInfo">
         <section class="animeInfo" id="renderAnimeInfo">
@@ -424,10 +426,10 @@
       )
     }).then(result => {
       if(result.status === 500) {
-        window.alert("bolsongue");
+        window.alert("Амжилтгүй");
       } else {
         cancelComment();
-        window.alert("amjilttai nemegdlee");
+        window.alert("Амжилттай нэмэгдлээ");
         location.reload();
       } 
     })

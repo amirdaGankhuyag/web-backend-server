@@ -169,20 +169,24 @@
       .then((data) => {
         const phone = document.getElementById("phone").value;
         const password = document.getElementById("password").value;
+
+        if(phone == "" && password == "") {
+          window.alert("Талбаруудыг бүтэн бөглөнө үү!");
+          return;
+        }
+
         const users = data;
         let count = 0;
         for (let user of users) {
           if (user.phone == phone && user.password == password) {
-            if (
-              localStorage.getItem("userToken") === null ||
-              localStorage.getItem("userToken") === undefined
-            ) {
+            if (localStorage.getItem("userToken") === null || localStorage.getItem("userToken") === undefined) {
               console.log("local deer item bairluullaa");
               localStorage.setItem("userToken", phone);
             } else {
               console.log("local deer item baina");
               localStorage.setItem("userToken", phone);
             }
+
             console.log(localStorage.getItem("userToken"));
             window.location.href = "/front/index.html";
             return;

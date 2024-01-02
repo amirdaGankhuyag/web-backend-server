@@ -30,6 +30,7 @@ class CartInfo extends HTMLElement {
         }
         localStorage.setItem("productList" , JSON.stringify(this.productList));
         this.#Render();
+
         document.getElementById("totalProduct").innerText = this.getTotalCount();
         this.myRoot.getElementById("totalItems").innerText = this.getTotalCount();
         this.myRoot.getElementById("totalPrice").innerText = this.getTotalPrice().toLocaleString();
@@ -43,8 +44,11 @@ class CartInfo extends HTMLElement {
         }
         localStorage.setItem("productList" , JSON.stringify(this.productList));
         this.#Render();
+        // sagsnaas gadnah baraanii too 
         document.getElementById("totalProduct").innerText = this.getTotalCount();
+        // sagsandah niit barani to 
         this.myRoot.getElementById("totalItems").innerText = this.getTotalCount();
+        // sagsan dotorh nit une
         this.myRoot.getElementById("totalPrice").innerText = this.getTotalPrice().toLocaleString();
     }
 
@@ -81,8 +85,12 @@ class CartInfo extends HTMLElement {
                     <i style="color: black;" id="closer" class="fa-solid fa-xmark fa-sm"></i>
                 </article>
                 <article class="cartTotalData">  
-                    <div style="display: flex; color: gray;">Барааны тоо: <p class="innerData" id="totalItems">${this.productList.length}</p></div>
-                    <div style="display: flex; color: gray;">Нийт үнэ: <p style="color: red" class="innerData" id="totalPrice"> ${this.getTotalPrice.toLocaleString()} </p>₮ </div> 
+                    <div style="display: flex; color: gray;">Барааны тоо: 
+                        <p class="innerData" id="totalItems">${this.productList.length}</p>
+                    </div>
+                    <div style="display: flex; color: gray;">Нийт үнэ: 
+                        <p style="color: red" class="innerData" id="totalPrice"> ${this.getTotalPrice.toLocaleString()} </p>₮ 
+                    </div> 
                 </article>
 
                 <section id="productContainer"></section>

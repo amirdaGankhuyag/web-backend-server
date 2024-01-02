@@ -36,7 +36,10 @@ class AddedProduct extends HTMLElement {
                         <em style="font-weight: bold; color: black;">${this.count}</em>
                     </p>
                     <hr>
-                    <p style="color: gray;">Total: <em style="color: black; font-weight: bold; font-size: 20px; color: red;">${parseInt(this.price * this.count).toLocaleString()}</em> ₮</p>
+                    <p style="color: gray;">Total: 
+                        <em style="color: black; font-weight: bold; font-size: 20px; color: red;">${parseInt(this.price * this.count).toLocaleString()}
+                        </em> ₮
+                    </p>
                     <button class="deleteProduct">Бараа хасах</button>
                 </div>
             </article>

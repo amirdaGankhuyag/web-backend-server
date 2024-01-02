@@ -25,7 +25,7 @@
     const category = document.getElementById("addedAnimeCategory").value;
     console.log(name , releasedDate , totalEpisode ,totalDuration, songType,  malRank, category, imageURL);
     if(name == "" || releasedDate == null || totalEpisode =="" || totalDuration == null || songType =="" || malRank == null || imageURL == "" || category =="") {
-      window.alert('talbaruudig buten buglunu uu');
+      window.alert('Талбаруудыг бүтэн бөглөнө үү!');
     } else {
       fetch("http://localhost:3000/addAnime" , {
         method: 'POST',
@@ -47,11 +47,11 @@
         )
       }).then(result => {
         if(result.status === 200) {
-          window.alert("amjilttai nemegdlee");
+          window.alert("Амжилттай нэмэгдлээ.");
           location.reload();
           return;
         } else {
-          window.alert("amjiltgui");
+          window.alert("Амжилтгүй!!");
           return;
         }
       })

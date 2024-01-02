@@ -17,6 +17,7 @@ class FavoriteIcon extends HTMLElement {
         this.myRoot.querySelector("i").addEventListener("click" , () => {
             this.style.display = "none";
         });
+        
         document.addEventListener("favorite" , (event) => {
             let item = new testObject(event.detail);
             let hasThisItem = false;

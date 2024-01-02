@@ -72,6 +72,8 @@ document.addEventListener("DOMContentLoaded" , async() => {
     let urlParams = new URLSearchParams(window.location.search);
     let categoryType = urlParams.get("category");
     let target = document.getElementById("filteredAnimeList");
+
+
     if(categoryType === null) {
       for(let item of listOfAnime){
         const renderedAnime = new Anime(item);
@@ -85,6 +87,7 @@ document.addEventListener("DOMContentLoaded" , async() => {
         target.insertAdjacentHTML("beforeend" , renderedAnime.render());
       })
     }
+
 });
 
 // enuuger anime iin delgerengu page iihe dataga url aar damjulad avn deer render dree onclick der ni zaagd ugcin
@@ -96,24 +99,3 @@ moveToAnimeDetailPage = function(id) {
   lastUrl += `?id=${id}`
   window.location.href = lastUrl;
 }
-
-// document.getElementById("animeSelection").addEventListener("change" , (event) => {
-//   const selectedElement = event.target;
-//   document.getElementById("filteredType").value = selectedElement.value;
-//   let target = document.getElementById("filteredAnimeList");
-//   while(target.hasChildNodes()) {
-//     target.removeChild(target.firstChild);
-//   }
-//   fetch(apiUrl).then(response => response.json()).then(data => {
-//     let animes = data.record;
-//     for(const anime of animes) {
-//       for(let i = 0 ; i < anime.category.length ; i++) {
-//         if(anime.category[i] === selectedElement.value) {
-//           const renderedAnime = new Anime(anime);
-//           target.insertAdjacentHTML("beforeend" , renderedAnime.render());
-//           break;
-//         }
-//       }
-//     }
-//   })
-// })

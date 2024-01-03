@@ -1,9 +1,13 @@
+// template slot uusgene
 const template = document.createElement("template");
 template.innerHTML = `
     <div class="overlayContainer">
     <section class="overlayContent">  
+
       <slot class="name" name="title"></slot>
+
       <slot class="price" name="price"></slot>
+
       <div class="overlayBody">
         <ul class="overlayList">
           <li>Бүх төрлийн аниме үзэх эрх</li>

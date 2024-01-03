@@ -1,16 +1,17 @@
+// Сагсанд орсон нэг product-ийг илэрхийлэх component
 class AddedProduct extends HTMLElement {
     constructor() {
         super();
         this.myRoot = this.attachShadow({ mode: "open" });
         this.productImage = this.getAttribute("img") ?? "https://i.ibb.co/9hLBbbc/ichigo-figure.webp"
-        this.productName = this.getAttribute("name")
-        this.price = this.getAttribute("price");
-        this.count =  this.getAttribute("count");
+        this.productName = this.getAttribute("name"); // Нэр
+        this.price = this.getAttribute("price"); // Үнэ
+        this.count =  this.getAttribute("count"); // тоо
     }
 
     connectedCallback() {
         this.#Render();
-        let deleteButton = this.myRoot.querySelectorAll("button");
+        let deleteButton = this.myRoot.querySelectorAll("button"); // Бараа хасах товч
         deleteButton[0].addEventListener("click" , ()=> {
             let cartInfo = document.querySelector("cart-info");
             console.log(cartInfo);

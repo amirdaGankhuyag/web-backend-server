@@ -32,7 +32,7 @@ client.connect()
   });
 
 
-app.use("/front", express.static("front")); // front folderoos 
+app.use("/front", express.static("front")); // front folderoos staticaar
 app.use(express.json());
 
 const options = {

@@ -1,3 +1,4 @@
+// neg fav productiing object bolgono
 class testObject{
     constructor(item) {
         this.name = item.name;
@@ -14,10 +15,12 @@ class FavoriteIcon extends HTMLElement {
     }
 
     connectedCallback() {    
+        // X tovch
         this.myRoot.querySelector("i").addEventListener("click" , () => {
             this.style.display = "none";
         });
         
+        // fav event boloh ued listed nemh eshiig shidne
         document.addEventListener("favorite" , (event) => {
             let item = new testObject(event.detail);
             let hasThisItem = false;
@@ -30,14 +33,17 @@ class FavoriteIcon extends HTMLElement {
             if(!hasThisItem) {
                 this.itemList.push(item);
             }
+            // localaa shinechilne
             localStorage.setItem("itemList" , JSON.stringify(this.itemList));
             this.#Render();
         });
+        // hogin saw der darahad remFav event ajilna
         document.addEventListener("removeFavorite" , (event) => {
             this.deleteItem(event.detail.name);
         });
     }
 
+    // 1 fav item renderlene
     renderCartProduct = function() {
         for(let product of this.itemList) {
             const addedProduct = `
@@ -47,13 +53,16 @@ class FavoriteIcon extends HTMLElement {
         }
     }
 
+    // hogin saw der darahad ajillah function
     deleteItem = function(name) {
         for(let i = 0; i < this.itemList.length ; i++) {
             if(this.itemList[i].name === name) {
                 this.itemList.splice(i , 1);
             }
-        localStorage.setItem("itemList" , JSON.stringify(this.itemList));
+            // local shinechilne
+            localStorage.setItem("itemList" , JSON.stringify(this.itemList));
         }
+        // dahin renderlene
         this.#Render();
     }
 

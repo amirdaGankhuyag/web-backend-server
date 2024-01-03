@@ -1,3 +1,4 @@
+// prodct-ийн white bg-г илэрхийлэх component
 class CartInfo extends HTMLElement {
     constructor() {
         super();
@@ -8,10 +9,13 @@ class CartInfo extends HTMLElement {
     }
 
     connectedCallback() {    
+        // X tovch
         this.myRoot.querySelector("i").addEventListener("click" , () => {
             this.style.display = "none";
         });
+        // Baraanii too
         this.myRoot.getElementById("totalItems").innerText = this.getTotalCount();
+        // niit une
         this.myRoot.getElementById("totalPrice").innerText = this.getTotalPrice().toLocaleString();
     }
 
@@ -19,29 +23,38 @@ class CartInfo extends HTMLElement {
     addToCart = function(product) {
         let willAdd = true;
         for(let item of this.productList) {
+            // sagsand orson item bol tooog ni nemne
             if(item.productName === product.productName) {
                 willAdd = false;
                 item.count += 1;
                 break;
             }
         }
+        // oroogui bol door ni nemne
         if(willAdd) {
             this.productList.push(product);
         }
+        // local aa shinechilne, renderlene
         localStorage.setItem("productList" , JSON.stringify(this.productList));
         this.#Render();
 
+        //sagsnii ariin toog shinechilne
         document.getElementById("totalProduct").innerText = this.getTotalCount();
+        // barani to 
         this.myRoot.getElementById("totalItems").innerText = this.getTotalCount();
+        // niit une
         this.myRoot.getElementById("totalPrice").innerText = this.getTotalPrice().toLocaleString();
     }
 
+    // bara hash tovch der ajilna
     deleteItem = function(product) {
         for(let i = 0; i < this.productList.length ; i++) {
+            // baranudasa olj hasna
             if(this.productList[i].productName === product.productName) {
                 this.productList.splice(i , 1);
             }
         }
+        //localaa shinechilj renderlene
         localStorage.setItem("productList" , JSON.stringify(this.productList));
         this.#Render();
         // tani sags 

@@ -57,6 +57,7 @@
 </html>
 
 <style scoped>
+  @import url(root.css);
   body {
     margin: 0;
     padding: 0;
@@ -102,12 +103,12 @@
     height: 2.4rem;
     width: 100%; 
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid var(--white);
     font-size: 1rem;
     padding-left: 0.5rem;
     position: relative;
     background: none;
-    color: white;
+    color: var(--white);
   }
 
   .formFieldButton {
@@ -124,7 +125,7 @@
   }
 
   .formFieldButton:hover {
-    box-shadow: 0 0 5px #fff;
+    box-shadow: 0 0 5px var(--white);
   }
 
   .formField i {

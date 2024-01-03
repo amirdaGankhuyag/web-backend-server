@@ -119,19 +119,14 @@
 </html>
 
 <style scoped>
-  :root {
-    --dark-blue: #00171f;
-    --white: #fff;
-    --background-color-dark: var(--dark-blue);
-    --text-color-dark: var(--white);
-    --background-color-light: rgb(102, 165, 188);
-    --text-color-light: #232020;
-  }
+  @import url(root.css);
+
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
+
   main {
     background-color: var(--background-color-dark);
     color: var(--text-color-dark);
@@ -160,7 +155,7 @@
       left: 0;
       list-style: none;
       margin: 4px 0;
-      border-left: 2px solid #f54500;
+      border-left: 2px solid var(--orange);
       transition: 0.5s;
       cursor: pointer;
     }
@@ -176,7 +171,7 @@
       transition: 0.5s;
     }
     & ul li:hover span {
-      color: #000;
+      color: var(--black);
       font-weight: 550;
     }
     & ul li::before {
@@ -184,7 +179,7 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      background: #f54500;
+      background: var(--orange);
       transform: scaleX(0);
       transform-origin: left;
       transition: 0.5s;
@@ -216,9 +211,9 @@
         left: 20%;
         width: 70%;
         height: 40px;
-        background-color: white;
+        background-color: var(--white);
         border: none;
-        color: rgb(237, 96, 96);
+        color: var(--orange);
         font-weight: 600;
         font-size: 16px;
         border-radius: 7px;
@@ -226,9 +221,9 @@
         transition: 0.3s;
       }
       & button:hover {
-        background-color: rgb(237, 96, 96);
-        color: white;
-        border: 1px solid #fff;
+        background-color: var(--orange);
+        color: var(--white);
+        border: 1px solid var(--white);
       }
       & p {
         position: absolute;
@@ -241,7 +236,7 @@
         font-weight: 600;
         padding: 4px;
         border-radius: 7px;
-        color: white;
+        color: var(--white);
       }
     }
   }
@@ -279,10 +274,10 @@
         width: 60%;
         border-radius: 8px;
         & h3 {
-          color: white;
+          color: var(--white);
         }
         & .price {
-          color: white;
+          color: var(--white);
           text-align: center;
           margin-bottom: 8px;
           font-size: 20px;

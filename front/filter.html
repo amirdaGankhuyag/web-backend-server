@@ -75,30 +75,22 @@
 </html>
 
 <style>
+  @import url(root.css);
   /* CSS reset */
   * {
     margin: 0;
     padding: 0;
   }
-  :root {
-    --dark-blue: #00171f;
-    --white: #fff;
-
-    --background-color-dark: var(--dark-blue);
-    --text-color-dark: var(--white);
-    --background-color-light: rgb(102, 165, 188);
-    --text-color-light: #232020;
-  }
 
   body {
     background-color: var(--background-color-dark);
     color: var(--text-color-dark);
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-inter);
   }
 
   /* Main nav style */
   .main-nav {
-    background-color: #18404e;
+    background-color: var(--secondary-bg-color);
     width: 13%;
     display: flex;
     flex-direction: column;
@@ -108,14 +100,14 @@
       width: 100%;
       & li {
       width: 80%;
-      color: white;
+      color: var(--white);
       padding: 20px;
       font-size: 14px;
       list-style: none;
       cursor: pointer;
       }
       & li:hover {
-        background-color: #00171f;
+        background-color: var(--dark-blue);
       }
     }
 
@@ -196,7 +188,7 @@
     box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
     transform: translateZ(50px);
     transition: all 0.5 ease;
-    color: #fff;
+    color: var(--white);
   } 
 
   #filteredAnimeList {

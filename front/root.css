@@ -1,0 +1,20 @@
+:root {
+    --dark-blue: #00171f;
+    --white: #fff;
+    --background-color-dark: var(--dark-blue);
+    --text-color-dark: var(--white);
+    --background-color-light: rgb(102, 165, 188);
+    --text-color-light: #232020;
+    --font-inter: "Inter", sans-serif;
+    --font-arial: Arial, Helvetica, sans-serif;
+
+    --main-bg-color: #042834;
+    --secondary-bg-color: #18404e;
+    --menu-font-size: 1.2rem;
+    --margin-padding: 1.2rem;
+    --orange: #DB504A;
+    --whitest-blue: aliceblue;
+    --yellow: #FFF730;
+    --black: #000;
+    --component-hover-bg: rgb(101, 103, 125);
+}

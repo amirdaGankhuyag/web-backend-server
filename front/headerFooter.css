@@ -1,18 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,700,900");
+@import url(root.css);
 
-:root {
-  --main-color: white;
-  --main-bg-color: #042834;
-  --secondary-bg-color: #18404e;
-  --menu-font-size: 1.2rem;
-  --margin-padding: 1.2rem;
-  --header-height: ;
-}
 
 * {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-arial);
 }
 
 header {
@@ -46,7 +39,7 @@ header {
 
 .menu ul li a {
   padding: 8px;
-  color: var(--main-color);
+  color: var(--white);
   font-size: 16px;
   text-decoration: none;
 }
@@ -60,7 +53,7 @@ header h3 {
 }
 
 header h3 a {
-  color: var(--main-color);
+  color: var(--white);
   text-decoration: none;
 }
 
@@ -78,7 +71,7 @@ header h3 a {
   height: 1.875rem;
   background-color: var(--secondary-bg-color);
   border: none;
-  color: var(--main-color);
+  color: var(--white);
   margin-right: 0.5rem;
   padding-left: 0.5rem;
   font-size: 1rem;
@@ -89,7 +82,7 @@ header h3 a {
   height: 2.5rem;
   margin: 0rem 0.625rem;
   width: 8rem;
-  color: var(--main-color);
+  color: var(--white);
   background-color: var(--main-bg-color);
   border: none;
   border-radius: 0.3125rem;
@@ -110,7 +103,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   height: 12.5rem;
-  color: var(--main-color);
+  color: var(--white);
   z-index: 10;
 }
 
@@ -136,7 +129,7 @@ footer {
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
-  color: var(--main-color);
+  color: var(--white);
 }
 
 .footer2 h4 {
@@ -151,7 +144,7 @@ footer {
 }
 
 .footer3 h3 {
-  color: var(--main-color);
+  color: var(--white);
 }
 
 .footerNav ul {
@@ -163,13 +156,13 @@ footer {
 
 .footerNav ul li {
   display: flex;
-  color: var(--main-color);
+  color: var(--white);
   align-items: center;
   margin-bottom: 0.5rem;
 }
 
 .footerNav ul li a {
-  color: var(--main-color);
+  color: var(--white);
   list-style: none;
   text-decoration: none;
   margin-left: 0.1875rem;
@@ -192,13 +185,13 @@ footer {
       padding: 20px 0px 0px 8px;
       cursor: pointer;
       & a {
-        color: white; 
+        color: var(--white); 
         text-decoration: none;
       }
       & #addAnimeButtonMobile {
         width: 100%;
         height: 100%;
-        color: white;
+        color: var(--white);
         background-color: #18404e; 
         border: none;
         margin-left: -20px;
@@ -237,7 +230,7 @@ footer {
   cursor: pointer;
   font-size: 24px;
   border-radius: 4px;
-  color: white;
+  color: var(--white);
 }
 
 .sidebar ul li a {
@@ -270,7 +263,7 @@ i {
     border-radius: 16px;
     & p {
       padding-top: 16px; 
-      color: white; 
+      color: var(--white); 
       font-size: 18px; 
       font-weight: 450;
     }
@@ -311,13 +304,13 @@ i {
     background-color: #00171f;
     padding: 24px;
     & p {
-      color: white;
+      color: var(--white);
       font-size: 24px;
     }
     & .dataContainer {
       display: grid;
       grid-template-columns: auto auto;
-      color: white;
+      color: var(--white);
       & article {
         display: flex;
         flex-direction: column;

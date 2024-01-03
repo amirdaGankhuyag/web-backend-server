@@ -100,25 +100,18 @@
 </html>
 
 <style>
+  @import url(root.css);
+
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  :root {
-    --dark-blue: #00171f;
-    --white: #fff;
-
-    --background-color-dark: var(--dark-blue);
-    --text-color-dark: var(--white);
-    --background-color-light: rgb(102, 165, 188);
-    --text-color-light: #232020;
-  }
 
   body {
     background-color: var(--background-color-dark);
     color: var(--text-color-dark);
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-inter);
   }
 
   .content-info {
@@ -150,7 +143,7 @@
         text-align: center;
         font-size: 24px;
         font-style: normal;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: var(--font-arial);
       }
     }
   }

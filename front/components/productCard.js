@@ -28,7 +28,7 @@ class ProductCard extends HTMLElement {
                 }
             })
             document.dispatchEvent(event);
-        } )
+        })
     }
 
     #Render() {

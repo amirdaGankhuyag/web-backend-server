@@ -19,7 +19,7 @@ class CartInfo extends HTMLElement {
     addToCart = function(product) {
         let willAdd = true;
         for(let item of this.productList) {
-            if(item?.productName === product?.productName) {
+            if(item.productName === product.productName) {
                 willAdd = false;
                 item.count += 1;
                 break;
@@ -44,7 +44,7 @@ class CartInfo extends HTMLElement {
         }
         localStorage.setItem("productList" , JSON.stringify(this.productList));
         this.#Render();
-        // sagsnaas gadnah baraanii too 
+        // tani sags 
         document.getElementById("totalProduct").innerText = this.getTotalCount();
         // sagsandah niit barani to 
         this.myRoot.getElementById("totalItems").innerText = this.getTotalCount();

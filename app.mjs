@@ -496,7 +496,6 @@ app.post("/register", async (req, res) => {
  */
 app.post("/addAnime", async (req, res) => {
   try {
-    const id = req.body.id;
     const name = req.body.name;
     const releasedDate = req.body.releasedDate;
     const totalEpisode = req.body.totalEpisode;

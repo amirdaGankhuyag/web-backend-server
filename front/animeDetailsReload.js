@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// enuuugeer jsonoo oosoo anime name r ni anime infogo avsan
+// enuuugeer jsonoo oosoo anime id r ni anime infogo avsan
 function getAnimeById(animeId, list) {
   return list.find((anime) => anime.id == animeId);
 }

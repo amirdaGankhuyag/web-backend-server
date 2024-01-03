@@ -138,7 +138,7 @@ app.get("/test", async (req, res) => {
 
 app.get("/animeList", async (req, res) => {
   try {
-    const animeInfo = await client.query('SELECT * FROM animelist');
+    const animeInfo = await client.query('SELECT * FROM animelist2');
     res.status(200).json(animeInfo.rows);
   } catch (err) {
     console.error(err);
@@ -507,7 +507,7 @@ app.post("/addAnime", async (req, res) => {
 
     const query = {
       text: `
-        INSERT INTO animelist(name, released_date, total_episode, total_duration, category, song_type, mal_rank, anime_img)
+        INSERT INTO animelist2  (name, released_date, total_episode, total_duration, category, song_type, mal_rank, anime_img)
         VALUES($1, $2, $3, $4, $5, $6, $7, $8);
       `,
       values: [name, releasedDate, totalEpisode, totalDuration, [category], songType, malRank, animeImg],

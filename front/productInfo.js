@@ -31,7 +31,7 @@ class App {
             for(let i = 0 ; i < productsInfo.length ; i++) {
                 if(productsInfo[i].type === productType) {
                     const product = new Product(productsInfo[i]);
-                    selectedSection.insertAdjacentHTML('afterbegin' , product.render());
+                    selectedSection.insertAdjacentHTML('beforeend' , product.render());
                 }
             }
         })

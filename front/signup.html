@@ -65,14 +65,14 @@
   }
   
   main {
-    background-color: var(--background-color-dark);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 6rem 0rem;
-    color: var(--text-color-dark);
     height: 85vh;
+    padding: 6rem 0rem;
     font-family: var(--font-inter);
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
   }
 
   main img {
@@ -100,14 +100,14 @@
 
   .dualFields input{
     height: 2.5rem;
-    margin: 0.625rem 0rem 0.625rem 0rem;
     width: 80%;
+    margin: 0.625rem 0rem 0.625rem 0rem;
     padding-left: 0.5rem;
     font-size: 1rem;
     border: none;  
+    border-bottom: 1px solid var(--white);
     color: var(--white); 
     background: none;
-    border-bottom: 1px solid var(--white);
   }
 
   .dualFields label {
@@ -119,10 +119,10 @@
   }
 
   .signUpForm h3 {
+    padding-bottom: 1.5rem;
     text-align: center;
     font-size: 1.75rem;
     font-weight: 400;
-    padding-bottom: 1.5rem;
   }
 
   .signUpForm i{
@@ -130,15 +130,15 @@
   }
 
   button {
+    justify-content: center;
     width: 50%;
     height: 3.125rem;
     margin-top: 1.25rem;
-    justify-content: center;
+    font-weight: 450;
+    font-size: 1.25rem;
     border-radius: 10px;
     border: none;
     color: #040d25;
-    font-weight: 450;
-    font-size: 1.25rem;
     cursor: pointer;
   }
 
@@ -167,11 +167,11 @@
     }
 
     .dualFields {
-    align-items: center;
-    justify-content: center;
+      align-items: center;
+      justify-content: center;
       & input {
-      width: 210px;
-    }
+        width: 210px;
+      }
     } 
   }
 

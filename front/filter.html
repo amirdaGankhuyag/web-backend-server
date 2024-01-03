@@ -90,21 +90,21 @@
 
   /* Main nav style */
   .main-nav {
-    background-color: var(--secondary-bg-color);
-    width: 13%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 13%;
+    background-color: var(--secondary-bg-color);
     & ul {
       padding-top: 80px;
       width: 100%;
       & li {
-      width: 80%;
-      color: var(--white);
-      padding: 20px;
-      font-size: 14px;
-      list-style: none;
-      cursor: pointer;
+        width: 80%;
+        padding: 20px;
+        font-size: 14px;
+        list-style: none;
+        color: var(--white);
+        cursor: pointer;
       }
       & li:hover {
         background-color: var(--dark-blue);
@@ -116,11 +116,11 @@
   .main-section {
     width: 100%;
     & .filterTitle {
-      margin-top: 100px;
       display: flex;
       justify-content: center;
       justify-content: center;
       align-items: center;
+      margin-top: 100px;
       & h3 {
         margin: 0px 20px;
         font-size: 24px;
@@ -130,22 +130,22 @@
         height: 40px;
         width: 20%;
         border-radius: 0.4rem;
+        font-size: 24px;
         background-color: azure;
         text-align: center;
-        font-size: 24px;
       }
     } 
   }
 
   .anime-card {
-    perspective: 1000px;
     position: relative;
-    transform-style: preserve-3d;
-    transition: all 0.5s ease-in-out;
     height: 300px;
     width: 200px;
-    cursor: pointer;
     border: none;
+    cursor: pointer;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease-in-out;
   }
   .anime-card:hover {
     transform: rotateY(180deg);
@@ -167,11 +167,11 @@
   }
   .anime-card-back {
     background: linear-gradient(225deg, rgb(102, 238, 220), #1a32e6);
-    transform: rotateY(-180deg);
-    transform-style: preserve-3d;
     padding: 2rem;
     box-sizing: border-box;
     border-radius: 0.5rem;
+    transform: rotateY(-180deg);
+    transform-style: preserve-3d;
   }
 
   .anime-card-back-content {
@@ -179,47 +179,47 @@
   }
 
   .anime-card-button {
-    background: linear-gradient(45deg, rgb(238, 131, 102), #e61a3c);
-    cursor: pointer;
-    border: none;
     padding: 10px 15px;
     margin-top: 20px;
+    background: linear-gradient(45deg, rgb(238, 131, 102), #e61a3c);
+    color: var(--white);
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
     box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
     transform: translateZ(50px);
     transition: all 0.5 ease;
-    color: var(--white);
   } 
 
   #filteredAnimeList {
     display: flex;
-    min-height: 70vh;
     flex-wrap: wrap;
+    min-height: 70vh;
     margin: 0px 48px;
     & li {
-      list-style: none;
       margin: 2rem;
+      list-style: none;
       & img {
-        border-radius: 0.5rem;
         align-items: center;
         height: 300px;
         width: 200px;       
+        border-radius: 0.5rem;
       }
     }
   }
 
   .animeSelectionContainer {
-    margin-top: 100px;
-    padding-bottom: 16px;
     display: none;
     justify-content: center;
     align-items: center;
+    margin-top: 100px;
+    padding-bottom: 1rem;
     & #animeSelection {
       height: 30px;
       width: 150px;
-      border-radius: 20px;
       padding: 4px;
       margin-left: 36px;
+      border-radius: 20px;
     }
     & p {
       margin-left: 36px ;
@@ -243,12 +243,12 @@
     .filterTitle {
       flex-direction: column;
       & h3 {
-        font-size: 16px !important;
+        font-size: 1rem !important;
       }
       & input {
-        margin-top: 24px !important;
         max-width: 240px;
         min-width: 150px;
+        margin-top: 24px !important;
       }
     }
   }

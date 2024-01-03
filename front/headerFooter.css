@@ -12,10 +12,10 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: fixed;
   height: 4rem;
   width: 100%;
   background-color: var(--main-bg-color);
-  position: fixed;
   z-index: 5;
 }
 
@@ -30,8 +30,8 @@ header {
 
 .menu ul li {
   display: flex;
-  height: 2.5rem;
   align-items: center;
+  height: 2.5rem;
   margin: 0px 8px;
   list-style: none;
   border-radius: 0.4rem;
@@ -39,8 +39,8 @@ header {
 
 .menu ul li a {
   padding: 8px;
+  font-size: 1rem;
   color: var(--white);
-  font-size: 16px;
   text-decoration: none;
 }
 
@@ -69,26 +69,26 @@ header h3 a {
 
 .rightMenu input {
   height: 1.875rem;
-  background-color: var(--secondary-bg-color);
-  border: none;
   color: var(--white);
   margin-right: 0.5rem;
   padding-left: 0.5rem;
   font-size: 1rem;
   border-radius: 6px;
+  border: none;
+  background-color: var(--secondary-bg-color);
 }
 
 .btns button {
   height: 2.5rem;
-  margin: 0rem 0.625rem;
   width: 8rem;
+  margin: 0rem 0.625rem;
+  padding: 0.6rem 1.25rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
   color: var(--white);
   background-color: var(--main-bg-color);
-  border: none;
-  border-radius: 0.3125rem;
   cursor: pointer;
-  font-size: 16px;
-  padding: 0.6rem 1.25rem;
   text-decoration: none;
 }
 
@@ -97,30 +97,30 @@ header h3 a {
 }
 
 footer {
-  width: 100%;
   display: flex;
-  background-color: var(--main-bg-color);
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   height: 12.5rem;
+  background-color: var(--main-bg-color);
   color: var(--white);
   z-index: 10;
 }
 
 .footer1 em {
   margin-left: 0.5rem;
-  font-size: 1.125rem;
+  font-size: 18px;
 }
 
 .footer1 {
-  margin-left: 2.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 2.5rem;
 
   & img {
     width: 220px;
-    height: 160px;
+    height: 10rem;
   }
 }
 
@@ -139,8 +139,8 @@ footer {
 .footer3 {
   display: flex;
   flex-direction: column;
-  text-align: center;
   margin-right: 3.75rem;
+  text-align: center;
 }
 
 .footer3 h3 {
@@ -156,33 +156,33 @@ footer {
 
 .footerNav ul li {
   display: flex;
-  color: var(--white);
   align-items: center;
   margin-bottom: 0.5rem;
+  color: var(--white);
 }
 
 .footerNav ul li a {
+  margin-left: 3px;
   color: var(--white);
   list-style: none;
   text-decoration: none;
-  margin-left: 0.1875rem;
 }
 
 .sidebar {
-  transition: 0.6s;
   display: none;
   position: fixed;
   height: 100vh;
   width: 150px;
   padding-top: 12px;
   background-color: #18404e;
+  transition: 0.6s;
   z-index: 5;
   & ul {
     width: 100%;
     padding-top: 8px;
     & li {
-      list-style: none;
       padding: 20px 0px 0px 8px;
+      list-style: none;
       cursor: pointer;
       & a {
         color: var(--white); 
@@ -191,11 +191,11 @@ footer {
       & #addAnimeButtonMobile {
         width: 100%;
         height: 100%;
+        margin-left: -20px;
+        border: none;
         color: var(--white);
         background-color: #18404e; 
-        border: none;
-        margin-left: -20px;
-        font-size: 16px;
+        font-size: 1rem;
         cursor: pointer;
       }
       & #addAnimeButtonMobile:hover {
@@ -217,7 +217,7 @@ footer {
 }
 
 .sidebar i {
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 
 .sidebar i:hover {
@@ -227,16 +227,16 @@ footer {
 .sidebarActivator {
   margin-left: 10px;
   padding: 8px;
-  cursor: pointer;
-  font-size: 24px;
   border-radius: 4px;
+  font-size: 24px;
   color: var(--white);
+  cursor: pointer;
 }
 
 .sidebar ul li a {
-  padding: 16px;
-  font-size: 16px;
+  padding: 1rem;
   border-radius: 6px;
+  font-size: 1rem;
 }
 
 i {
@@ -245,33 +245,33 @@ i {
 
 #logoutWindow {
   display: none; 
-  height: 100%; 
-  width: 100%; 
   align-items: center; 
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
   position: fixed; 
+  height: 100%; 
+  width: 100%; 
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 8;
   & article {
-    width: 300px; 
-    height: 135px;
-    background-color: #00171f;
     display: flex; 
     flex-direction: column; 
     align-items: center; 
-    padding: 16px; 
-    border-radius: 16px;
+    width: 18.75rem; 
+    height: 135px;
+    padding: 1rem; 
+    background-color: #00171f;
+    border-radius: 1rem;
     & p {
-      padding-top: 16px; 
-      color: var(--white); 
+      padding-top: 1rem; 
       font-size: 18px; 
       font-weight: 450;
+      color: var(--white); 
     }
     & #logoutBtnContainer {
-      width: 100%; 
       display: flex; 
       align-items: center; 
       justify-content: space-around; 
+      width: 100%; 
       padding-top: 24px;
     }
   }
@@ -281,31 +281,31 @@ i {
 .logoutBtn {
   width: 100px;
   height: 50px;
-  border-radius: 16px;
+  border-radius: 1rem;
   border: none;
-  cursor: pointer;
-  background-color: #DB504A;
   font-weight: 550;
   font-size: 15px;
+  background-color: #DB504A;
+  cursor: pointer;
 }
 
 #addAnimeWindow {
   display: none; 
-  height: 100%; 
-  width: 100%; 
   align-items: center; 
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%; 
+  width: 100%; 
   position: fixed; 
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 8;
   & #details {
     height: 480px;
     width: 500px;
-    background-color: #00171f;
     padding: 24px;
+    background-color: #00171f;
     & p {
-      color: var(--white);
       font-size: 24px;
+      color: var(--white);
     }
     & .dataContainer {
       display: grid;
@@ -317,34 +317,34 @@ i {
         margin: 12px;
         & input  {
           height: 36px;
-          border-radius: 8px;
           padding-left: 8px;
           margin-top: 4px;
+          border-radius: 8px;
           border: none;
-          font-size: 16px;
+          font-size: 1rem;
         }
         & select {
           height: 36px;
-          border-radius: 8px;
           padding-left: 8px;
           margin-top: 4px;
+          border-radius: 8px;
         }
       }
     }
     & .windowButtonContainer {
-      margin-top: 32px;
       display: flex;
       justify-content: space-around;
+      margin-top: 32px;
       & button {
         height: 50px;
         width: 100px;
         cursor: pointer;
+        border-radius: 1rem;
+        border: none;
+        font-size: 1rem;
+        font-weight: 550;
         background-color: #DB504A;
         color: #040d25;
-        font-size: 16px;
-        font-weight: 550;
-        border-radius: 16px;
-        border: none;
       }
     }
   }
@@ -366,8 +366,8 @@ i {
   }
 
   .footer1 {
-    font-size: 0.5rem;
     margin-left: 0rem;
+    font-size: 0.5rem;
     & img {
       width: 150px;
       height: 110px;
@@ -383,14 +383,14 @@ i {
       font-size: 12px;
     }
     & h4 {
+      padding: 0px 1rem;
       font-size: 18px;
-      padding: 0px 16px;
     }
   }
 
   .footer3 {
-    font-size: 1rem;
     margin-right: 0rem;
+    font-size: 1rem;
   }
 
   .leftMenu {
@@ -403,12 +403,12 @@ i {
     }
     & h3 {
       margin: 0px 15px 0px 5px;
-      font-size: 16px;
+      font-size: 1rem;
     }
   }
 
   #activator {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 

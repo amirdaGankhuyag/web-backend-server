@@ -413,7 +413,7 @@
     const userToken = localStorage.getItem('userToken');
     fetch("http://localhost:3000/addComment" , {
       method: 'POST',
-      cachde: 'no-cache',
+      cache: 'no-cache',
       headers: {
         "Content-Type" : 'application/json; charset=UTF-8'
       },

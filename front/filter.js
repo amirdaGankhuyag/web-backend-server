@@ -50,14 +50,15 @@ let listCatogeries =  document.getElementById("categoryList").getElementsByTagNa
 
 for(let list of listCatogeries) {
   list.addEventListener("click" , (event) => {
-    let categoryType = event.target.textContent;
+    let categoryType = event.target.textContent; // li dotorh text
     const nowUrl = new URL(window.location.href);
     let newUrl = nowUrl.origin; 
     newUrl += `${nowUrl.pathname}?category=${categoryType}`;
-    window.location.href = newUrl;
+    window.location.href = newUrl; // url aa solij page aa shinechilne
   })
 }
 
+// mobile iinh
 document.getElementById("animeSelection").addEventListener("change" , (event) => {
   const categoryType = event.target.value;
   const nowUrl = new URL(window.location.href);
@@ -66,6 +67,7 @@ document.getElementById("animeSelection").addEventListener("change" , (event) =>
   window.location.href = newUrl;
 });
 
+
 document.addEventListener("DOMContentLoaded" , async() => {
     let response = await fetch(apiUrl);
     let listOfAnime = await response.json();
@@ -73,12 +75,13 @@ document.addEventListener("DOMContentLoaded" , async() => {
     let categoryType = urlParams.get("category");
     let target = document.getElementById("filteredAnimeList");
 
-
+    // type songogdoogui ued buh anime aa haruulna
     if(categoryType === null) {
       for(let item of listOfAnime){
         const renderedAnime = new Anime(item);
         target.insertAdjacentHTML("beforeend" , renderedAnime.render()); 
       }
+    // songogdson ued tuhain category giin animuudiig haruulna
     } else {
       document.getElementById("filteredType").value = categoryType;
       let selectedAnimes = listOfAnime.filter((anime) => anime.category.includes(categoryType));

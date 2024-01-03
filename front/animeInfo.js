@@ -16,15 +16,17 @@ const carousels = [
       description: "Монгол япон соёлын өдөрлөг болно."
   },
 ] 
-
+// baruun sum
 changeCarouselImageRight = function() {
   let nowImage = document.getElementById("carouselImage").src;
   for(let i = 0 ; i < carousels.length ; i++) {
+    //hamgin suuliih bish bol daragih ru
     if(nowImage === carousels[i].source && i !== carousels.length -1) {
       document.getElementById("carouselImage").src = carousels[i+1].source
       document.getElementById("carouselDescription").innerText = carousels[i+1].description;
       break;
     } else if(nowImage === carousels[i].source &&  i === carousels.length -1) {
+      // mun bol ehnees ni
       document.getElementById("carouselImage").src = carousels[0].source;
       document.getElementById("carouselDescription").innerText = carousels[0].description;
       break;
@@ -32,6 +34,7 @@ changeCarouselImageRight = function() {
   }
 }
 
+// zuun sum
 changeCarouselImageLeft = function() {
   let nowImage = document.getElementById("carouselImage").src;
   for(let i = 0 ; i < carousels.length ; i++) {
@@ -47,6 +50,7 @@ changeCarouselImageLeft = function() {
   }
 }
 
+// neg anime card ilerhiileh class
 class Anime {
   constructor(animeListItem) {
     this.name = animeListItem.name;
@@ -58,6 +62,7 @@ class Anime {
     this.id = animeListItem.id;
   }
 
+  // categoruudiig avah
   getCatogeries = function() {
     let categoryList = "";
     for(let i = 0 ; i < this.category.length ; i++) {
@@ -71,6 +76,7 @@ class Anime {
     return categoryList;
   }
 
+  // neg card renderleh
   render = function () {
     return `
         <li>
@@ -95,10 +101,11 @@ class Anime {
 
 class App {
   constructor(targetId) {
-    this.target = targetId;
-    this.apiUrl = apiUrl;
+    this.target = targetId; // anime bur id tai
+    this.apiUrl = apiUrl; 
   }
 
+  // taarsan hesegt ni animuud gargah
   init = function(sortType) {
     fetch(this.apiUrl).then(response => response.json()).then(data => {
       let animes = data;
@@ -116,6 +123,7 @@ class App {
     })
   }
 
+  // anime aa sortloh
   sortAnimeType = function(list ,sortType) {
     switch(sortType) {
       case "RecentlyAdded": return this.sortByDate(list);

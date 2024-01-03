@@ -1,3 +1,4 @@
+// anime details uud dynamicaar
 // main
 const apiUrl = "http://localhost:3000/animeList";
 
@@ -65,12 +66,10 @@ document.addEventListener("DOMContentLoaded", function () {
             for (let comment of animeComments.reverse()) {
               let commentValue = `
                 <article class="userComment">
-                <i class="fa-solid fa-user" style="color: #ffffff"></i>
-                <em>${comment.split(",")[1]}</em>
-                <p>
-                ${comment.split(",")[0]}
-                </p>
-              </article>
+                  <i class="fa-solid fa-user" style="color: #ffffff"></i>
+                  <em>${comment.split(",")[1]}</em>
+                  <p>${comment.split(",")[0]}</p>
+                </article>
                 `;
               commentContainer.insertAdjacentHTML("afterbegin", commentValue);
               count++;

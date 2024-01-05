@@ -138,7 +138,7 @@ app.get("/test", async (req, res) => {
 
 app.get("/animeList", async (req, res) => {
   try {
-    const animeInfo = await client.query('SELECT * FROM animelist2');
+    const animeInfo = await client.query('SELECT * FROM animelist');
     res.status(200).json(animeInfo.rows);
   } catch (err) {
     console.error(err);
